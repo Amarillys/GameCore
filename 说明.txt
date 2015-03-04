@@ -1,0 +1,2 @@
+自备msyh.ttf，否则编译后闪退
+自备battle-day.wav
