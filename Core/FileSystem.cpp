@@ -111,8 +111,8 @@ void ResFile::Load(const std::string& f)
 
 void ResFile::Free()
 {
-    SDL_FreeRW(m_rw);
-    delete [] m_mem;
+    if(m_rw != nullptr) SDL_FreeRW(m_rw);
+    if(m_mem != nullptr) delete [] m_mem;
     m_mem = nullptr;
     m_size = 0;
     m_rw = nullptr;
