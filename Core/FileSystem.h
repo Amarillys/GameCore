@@ -73,8 +73,8 @@ namespace Core
         operator bool () const; //是否已经加载文件
     };
     */
-    struct ResFile_Point{
-        Sint8 pkg;    //-1时为文件包外
+    struct ResFile_Point{	//记录包内一个文件的信息
+        Sint8 pkg;
         Uint32 start;
         Uint32 size;
     };
