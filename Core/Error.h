@@ -8,20 +8,20 @@
 namespace Core{
     class Error{
     private:
-        //é”™è¯¯çº§åˆ«ï¼š
-        //0-ä¸æ˜¯é”™è¯¯
-        //1-æ— å½±å“é”™è¯¯,PNTå®è¾“å‡º
-        //2-é”™è¯¯,PNTè¾“å‡º,å¼¹å‡ºé”™è¯¯æ¡†
-        //3-è‡´å‘½é”™è¯¯,PNTè¾“å‡º,å¼¹å‡ºé”™è¯¯æ¡†,é—ªé€€
-        //4-æ¯ç­æ€§é”™è¯¯,å¼ºåˆ¶é—ªé€€
-        Uint32 m_code;  //é”™è¯¯ä»£ç ï¼Œç”¨æ¥æŸ¥è¯¢é”™è¯¯ä¿®æ­£æ–¹æ¡ˆ
-        //ç¬¬ä¸€ä½hexæ˜¯é”™è¯¯çº§åˆ«
+        //´íÎó¼¶±ð£º
+        //0-²»ÊÇ´íÎó
+        //1-ÎÞÓ°Ïì´íÎó,PNTºêÊä³ö
+        //2-´íÎó,PNTÊä³ö,µ¯³ö´íÎó¿ò
+        //3-ÖÂÃü´íÎó,PNTÊä³ö,µ¯³ö´íÎó¿ò,ÉÁÍË
+        //4-»ÙÃðÐÔ´íÎó,Ç¿ÖÆÉÁÍË
+        Uint32 m_code;  //´íÎó´úÂë£¬ÓÃÀ´²éÑ¯´íÎóÐÞÕý·½°¸
+        //µÚÒ»Î»hexÊÇ´íÎó¼¶±ð
 
         std::string m_msg;
     protected:
         std::string GetMsg();
         Uint8 GetLevel();
-        void Proc();    //å¤„ç†é”™è¯¯
+        void Proc();    //´¦Àí´íÎó
         void Print();
     public:
         Error(Uint32,std::string);

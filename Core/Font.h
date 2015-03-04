@@ -5,7 +5,7 @@
 #include <string>
 #include "FileSystem.h"
 
-/* å­—ä½“ç±»ï¼Œä½ åªéœ€è¦åˆ›å»ºå…¶å¯¹è±¡åŠ è½½å­—ä½“å³å¯ */
+/* ×ÖÌåÀà£¬ÄãÖ»ĞèÒª´´½¨Æä¶ÔÏó¼ÓÔØ×ÖÌå¼´¿É */
 namespace Core
 {
     class Font
@@ -26,7 +26,7 @@ namespace Core
         //void SetOutLine(const int);
         //void SetHinting(const int);
         //void SetKerning(const int);
-        int GetCharWei(const char); //å–å¾—ä¸€ä¸ªASCIIå­—ç¬¦çš„å®½åº¦
+        int GetCharWei(const char); //È¡µÃÒ»¸öASCII×Ö·ûµÄ¿í¶È
         ~Font();
     };
 }

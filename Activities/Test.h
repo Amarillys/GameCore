@@ -21,6 +21,7 @@ private:
     Texture* m_tex;
     int k;
 public:
+    XMove(){k = 401;}
     void SetArg(Texture* t)
     {
         m_tex = t;
@@ -41,25 +42,65 @@ private:
     Core::Sound m_s1;
     TestControl m_ctr;
     XMove m_xmv;
+    Activity* m_tr;
 public:
     TestActivity()
     {
         m_t1.LoadImage("bg.png");
         m_t1.SetPos(0x20,0,0);
         m_s1.Load("battle-day.wav");
-        m_s1.Play();
         m_ansList.insert(&m_ctr);
-        m_xmv.SetArg(&m_t1);
     }
+    void OnShow(){
+        m_s1.Play();
+    }
+    void OnHide(){m_s1.Stop();}
     void OnDraw(){m_t1.OnDraw();};
+    void SetTo(Activity* t){m_tr = t;}
 
     void OnEvent(const SDL_Event* e){
         if (e -> type == SDL_MOUSEBUTTONDOWN) cout<<"MOUSE_DOWN"<<endl;
+        if (e -> type == SDL_MOUSEBUTTONUP) m_xmv.SetArg(&m_t1);
     };
 
     void OnEvent(Control* c,const int i){
-        cout<<"Control Event:"<<c<<"-"<<i<<endl;
+        Goto(m_tr);
     };
-    void OnNext(){};
-    Animation* GetAnimationOnCreated(){return (Animation*)&m_xmv;}
+    void OnNext(){
+        if (!m_xmv.Finished()) m_xmv.OnNext();
+    };
+    Animation* GetAnimationOnHide(){return nullptr;}
+};
+
+class TestActivity2:public Core::Activity
+{
+private:
+    Core::Texture m_t1;
+    TestControl m_ctr;
+    XMove m_xmv;
+    Activity* m_tr;
+public:
+    TestActivity2()
+    {
+        m_t1.LoadImage("bg.png");
+        m_t1.SetPos(0x20,0,0);
+        m_ansList.insert(&m_ctr);
+    }
+    void OnShow(){}
+    void OnHide(){}
+    void OnDraw(){m_t1.OnDraw();};
+    void SetTo(Activity* t){m_tr = t;}
+
+    void OnEvent(const SDL_Event* e){
+        if (e -> type == SDL_MOUSEBUTTONDOWN) cout<<"MOUSE_DOWN"<<endl;
+        if (e -> type == SDL_MOUSEBUTTONUP) m_xmv.SetArg(&m_t1);
+    };
+
+    void OnEvent(Control* c,const int i){
+        Goto(m_tr);
+    };
+    void OnNext(){
+        if (!m_xmv.Finished()) m_xmv.OnNext();
+    };
+    Animation* GetAnimationOnHide(){return nullptr;}
 };

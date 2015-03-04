@@ -2,18 +2,163 @@
 #include "../Debug.h"
 #include "Misc.h"
 #include "Thread.h"
+#include <string.h>
 
 using namespace Core;
 std::vector<std::ifstream*> ResFile::m_pkgs;
 std::map<std::string,ResFile_Point> ResFile::m_fs;
 std::string ResFile::m_pkgpw;
-Mutex ResFile::m_mut;
-BYTE ResFile::m_nullptr = '\0';
 
 void ResFile::Init(const std::string& pw)
 {
     m_pkgpw = pw;
 }
+
+/* ÆÕÍ¨°æÊµÏÖ */
+
+void ResFile::Quit()
+{
+    for(auto p = m_pkgs.begin();p != m_pkgs.end();++p){
+        (*p) -> close();
+        delete *p;
+    }
+}
+
+bool ResFile::OpenPkg(const std::string& pkg)
+{
+
+    int index = m_pkgs.size();
+    std::ifstream* pPkgf = new std::ifstream(pkg.c_str(),std::ios::binary);
+    if(!(*pPkgf)) return false;
+    m_pkgs.push_back(pPkgf);
+
+    Uint32 File_Count;
+    pPkgf -> read((char*)&File_Count,sizeof(Uint32));
+
+    ResFile_Point Point;
+    Point.pkg = index;
+    Point.start = 0;
+
+    for(Uint32 i = 0;i < File_Count;++i)
+    {
+        std::string fName;
+        Core::GetString(*pPkgf,fName);
+        pPkgf -> read((char*)&Point.size,sizeof(Point.size));
+        if(m_fs.count(fName)) {PNT("´íÎó£ºÄ³Á½¸ö°üÄÚÓĞÖØÃûµÄÎÄ¼ş" + fName);return false;}
+        m_fs [fName] = Point;
+        Point.start += Point.size;
+    }
+
+    const register Uint32 PkgDataStart = pPkgf -> tellg();
+    for(auto p = m_fs.begin();p != m_fs.end();++p) (p -> second).start += PkgDataStart;
+    return true;
+}
+
+ResFile::ResFile()
+{
+    m_mem = nullptr;
+    m_size = 0;
+    m_rw = nullptr;
+}
+
+ResFile::ResFile(const ResFile& k)
+{
+    m_size = k.m_size;
+    m_mem = new BYTE [m_size];
+    memcpy(m_mem,k.m_mem,m_size);
+    m_rw = SDL_RWFromConstMem(m_mem,m_size);
+}
+
+ResFile::ResFile(ResFile&& k)
+{
+    m_size = k.m_size;
+    m_mem = k.m_mem;
+    m_rw = k.m_rw;
+    k.m_mem = nullptr;
+    k.m_size = 0;
+    k.m_rw = nullptr;
+}
+
+ResFile::ResFile(const std::string& s)
+{
+    ResFile();
+    Load(s);
+}
+
+ResFile::~ResFile()
+{
+    Free();
+}
+
+void ResFile::Load(const std::string& f)
+{
+    if(m_fs.count(f) == 1){ //°üÖĞÓĞÎÄ¼şÔò´Ó°üÖĞ¼ÓÔØ
+        m_size = m_fs[f].size;
+        m_mem = new BYTE [m_size];
+        m_pkgs[m_fs[f].pkg] -> read((char*)m_mem,m_size);
+        if(!m_pkgpw.empty()) for(Uint16 i = 0;i < ENC_LEN && i < m_size;++i) *(m_mem+i) ^= m_pkgpw[i%m_pkgpw.length()];
+    }else{  //·ñÔò´Ó±¾µØ¼ÓÔØ
+        std::ifstream in(f.c_str(),std::ios::binary);
+        in.seekg(0,std::ios::end);
+        m_size = in.tellg();
+        in.seekg(0,std::ios::beg);
+        m_mem = new BYTE [m_size];
+        in.read((char*)m_mem,m_size);
+        in.close();
+    }
+    m_rw = SDL_RWFromConstMem((void*)m_mem,m_size);
+}
+
+void ResFile::Free()
+{
+    SDL_FreeRW(m_rw);
+    delete [] m_mem;
+    m_mem = nullptr;
+    m_size = 0;
+    m_rw = nullptr;
+}
+
+Uint32 ResFile::Size() const
+{
+    return m_size;
+}
+
+ResFile::operator BYTE* () const
+{
+    return m_mem;
+}
+
+ResFile::operator SDL_RWops* () const
+{
+    return m_rw;
+}
+
+ResFile::operator void* () const
+{
+    return (void*)m_mem;
+}
+
+ResFile::operator char* () const
+{
+    return (char*)m_mem;
+}
+
+BYTE& ResFile::operator [] (Uint32 i) const
+{
+    return *(m_mem + i);
+}
+
+ResFile::operator bool () const
+{
+    return m_mem != nullptr;
+}
+
+
+/* ÒıÓÃ¼ÆÊı°æ ÊµÏÖ
+Mutex ResFile::m_mut;
+BYTE ResFile::m_nullptr = '\0';
+
+
 
 void ResFile::Quit()
 {
@@ -121,7 +266,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
         std::string fName;
         Core::GetString(*pPkgf,fName);
         pPkgf -> read((char*)&Point.size,sizeof(Point.size));
-        if(m_fs.count(fName)) {PNT("é”™è¯¯ï¼šæŸä¸¤ä¸ªåŒ…å†…æœ‰é‡åçš„æ–‡ä»¶" + fName +"è¯¥é”™è¯¯ä¼šå¯¼è‡´å†…å­˜æ³„æ¼ã€‚");return false;}
+        if(m_fs.count(fName)) {PNT("´íÎó£ºÄ³Á½¸ö°üÄÚÓĞÖØÃûµÄÎÄ¼ş" + fName +"¸Ã´íÎó»áµ¼ÖÂÄÚ´æĞ¹Â©¡£");return false;}
         m_fs [fName] = Point;
         Point.start += Point.size;
     }
@@ -137,7 +282,7 @@ void ResFile::SetReg(const std::string& file,const bool reg)
     if(reg == false && m_fs[file].count == 0) ForceFree(file);
 }
 
-//ResFileæ–‡ä»¶æŒ‡å‘éƒ¨åˆ†å®ç°
+//ResFileÎÄ¼şÖ¸Ïò²¿·ÖÊµÏÖ
 
 ResFile::ResFile()
 {
@@ -222,4 +367,5 @@ BYTE& ResFile::operator [] (Uint32 i) const
 ResFile::operator bool() const
 {
     return m_file;
-}
+}*/
+

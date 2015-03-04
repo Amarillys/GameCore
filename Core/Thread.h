@@ -1,7 +1,7 @@
 #ifndef _HEAD_THREAD_
 #define _HEAD_THREAD_
-//çº¿ç¨‹ç±»
-//çº¿ç¨‹å‡½æ•°åŸå‹
+//Ïß³ÌÀà
+//Ïß³Ìº¯ÊıÔ­ĞÍ
 //void func(Thread*);
 
 #include "SDLbase.h"
@@ -9,16 +9,16 @@ namespace Core
 {
     class Thread;
 
-    //æ–°çº¿ç¨‹è°ƒç”¨è¿™ä¸ªå‡½æ•°ï¼Œå¤„ç†ç±»å†…çš„ä¸œè¥¿ï¼Œvoid*æŒ‡å‘è°ƒç”¨å®ƒçš„å¯¹è±¡
+    //ĞÂÏß³Ìµ÷ÓÃÕâ¸öº¯Êı£¬´¦ÀíÀàÄÚµÄ¶«Î÷£¬void*Ö¸Ïòµ÷ÓÃËüµÄ¶ÔÏó
     int LaunchThread(void*);
 
-    //çº¿ç¨‹å‡½æ•°å†…ä½¿ç”¨çš„å‡½æ•°
-    int GetMsg(Thread* obj);    //å–å¾—è¾“å…¥çš„æ¶ˆæ¯
-    void ReturnMsg(Thread* obj,const int msg);  //è¿”å›ä¸€ä¸ªæ¶ˆæ¯ç»™Threadå¯¹è±¡ä½¿å…¶å¯ä»¥ä½¿ç”¨æˆå‘˜å‡½æ•°è·å–
-    void WaitMsg(Thread*,const int); //ç­‰å¾…æŒ‡å®šæ¶ˆæ¯ä¼ å…¥ä¸”æ’é™¤å…¶å®ƒæ¶ˆæ¯
-    int WaitMsg(Thread*);   //ç­‰å¾…ä¸€ä¸ªé0æ¶ˆæ¯ä¼ å…¥
-    void* GetData(Thread*);  //å–å¾—ä¸€ä¸ªæ¥è‡ªThreadç±»å¯¹è±¡çš„æ•°æ®ï¼Œå¦‚æœæœ‰æ•°æ®åˆ™è¿”å›ï¼Œå¦åˆ™ç­‰å¾…ä¸€ä¸ªæ•°æ®ä¼ å…¥
-    void ReturnData(Thread*,void* const);   //æŠŠä¸€ä¸ªæ•°æ®è¿”å›ç»™Threadç±»å¯¹è±¡ï¼Œå¦‚æœå…¶ä¸­æœ‰ä¸€ä¸ªæ•°æ®æœªè¢«æ¥å—ï¼Œåˆ™ç­‰å¾…å®ƒæ¥å—
+    //Ïß³Ìº¯ÊıÄÚÊ¹ÓÃµÄº¯Êı
+    int GetMsg(Thread* obj);    //È¡µÃÊäÈëµÄÏûÏ¢
+    void ReturnMsg(Thread* obj,const int msg);  //·µ»ØÒ»¸öÏûÏ¢¸øThread¶ÔÏóÊ¹Æä¿ÉÒÔÊ¹ÓÃ³ÉÔ±º¯Êı»ñÈ¡
+    void WaitMsg(Thread*,const int); //µÈ´ıÖ¸¶¨ÏûÏ¢´«ÈëÇÒÅÅ³ıÆäËüÏûÏ¢
+    int WaitMsg(Thread*);   //µÈ´ıÒ»¸ö·Ç0ÏûÏ¢´«Èë
+    void* GetData(Thread*);  //È¡µÃÒ»¸öÀ´×ÔThreadÀà¶ÔÏóµÄÊı¾İ£¬Èç¹ûÓĞÊı¾İÔò·µ»Ø£¬·ñÔòµÈ´ıÒ»¸öÊı¾İ´«Èë
+    void ReturnData(Thread*,void* const);   //°ÑÒ»¸öÊı¾İ·µ»Ø¸øThreadÀà¶ÔÏó£¬Èç¹ûÆäÖĞÓĞÒ»¸öÊı¾İÎ´±»½ÓÊÜ£¬ÔòµÈ´ıËü½ÓÊÜ
 
     /*
     class Locker
@@ -64,13 +64,13 @@ namespace Core
         ~Thread();
         void Run();
         bool Running();
-        void WaitFinish();  //ç­‰å¾…çº¿ç¨‹ç»“æŸ
-        int GetMsg();   //å–å¾—è¾“å‡ºçš„æ¶ˆæ¯ï¼Œå¯èƒ½ä¸º0
-        int WaitMsg();  //ç­‰å¾…å¹¶è¿”å›ä¸€ä¸ªé0çš„æ¶ˆæ¯
-        void WaitMsg(const int msg);    //ç­‰å¾…æŒ‡å®šæ¶ˆæ¯ï¼Œå¹¶ä¸”æ’é™¤å…¶å®ƒæ¶ˆæ¯
-        void SendMsg(const int msg);    //å‘é€æ¶ˆæ¯ï¼Œå¦‚æœå­çº¿æœ‰æ¶ˆæ¯æœªæ¥å—ï¼Œç­‰å¾…å­çº¿å®Œæˆæ¥å—åå†ä¼ å…¥
-        void SendData(void* const); //å‘é€æ•°æ®ï¼Œå¦‚æœå­çº¿æœ‰æ•°æ®è¿˜æ²¡è¢«å–å¾—åˆ™ç­‰å¾…å…¶å–å¾—åå†å‘é€
-        void* GetData();    //å–å¾—æ•°æ®ï¼Œå¦‚æœæ²¡æœ‰è¦å–å¾—æ•°æ®åˆ™ç­‰å¾…ä¸€ä¸ªæ•°æ®è¢«å‘å‡º
+        void WaitFinish();  //µÈ´ıÏß³Ì½áÊø
+        int GetMsg();   //È¡µÃÊä³öµÄÏûÏ¢£¬¿ÉÄÜÎª0
+        int WaitMsg();  //µÈ´ı²¢·µ»ØÒ»¸ö·Ç0µÄÏûÏ¢
+        void WaitMsg(const int msg);    //µÈ´ıÖ¸¶¨ÏûÏ¢£¬²¢ÇÒÅÅ³ıÆäËüÏûÏ¢
+        void SendMsg(const int msg);    //·¢ËÍÏûÏ¢£¬Èç¹û×ÓÏßÓĞÏûÏ¢Î´½ÓÊÜ£¬µÈ´ı×ÓÏßÍê³É½ÓÊÜºóÔÙ´«Èë
+        void SendData(void* const); //·¢ËÍÊı¾İ£¬Èç¹û×ÓÏßÓĞÊı¾İ»¹Ã»±»È¡µÃÔòµÈ´ıÆäÈ¡µÃºóÔÙ·¢ËÍ
+        void* GetData();    //È¡µÃÊı¾İ£¬Èç¹ûÃ»ÓĞÒªÈ¡µÃÊı¾İÔòµÈ´ıÒ»¸öÊı¾İ±»·¢³ö
     };
 }
 #endif // _HEAD_THREAD_

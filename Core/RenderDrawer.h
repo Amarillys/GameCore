@@ -1,8 +1,8 @@
 #ifndef _HEAD_RENDERDRAWER_
 #define _HEAD_RENDERDRAWER_
 
-/* Г╩≤Е┬╤Г╠╩ */
-/* Г╩╖Ф┴©Д╨▌Х╞╔Г╠╩Г └Е╜░Г╠╩Е▐╞Д╩╔Г╩≤Е┬╤Д╦°Х╔©Е┬╟Е╠▐Е╧∙Д╦┼ */
+/* ╩ФжфюЮ */
+/* ╪лЁпсз╦цюЮ╣двсюЮ©ирт╩Фжф╤╚нВ╣╫фад╩ио */
 namespace Core
 {
     class RenderDrawer{

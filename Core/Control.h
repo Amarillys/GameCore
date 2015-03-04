@@ -4,19 +4,19 @@
 #include "SDLbase.h"
 
 
-/* æŽ§ä»¶åŸºç±»ä»‹ç» */
+/* ¿Ø¼þ»ùÀà½éÉÜ */
 /*
-æŽ§ä»¶åŸºç±»åº”å½“ä¸ŽViewå¹¶ç”¨
-å½“æ“ä½œæ—¶ï¼Œå¦‚æžœé¼ æ ‡ã€è§¦æ‘¸åœ¨å½“å‰æŽ§ä»¶ç„¦æŽ‰æ¡†ä¸­
-åˆ™è°ƒç”¨Procå‡½æ•°å“åº”åŸºæœ¬æ“ä½œï¼Œç„¶åŽå†è°ƒç”¨æ´»åŠ¨ä¸­çš„Procå‡½æ•°è¿›ä¸€æ­¥æ“ä½œã€‚
+¿Ø¼þ»ùÀàÓ¦µ±ÓëView²¢ÓÃ
+µ±²Ù×÷Ê±£¬Èç¹ûÊó±ê¡¢´¥ÃþÔÚµ±Ç°¿Ø¼þ½¹µô¿òÖÐ
+Ôòµ÷ÓÃProcº¯ÊýÏìÓ¦»ù±¾²Ù×÷£¬È»ºóÔÙµ÷ÓÃ»î¶¯ÖÐµÄProcº¯Êý½øÒ»²½²Ù×÷¡£
 */
 namespace Core{
     class Activity;
-    class Control   //æŽ§ä»¶åŸºç±»
+    class Control   //¿Ø¼þ»ùÀà
     {
     public:
         virtual bool Proc (const SDL_Event* e,Activity*) =0;
-        //å›žè°ƒå‡½æ•°,å¤„ç†æ¶ˆæ¯ï¼Œå¦‚æžœè¯¥æŽ§ä»¶æŽ¥å—æ­¤æ¶ˆæ¯ï¼Œåˆ™è¿”å›žtrueï¼Œå¦åˆ™è¿”å›žfalse
+        //»Øµ÷º¯Êý,´¦ÀíÏûÏ¢£¬Èç¹û¸Ã¿Ø¼þ½ÓÊÜ´ËÏûÏ¢£¬Ôò·µ»Øtrue£¬·ñÔò·µ»Øfalse
     };
 }
 

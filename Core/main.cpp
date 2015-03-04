@@ -6,9 +6,12 @@ using namespace Core;
 
 int main( int argc, char * argv[] )
 {
+
     CoreInit();
     ResFile::Init("000");
     TestActivity* a = NewActivity<TestActivity>();
+    TestActivity2* b = NewActivity<TestActivity2>();
+    a -> SetTo(b);b ->SetTo(a);
     CoreMain(a);
     ResFile::Quit();
     return 0;
@@ -24,13 +27,13 @@ int smain( int argc, char * argv[] )
     PNT(" ");
     PNT(__TIME__);
     PNT(endl);
-    //åˆå§‹åŒ–
+    //³õÊ¼»¯
 
     ResFile::Init("000");
 
 
-    ResFile::OpenPkg("pkr.cpk");    //æ‰“å¼€æ–‡ä»¶åŒ…
-    //ä¸»å¾ªç¯
+    ResFile::OpenPkg("pkr.cpk");    //´ò¿ªÎÄ¼ş°ü
+    //Ö÷Ñ­»·
     {
         Font f("msyh.ttf");
         Sound s;
@@ -39,7 +42,7 @@ int smain( int argc, char * argv[] )
         Texture t,bg,txt;
         bg.LoadImage("bg.png");
         t.LoadImage("0.png");
-        txt.LoadText(f,"æ–‡å­—çº¹ç†");
+        txt.LoadText(f,"ÎÄ×ÖÎÆÀí");
         t.SetSrc(0,0,290,290);
         bg.SetSrc(0,0,1024,768);
         txt.SetPos(0,0);
@@ -67,7 +70,7 @@ int smain( int argc, char * argv[] )
             for(register auto p = RFList.begin();p != RFList.end();++p) (*p) -> OnDraw();
             SDL_RenderPresent(pRnd);
 
-            FPSKiller.WaitTimer(100/60);   //FPSé™åˆ¶
+            FPSKiller.WaitTimer(100/60);   //FPSÏŞÖÆ
             FPSKiller.Reset();
 
             FPSCounter ++;
@@ -83,7 +86,7 @@ int smain( int argc, char * argv[] )
     }
 
 
-    //å›æ”¶
+    //»ØÊÕ
     END:
 
     return 0;

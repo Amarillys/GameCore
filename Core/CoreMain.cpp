@@ -43,17 +43,17 @@ void ActivityDrawProc() //活动刷新一次处理
         bool nowFinished = false;
 
         if(lastFocus != nullptr && !lastFinished) {
-            if(lastFocus -> GetAnimationOnDestroy() != nullptr){
-                lastFocus -> GetAnimationOnDestroy() -> OnNext();   //绘制上个活动
-                if(lastFocus -> GetAnimationOnDestroy() -> Finished()) lastFinished = true;
+            if(lastFocus -> GetAnimationOnHide() != nullptr){
+                lastFocus -> GetAnimationOnHide() -> OnNext();   //绘制上个活动
+                if(lastFocus -> GetAnimationOnHide() -> Finished()) lastFinished = true;
             }else lastFinished = true;
             lastFocus -> OnDraw();
         }else lastFinished = true;
 
         if(nowFocus != nullptr && !nowFinished) {
-            if(nowFocus -> GetAnimationOnCreated() != nullptr){
-                nowFocus -> GetAnimationOnCreated() -> OnNext();   //绘制下个活动
-                if(nowFocus -> GetAnimationOnCreated() -> Finished()) nowFinished = true;
+            if(nowFocus -> GetAnimationOnShow() != nullptr){
+                nowFocus -> GetAnimationOnShow() -> OnNext();   //绘制下个活动
+                if(nowFocus -> GetAnimationOnShow() -> Finished()) nowFinished = true;
             }else nowFinished = true;
             nowFocus -> OnDraw();
         }else nowFinished = true;
@@ -71,6 +71,7 @@ void ActivityDrawProc() //活动刷新一次处理
 void CoreMain(Activity* start)
 {
     nowFocus = start;
+    nowFocus -> OnShow();
     /* 主循环部分 */
     SDL_Event e;
     Timer FPSKiller;

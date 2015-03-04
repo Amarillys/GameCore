@@ -9,6 +9,7 @@
 
 namespace Core
 {
+    /*  Õâ¸ö°æ±¾ÊÇÒıÓÃ¼ÆÊı°æ±¾v£¬ÒòSDL²»Ö§³Ö¶ø·ÏÆú£¬¸ü»»ÎªÆÕÍ¨µÄÖÇÄÜÖ¸ÕëÄ£Ê½
     class Mutex;
     class Thread;
     struct ResFile_Point{
@@ -16,15 +17,16 @@ namespace Core
         SDL_RWops* rw;
         Uint16 count;
 
-        Sint8 pkg;    //-1æ—¶ä¸ºæ–‡ä»¶åŒ…å¤–
+        Sint8 pkg;    //-1Ê±ÎªÎÄ¼ş°üÍâ
         Uint32 start;
         Uint32 size;
 
-        bool reg;   //æ°¸ä¸é‡Šæ”¾ã€‚
+        bool reg;   //ÓÀ²»ÊÍ·Å¡£
     };
 
-    class ResFile{  //ä½ å¯ä»¥æŠŠå®ƒå½“æˆä¸€ä¸ªæ–‡ä»¶å®ä¾‹ï¼Œä¸éœ€è¦å…³å¿ƒå†…å­˜æ˜¯å¦é‡Šæ”¾ï¼Œå°½æƒ…ä½¿ç”¨å°±æ˜¯
-        //ä½ ä¹Ÿå¯ä»¥è°ƒç”¨å‡½æ•°æ—¶ç›´æ¥ä¼ é€’å¯¹è±¡å®ä¾‹ï¼Œå®é™…ä¸Šè¯¥å®ä¾‹ä»…ä»…æ˜¯ä¸ªå¼•ç”¨è®¡æ•°æŒ‡é’ˆ
+    class ResFile{  //Äã¿ÉÒÔ°ÑËüµ±³ÉÒ»¸öÎÄ¼şÊµÀı£¬²»ĞèÒª¹ØĞÄÄÚ´æÊÇ·ñÊÍ·Å£¬¾¡ÇéÊ¹ÓÃ¾ÍÊÇ
+        //ÄãÒ²¿ÉÒÔµ÷ÓÃº¯ÊıÊ±Ö±½Ó´«µİ¶ÔÏóÊµÀı£¬Êµ¼ÊÉÏ¸ÃÊµÀı½ö½öÊÇ¸öÒıÓÃ¼ÆÊıÖ¸Õë
+        //Õâ¸öÊÇÒıÓÃ¼ÆÊı°æ±¾
     private:
         static std::vector<std::ifstream*> m_pkgs;
         static std::map<std::string,ResFile_Point> m_fs;
@@ -35,41 +37,83 @@ namespace Core
         ResFile_Point* m_file;
 
     protected:
-        static void CreateRWops(const std::string&);    //ç»™æ–‡ä»¶åˆ›å»ºSDL_RWopsæŒ‡é’ˆ
+        static void CreateRWops(const std::string&);    //¸øÎÄ¼ş´´½¨SDL_RWopsÖ¸Õë
         static void CreateRWops(ResFile_Point*);
-        static void LoadPkgFile(const std::string&);    //ä»åŒ…ä¸­åŠ è½½æ–‡ä»¶
-        static void LoadFile(const std::string&);   //åŠ è½½æ–‡ä»¶
-        static void ForceFree(ResFile_Point*);  //å¼ºåˆ¶é‡Šæ”¾
+        static void LoadPkgFile(const std::string&);    //´Ó°üÖĞ¼ÓÔØÎÄ¼ş
+        static void LoadFile(const std::string&);   //¼ÓÔØÎÄ¼ş
+        static void ForceFree(ResFile_Point*);  //Ç¿ÖÆÊÍ·Å
         static void ForceFree(const std::string&);
-        static bool ExistInPkg(const std::string&); //æ˜¯å¦å­˜åœ¨äºåŒ…ä¸­
+        static bool ExistInPkg(const std::string&); //ÊÇ·ñ´æÔÚÓÚ°üÖĞ
         static void LoadLocalFileFirst(const std::string& name,ResFile_Point* rf);
-        //åŠ è½½æœ¬åœ°æ–‡ä»¶ï¼ˆä»…é™åˆæ¬¡ï¼Œä¸‹ä¸ªå‡½æ•°è°ƒç”¨åè°ƒç”¨
-        static void LoadLocalFile(const std::string&);  //åŠ è½½æœ¬åœ°æ–‡ä»¶
+        //¼ÓÔØ±¾µØÎÄ¼ş£¨½öÏŞ³õ´Î£¬ÏÂ¸öº¯Êıµ÷ÓÃºóµ÷ÓÃ
+        static void LoadLocalFile(const std::string&);  //¼ÓÔØ±¾µØÎÄ¼ş
     public:
-        static void Init(const std::string& pw);    //åˆå§‹åŒ–ï¼Œè¾“å…¥æ–‡ä»¶åŒ…å¯†ç 
-        static void Quit(); //ç»ˆæœŸåŒ–ï¼Œé‡Šæ”¾å†…å­˜
-        static bool OpenPkg(const std::string&);    //æ‰“å¼€æ–‡ä»¶åŒ…
-        static void SetReg(const std::string&,const bool);  //å¯¹æŸä¸€å·²ç»åŠ è½½è¿‡çš„æ–‡ä»¶è¿›è¡Œä¼˜åŒ–ï¼Œä¿æŒä¸é‡Šæ”¾åŠ å¿«é€Ÿåº¦
+        static void Init(const std::string& pw);    //³õÊ¼»¯£¬ÊäÈëÎÄ¼ş°üÃÜÂë
+        static void Quit(); //ÖÕÆÚ»¯£¬ÊÍ·ÅÄÚ´æ
+        static bool OpenPkg(const std::string&);    //´ò¿ªÎÄ¼ş°ü
+        static void SetReg(const std::string&,const bool);  //¶ÔÄ³Ò»ÒÑ¾­¼ÓÔØ¹ıµÄÎÄ¼ş½øĞĞÓÅ»¯£¬±£³Ö²»ÊÍ·Å¼Ó¿ìËÙ¶È
 
         ResFile();
-        ResFile(const ResFile&);    //åˆ›å»ºæ—¶åŠ è½½æ–‡ä»¶
+        ResFile(const ResFile&);    //´´½¨Ê±¼ÓÔØÎÄ¼ş
         ResFile(const std::string&);
 
         ~ResFile();
 
-        void Load(const std::string&);  //åŠ è½½æ–‡ä»¶ï¼Œä¸éœ€è¦è€ƒè™‘æ˜¯å¦é‡Šæ”¾ï¼Œè‡ªåŠ¨é‡Šæ”¾
-        void Free();    //é‡Šæ”¾å½“å‰æ–‡ä»¶
-        Uint32 Size() const;    //å–å¤§å°
+        void Load(const std::string&);  //¼ÓÔØÎÄ¼ş£¬²»ĞèÒª¿¼ÂÇÊÇ·ñÊÍ·Å£¬×Ô¶¯ÊÍ·Å
+        void Free();    //ÊÍ·Åµ±Ç°ÎÄ¼ş
+        Uint32 Size() const;    //È¡´óĞ¡
 
-        operator BYTE* () const;    //å–å­—èŠ‚å‹æŒ‡é’ˆ
-        operator SDL_RWops* () const;   //å–SDL_RWopsæŒ‡é’ˆ
-        operator void* () const;    //å–void*å‹æŒ‡é’ˆ
-        operator char* () const;    //å–char*å‹æŒ‡é’ˆ
+        operator BYTE* () const;    //È¡×Ö½ÚĞÍÖ¸Õë
+        operator SDL_RWops* () const;   //È¡SDL_RWopsÖ¸Õë
+        operator void* () const;    //È¡void*ĞÍÖ¸Õë
+        operator char* () const;    //È¡char*ĞÍÖ¸Õë
 
-        BYTE& operator [] (Uint32) const;   //ä½¿ç”¨ä¸‹æ ‡è®¿é—®æŸå­—èŠ‚
+        BYTE& operator [] (Uint32) const;   //Ê¹ÓÃÏÂ±ê·ÃÎÊÄ³×Ö½Ú
 
-        operator bool () const; //æ˜¯å¦å·²ç»åŠ è½½æ–‡ä»¶
+        operator bool () const; //ÊÇ·ñÒÑ¾­¼ÓÔØÎÄ¼ş
+    };
+    */
+    struct ResFile_Point{
+        Sint8 pkg;    //-1Ê±ÎªÎÄ¼ş°üÍâ
+        Uint32 start;
+        Uint32 size;
     };
 
+    class ResFile{  //Äã¿ÉÒÔ°ÑËüµ±³ÉÒ»¸öÎÄ¼şÊµÀı£¬²»ĞèÒª¹ØĞÄÄÚ´æÊÇ·ñÊÍ·Å£¬¾¡ÇéÊ¹ÓÃ¾ÍÊÇ
+        //ÄãÒ²¿ÉÒÔµ÷ÓÃº¯ÊıÊ±Ö±½Ó´«µİ¶ÔÏóÊµÀı
+        //Õâ¸öÊÇÒ»¶ÔÒ»°æ±¾
+    private:
+        static std::vector<std::ifstream*> m_pkgs;
+        static std::string m_pkgpw;
+        static std::map<std::string,ResFile_Point> m_fs;
+        BYTE* m_mem;
+        Uint32 m_size;
+        SDL_RWops* m_rw;
+
+    public:
+        static void Init(const std::string& pw);    //³õÊ¼»¯£¬ÊäÈëÎÄ¼ş°üÃÜÂë
+        static void Quit(); //ÖÕÆÚ»¯£¬ÊÍ·ÅÄÚ´æ
+        static bool OpenPkg(const std::string&);    //´ò¿ªÎÄ¼ş°ü
+
+        ResFile();
+        ResFile(const ResFile&);
+        ResFile(ResFile&&);
+        ResFile(const std::string&);
+
+        ~ResFile();
+
+        void Load(const std::string&);  //¼ÓÔØÎÄ¼ş£¬²»ĞèÒª¿¼ÂÇÊÇ·ñÊÍ·Å£¬×Ô¶¯ÊÍ·Å
+        void Free();    //ÊÍ·Åµ±Ç°ÎÄ¼ş
+        Uint32 Size() const;    //È¡´óĞ¡
+
+        operator BYTE* () const;    //È¡×Ö½ÚĞÍÖ¸Õë
+        operator SDL_RWops* () const;   //È¡SDL_RWopsÖ¸Õë
+        operator void* () const;    //È¡void*ĞÍÖ¸Õë
+        operator char* () const;    //È¡char*ĞÍÖ¸Õë
+
+        BYTE& operator [] (Uint32) const;   //Ê¹ÓÃÏÂ±ê·ÃÎÊÄ³×Ö½Ú
+
+        operator bool () const; //ÊÇ·ñÒÑ¾­¼ÓÔØÎÄ¼ş
+    };
 }
 #endif

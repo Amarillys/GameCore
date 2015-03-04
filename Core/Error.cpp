@@ -6,7 +6,7 @@
 
 #ifdef _OS_WINDOWS
 #include <windows.h>
-#define ERROR_MSGBOX(msg) MessageBox(nullptr,msg.c_str(),"´íÎó",MB_ICONHAND|MB_ICONSTOP|MB_ICONERROR)
+#define ERROR_MSGBOX(msg) MessageBox(nullptr,msg.c_str(),"Â´Ã­ÃŽÃ³",MB_ICONHAND|MB_ICONSTOP|MB_ICONERROR)
 #endif
 
 using namespace std;
