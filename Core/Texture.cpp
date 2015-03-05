@@ -47,6 +47,7 @@ void Texture::Clear()
         SDL_DestroyTexture(m_tex);
         m_tex = nullptr;
     }
+    m_file.Free();
 }
 
 void Texture::SetSrc(int x, int y, int w, int h)

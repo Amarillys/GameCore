@@ -18,6 +18,7 @@ void ResFile::Init(const std::string& pw)
 
 void ResFile::Quit()
 {
+    if(!m_pkgs.empty())
     for(auto p = m_pkgs.begin();p != m_pkgs.end();++p){
         (*p) -> close();
         delete *p;
@@ -92,6 +93,7 @@ ResFile::~ResFile()
 
 void ResFile::Load(const std::string& f)
 {
+    Free();
     if(m_fs.count(f) == 1){ //包中有文件则从包中加载
         m_size = m_fs[f].size;
         m_mem = new BYTE [m_size];
