@@ -1,5 +1,5 @@
 #ifndef _HEAD_FONT_
-#define _HEAD_FONT
+#define _HEAD_FONT_
 
 #include "SDLbase.h"
 #include <string>
