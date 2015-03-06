@@ -47,7 +47,6 @@ void Texture::Clear()
         SDL_DestroyTexture(m_tex);
         m_tex = nullptr;
     }
-    m_file.Free();
 }
 
 void Texture::SetSrc(int x, int y, int w, int h)
@@ -105,4 +104,5 @@ void Texture::GetInfo(int& w,int& h)
 Texture::~Texture()
 {
     Clear();
+    PNT("Texture Killed:"<<this<<std::endl;)
 }

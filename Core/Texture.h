@@ -10,7 +10,7 @@
 namespace Core
 {
     class Font;
-    class Texture: public RenderDrawer
+    class Texture: public RenderDrawer DBGCLASS
     {
     protected:
         SDL_Texture * m_tex;

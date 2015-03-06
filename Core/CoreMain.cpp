@@ -4,6 +4,7 @@
 #include "Globals.h"
 #include "Control.h"
 #include "Animation.h"
+#include "../Debug.h"
 
 using namespace Core;
 
@@ -34,6 +35,7 @@ void SendEvent(SDL_Event* e,Activity* a)    //向一个活动发送SDL消息
         if((*p) -> Proc(e,a)) return;  //发现有控件接受该信息后返回
     }
     a -> OnEvent(e);    //无控件接受消息，发送消息给活动的OnEvent()
+    PNT("SEND EVENT\n");
 }
 
 void ActivityDrawProc() //活动刷新一次处理
@@ -59,12 +61,14 @@ void ActivityDrawProc() //活动刷新一次处理
         }else nowFinished = true;
 
         if(lastFinished && nowFinished) isGotoing = false;
+        PNT("Draw Gotoing|");
     }
 
     //两个动画结束后关闭跳转状态
     else{
         nowFocus -> OnNext();
         nowFocus -> OnDraw();
+        PNT("Draw Normal|");
     }
 }
 

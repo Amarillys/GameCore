@@ -89,6 +89,7 @@ ResFile::ResFile(const std::string& s)
 ResFile::~ResFile()
 {
     Free();
+    PNT("ResFile Killed:"<<this<<std::endl);
 }
 
 void ResFile::Load(const std::string& f)

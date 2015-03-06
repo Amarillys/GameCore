@@ -1,6 +1,6 @@
 #ifndef _HEAD_TIMER_
 #define _HEAD_TIMER_
-
+#include "../Debug.h"
 
 /***** 计时器 *****
 * 类似NS的那种方法。
@@ -44,8 +44,9 @@ namespace Core
 
     void Timer::WaitTimer(Uint32 _time)
     {
-        if (_time < GetTimer()) return;
-        else SDL_Delay(_time - GetTimer());
+        Uint32 t = GetTimer();
+        if (_time < t) {PNT("Timer:Not Wait\n");return;}
+        else {SDL_Delay(_time - t);PNT("Timer:Wait "<<_time<<"     "<<t<<"   "<<_time - t<<std::endl);};
     }
 }
 
