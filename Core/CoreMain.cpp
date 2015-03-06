@@ -14,10 +14,13 @@ bool isGotoing = true;
 Activity* nowFocus;
 Activity* lastFocus;
 
+int Core::Window_W;
+int Core::Window_H;
+
 
 namespace Core{
 
-std::set<Activity*> actList;
+std::list<Activity*> actList;
 
 void Goto(Activity* a)
 {
@@ -125,6 +128,7 @@ void CoreInit()
                                 SDL_RENDERER_ACCELERATED|
                                 SDL_RENDERER_PRESENTVSYNC);
     SDL_RenderPresent(pRnd);
+    SDL_GetWindowSize(pWnd,&Window_W,&Window_H);
 
     nowFocus = nullptr;
     lastFocus = nullptr;

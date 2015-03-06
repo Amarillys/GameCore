@@ -1,4 +1,4 @@
-#include <set>
+#include <list>
 #include "SDLbase.h"
 
 namespace Core{
@@ -10,7 +10,7 @@ namespace Core{
     {
     friend void Core::SendEvent(SDL_Event* e,Activity* a);
     protected:
-        std::set<Control*> m_ansList;
+        std::list<Control*> m_ansList;
         //如果有Control需要相应操作，把它加到这个表里
     public:
         virtual ~Activity(){};

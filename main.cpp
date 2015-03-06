@@ -1,5 +1,5 @@
-#include "Core.h"
-#include "../Activities/Test.h"
+#include "Core/Core.h"
+#include "Activities/Test.h"
 
 using namespace std;
 using namespace Core;
@@ -12,7 +12,7 @@ int main( int argc, char * argv[] )
     TestActivity* a = NewActivity<TestActivity>();
     TestActivity2* b = NewActivity<TestActivity2>();
     a -> SetTo(b);b ->SetTo(a);
-    CoreMain(a);
+    CoreMain(b);
     ResFile::Quit();
     return 0;
 }

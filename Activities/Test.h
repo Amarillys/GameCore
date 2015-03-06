@@ -49,7 +49,7 @@ public:
         m_t1.LoadImage("bg.png");
         m_t1.SetPos(0x20,0,0);
         m_s1.Load("battle-day.wav");
-        m_ansList.insert(&m_ctr);
+        m_ansList.push_front(&m_ctr);
     }
     ~TestActivity(){cout<<"Test1Killed"<<endl;}
     void OnShow(){
@@ -86,7 +86,7 @@ public:
         DBGCLASS_SETDBGINFO(m_t1,"testTexture");
         m_t1.LoadImage("bg.png");
         m_t1.SetPos(0x20,0,0);
-        m_ansList.insert(&m_ctr);
+        m_ansList.push_front(&m_ctr);
     }
     ~TestActivity2(){cout<<"Test2Killed"<<endl;}
     void OnShow(){}

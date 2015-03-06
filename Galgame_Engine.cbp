@@ -79,11 +79,11 @@
 		<Unit filename="Core/Thread.cpp" />
 		<Unit filename="Core/Thread.h" />
 		<Unit filename="Core/Timer.h" />
-		<Unit filename="Core/main.cpp" />
 		<Unit filename="Debug.h" />
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
