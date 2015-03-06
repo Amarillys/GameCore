@@ -103,7 +103,7 @@ namespace Core
 
         ~ResFile();
 
-        void Load(const std::string&);  //加载文件，不需要考虑是否释放，自动释放
+        void Load(std::string);  //加载文件，不需要考虑是否释放，自动释放
         void Free();    //释放当前文件
         Uint32 Size() const;    //取大小
 

@@ -7,6 +7,7 @@
 #include "../Debug.h"
 
 using namespace Core;
+using namespace std;
 
 SDL_Window* Core::pWnd= nullptr;
 SDL_Renderer* Core::pRnd  = nullptr;
@@ -38,7 +39,6 @@ void SendEvent(SDL_Event* e,Activity* a)    //向一个活动发送SDL消息
         if((*p) -> Proc(e,a)) return;  //发现有控件接受该信息后返回
     }
     a -> OnEvent(e);    //无控件接受消息，发送消息给活动的OnEvent()
-    PNT("SEND EVENT\n");
 }
 
 void ActivityDrawProc() //活动刷新一次处理
@@ -64,14 +64,12 @@ void ActivityDrawProc() //活动刷新一次处理
         }else nowFinished = true;
 
         if(lastFinished && nowFinished) isGotoing = false;
-        PNT("Draw Gotoing|");
     }
 
     //两个动画结束后关闭跳转状态
     else{
         nowFocus -> OnNext();
-        nowFocus -> OnDraw();
-        PNT("Draw Normal|");
+        nowFocus -> OnDraw();;
     }
 }
 
@@ -87,6 +85,7 @@ void CoreMain(Activity* start)
             if (e.type == SDL_QUIT) goto CORE_END;
             else SendEvent(&e,nowFocus);
         }
+        SDL_SetRenderDrawColor(Core::pRnd,0x00,0x00,0x00,0xFF);
         SDL_RenderClear(pRnd);
         ActivityDrawProc();
         SDL_RenderPresent(pRnd);
@@ -109,7 +108,7 @@ CORE_END:
     SDL_Quit();
 }
 
-void CoreInit()
+void CoreInit(const string& title,const int w,const int h)
 {
     SDL_Init(SDL_INIT_AUDIO |
                 SDL_INIT_EVENTS|
@@ -119,10 +118,10 @@ void CoreInit()
     TTF_Init();
 
     Sound::Init();
-    pWnd = SDL_CreateWindow("Gaming",
+    pWnd = SDL_CreateWindow(title.c_str(),
                             SDL_WINDOWPOS_UNDEFINED,
                             SDL_WINDOWPOS_UNDEFINED,
-                            800,600,
+                            w,h,
                             SDL_WINDOW_OPENGL);
     pRnd = SDL_CreateRenderer(pWnd,-1,
                                 SDL_RENDERER_ACCELERATED|

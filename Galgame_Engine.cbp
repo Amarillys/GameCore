@@ -52,6 +52,7 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="Activities/ACGCross_Logo.h" />
 		<Unit filename="Activities/Test.h" />
 		<Unit filename="Core/Activity.h" />
 		<Unit filename="Core/Animation.h" />
@@ -80,6 +81,8 @@
 		<Unit filename="Core/Thread.h" />
 		<Unit filename="Core/Timer.h" />
 		<Unit filename="Debug.h" />
+		<Unit filename="Misc/MathFunc.cpp" />
+		<Unit filename="Misc/MathFunc.h" />
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>

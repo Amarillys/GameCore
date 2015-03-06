@@ -2,12 +2,22 @@
 #include "../Debug.h"
 #include "Misc.h"
 #include "Thread.h"
+#include "Error.h"
 #include <string.h>
 
 using namespace Core;
+using namespace std;
 std::vector<std::ifstream*> ResFile::m_pkgs;
 std::map<std::string,ResFile_Point> ResFile::m_fs;
 std::string ResFile::m_pkgpw;
+
+void FixPath(string& path)
+{
+    for(unsigned int i = 0;i < path.length();++i){
+        if(path[i] == '/') path[i] = '\\';
+        else if(path[i] >= 'a' && path[i] <= 'z') path[i] += 'A' - 'a';
+    }
+}
 
 void ResFile::Init(const std::string& pw)
 {
@@ -29,9 +39,15 @@ bool ResFile::OpenPkg(const std::string& pkg)
 {
 
     int index = m_pkgs.size();
-    std::ifstream* pPkgf = new std::ifstream(pkg.c_str(),std::ios::binary);
-    if(!(*pPkgf)) return false;
-    m_pkgs.push_back(pPkgf);
+    std::ifstream* pPkgf = nullptr;
+    try{
+        std::ifstream* pPkgf = new std::ifstream(pkg.c_str(),std::ios::binary);
+        if(!(*pPkgf)) throw Error(0x31000000,"无法打开文件包。");
+        m_pkgs.push_back(pPkgf);
+    }
+    CATCH_BADALLOC
+    catch(Error& e){};
+
 
     Uint32 File_Count;
     pPkgf -> read((char*)&File_Count,sizeof(Uint32));
@@ -44,13 +60,14 @@ bool ResFile::OpenPkg(const std::string& pkg)
     {
         std::string fName;
         Core::GetString(*pPkgf,fName);
+        FixPath(fName);
         pPkgf -> read((char*)&Point.size,sizeof(Point.size));
-        if(m_fs.count(fName)) {PNT("错误：某两个包内有重名的文件" + fName);return false;}
+        if(m_fs.count(fName)) {PNT("错误：某两个包内有重名的文件" + fName);}
         m_fs [fName] = Point;
         Point.start += Point.size;
     }
 
-    const register Uint32 PkgDataStart = pPkgf -> tellg();
+    const Uint32 PkgDataStart = pPkgf -> tellg();
     for(auto p = m_fs.begin();p != m_fs.end();++p) (p -> second).start += PkgDataStart;
     return true;
 }
@@ -92,20 +109,26 @@ ResFile::~ResFile()
     PNT("ResFile Killed:"<<this<<std::endl);
 }
 
-void ResFile::Load(const std::string& f)
+void ResFile::Load(std::string f)
 {
     Free();
+    FixPath(f);
     if(m_fs.count(f) == 1){ //包中有文件则从包中加载
         m_size = m_fs[f].size;
-        m_mem = new BYTE [m_size];
+        try{m_mem = new BYTE [m_size];}
+        CATCH_BADALLOC
         m_pkgs[m_fs[f].pkg] -> read((char*)m_mem,m_size);
         if(!m_pkgpw.empty()) for(Uint16 i = 0;i < ENC_LEN && i < m_size;++i) *(m_mem+i) ^= m_pkgpw[i%m_pkgpw.length()];
     }else{  //否则从本地加载
         std::ifstream in(f.c_str(),std::ios::binary);
+        if(!in){
+            Error(0x30000001,"无法打开本地文件："+f);
+        }
         in.seekg(0,std::ios::end);
         m_size = in.tellg();
         in.seekg(0,std::ios::beg);
-        m_mem = new BYTE [m_size];
+        try{m_mem = new BYTE [m_size];}
+        CATCH_BADALLOC
         in.read((char*)m_mem,m_size);
         in.close();
     }

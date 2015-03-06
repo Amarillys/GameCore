@@ -20,12 +20,12 @@ namespace Core{
         virtual void OnHide(){};    //当Goto出这个活动时执行
 
         virtual void OnDraw()=0;    //绘制活动
-        virtual void OnEvent(const SDL_Event*)=0;
+        virtual void OnEvent(const SDL_Event*){};
         //当没有控件接受消息时，回调此函数
-        virtual void OnEvent(Control*,const int)=0;
+        virtual void OnEvent(Control*,const int){};
         //当有控件接收消息时，由Control调用此函数，并传入控件给的消息
 
-        virtual void OnNext() =0;   //请求除淡入动画和淡出动画以外所有动画的下一帧
+        virtual void OnNext() {};   //请求除淡入动画和淡出动画以外所有动画的下一帧
 
         virtual Animation* GetAnimationOnShow(){return nullptr;}
         //淡入动画，切换时与上个动画的淡出动画同时播放

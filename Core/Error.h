@@ -4,7 +4,7 @@
 #include <string>
 
 #include "OS.h"
-
+#define CATCH_BADALLOC catch(bad_alloc){Error(0x30000000,"ÄÚ´æ²»×ã");}
 namespace Core{
     class Error{
     private:

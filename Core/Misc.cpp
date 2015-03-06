@@ -27,6 +27,6 @@ void Core::Pos(SDL_Rect& opr,
 {
     const static int screen_w_p = Window_W/4;
     const static int screen_h_p = Window_H/4;
-    opr.x = screen_w_p * ((base & 0xF0) / 0x10);
-    opr.y = screen_h_p * (base & 0x0F);
+    opr.x = screen_w_p * ((base & 0xF0) / 0x10) + x;
+    opr.y = screen_h_p * (base & 0x0F) + y;
 }

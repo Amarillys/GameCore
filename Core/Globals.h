@@ -10,7 +10,7 @@ namespace Core{
     extern SDL_Renderer* pRnd;
     extern std::list<Activity*> actList;
     extern int Window_W,Window_H;
-    void CoreInit();    //框架初始化
+    void CoreInit(const std::string& title,const int w,const int h);    //框架初始化
     void CoreMain(Activity*);   //框架执行
     void SendEvent(const SDL_Event*,Activity*);  //向一个活动发送消息
     void Goto(Activity*);   //活动跳转

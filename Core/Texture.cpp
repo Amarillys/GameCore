@@ -6,7 +6,7 @@
 #include "../Debug.h"
 using namespace std;
 using namespace Core;
-void Texture::LoadImage(const std::string& fileName)
+void Texture::Load(const std::string& fileName)
 {
     Clear();
     m_file.Load(fileName);
@@ -17,17 +17,27 @@ void Texture::LoadImage(const std::string& fileName)
     SetZoom(w,h);
 }
 
-void Texture::LoadText(Font& font,const string& text)
+void Texture::Load(Font& font,const string& text)
 {
     Clear();
     SDL_Color fg = {255,255,255};
-    int w,h;
     SDL_Surface* pSur = TTF_RenderUTF8_Blended((TTF_Font*)font,text.c_str(),fg);
+    Load(pSur);
+    SDL_FreeSurface(pSur);
+}
+
+void Texture::Load(SDL_Surface* pSur)
+{
+    int w,h;
     m_tex = SDL_CreateTextureFromSurface(pRnd,pSur);
     GetInfo(w,h);
     SetSrc(0,0,w,h);
     SetZoom(w,h);
-    SDL_FreeSurface(pSur);
+}
+
+void Texture::Load(SDL_Texture* pTex)
+{
+    m_tex = pTex;
 }
 
 Texture::Texture()

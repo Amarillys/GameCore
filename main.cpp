@@ -1,4 +1,5 @@
 #include "Core/Core.h"
+#include "Activities/ACGCross_Logo.h"
 #include "Activities/Test.h"
 
 using namespace std;
@@ -7,12 +8,14 @@ using namespace Core;
 int main( int argc, char * argv[] )
 {
 
-    CoreInit();
+    CoreInit("ACGCross Demo",400,550);
     ResFile::Init("000");
+    auto acglogo= NewActivity<ACGCross_Logo>();
     TestActivity* a = NewActivity<TestActivity>();
     TestActivity2* b = NewActivity<TestActivity2>();
     a -> SetTo(b);b ->SetTo(a);
-    CoreMain(b);
+    acglogo -> SetGoto(a);
+    CoreMain(acglogo);
     ResFile::Quit();
     return 0;
 }

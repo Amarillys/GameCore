@@ -45,8 +45,8 @@ namespace Core
     void Timer::WaitTimer(Uint32 _time)
     {
         Uint32 t = GetTimer();
-        if (_time < t) {PNT("Timer:Not Wait\n");return;}
-        else {SDL_Delay(_time - t);PNT("Timer:Wait "<<_time<<"     "<<t<<"   "<<_time - t<<std::endl);};
+        if (_time < t) return;
+        else SDL_Delay(_time - t);
     }
 }
 
