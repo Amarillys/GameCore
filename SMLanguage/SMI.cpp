@@ -1,6 +1,9 @@
 #include "SMI.h"
+#include "..\Core\Bundle.h"
+#include "..\Core\FileSystem.h"
 
 using namespace SMI;
+using namespace Core;
 
 SMI::Interpreter::Interpreter()
 {
@@ -20,10 +23,13 @@ void SMI::Interpreter::RunOneStep()
 	}
 }
 
-bool SMI::Interpreter::LoadSMO(const char * filename)
+bool SMI::Interpreter::LoadSMO(const string& filename)
 {
-	file_name = string(filename);
-	file.open(file_name, ios::in);
+	//file_name = string(filename);
+	//file.open(file_name, ios::in);
+	Core::ResFile r(filename);	//使用ResFile以读取文件包内容
+
+
 	keywords.insert('[');
 	keywords.insert('<');
 	keywords.insert('-');
@@ -46,7 +52,7 @@ bool SMI::Interpreter::LoadSMO(const char * filename)
 		buffer.push_back(str);
 	}
 
-	file.close();
+	//file.close();
 	now_state = TEXT;
 
 	//build label list;

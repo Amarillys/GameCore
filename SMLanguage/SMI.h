@@ -8,6 +8,12 @@
 #include <vector>
 #include <stack>
 #include <algorithm>
+#define SAVE_SIZE 65536
+
+namespace Core{
+	class ResFile;
+	class Bundle;
+}
 
 using namespace std;
 
@@ -68,9 +74,9 @@ namespace SMI
 
 		void RunOneStep();
 
-		bool LoadSMO(const char* filename);	//加载SMO文件
-		void Save(const char*);	//保存解释器状态以存档
-		bool Load(const char*);	//读取解释器状态
+		bool LoadSMO(const string& filename);	//加载SMO文件
+		void Save(Bundle<SAVE_SIZE>&);	//保存解释器状态以存档
+		bool Load(Bundle<SAVE_SIZE>&);	//读取解释器状态
 
 										//判断类函数
 		bool NextIsText();	//下一个位置是否为对话
