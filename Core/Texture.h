@@ -6,11 +6,11 @@
 #include "FileSystem.h"
 
 
-/* ÎÆÀíÀà ÊôÓÚSDL·â×°²¿·Ö£¬²»ÒªÔÚ»î¶¯²ãÊ¹ÓÃ¡£*/
+/* çº¹ç†ç±» å±äºSDLå°è£…éƒ¨åˆ†ï¼Œä¸è¦åœ¨æ´»åŠ¨å±‚ä½¿ç”¨ã€‚*/
 namespace Core
 {
     class Font;
-    class Texture: public RenderDrawer DBGCLASS
+    class Texture: public RenderDrawer
     {
     protected:
         SDL_Texture * m_tex;
@@ -21,26 +21,26 @@ namespace Core
         Texture();
         void OnDraw();
         void Clear();
-        void Load(const std::string& file);  //´ÓÎÄ¼ş¼ÓÔØÍ¼Ïñ
-        void Load(Font&,const std::string&); //¼ÓÔØÎÄ×Ö
+        void Load(const std::string& file);  //ä»æ–‡ä»¶åŠ è½½å›¾åƒ
+        void Load(Font&,const std::string&); //åŠ è½½æ–‡å­—
         void Load(SDL_Surface*);
         void Load(SDL_Texture*);
-        void SetSrc(int x, int y, int w, int h); //Í¼Ïñ¼ô²Ã
-        void SetPos(int x, int y);   //ÉèÖÃÎ»ÖÃ
+        void SetSrc(int x, int y, int w, int h); //å›¾åƒå‰ªè£
+        void SetPos(int x, int y);   //è®¾ç½®ä½ç½®
         void SetPos(char base,int x,int y);
         void SetPos(float x,float y);
-        void SetZoom(int w, int h);  //ÉèÖÃËõ·Å
-        void SetAlpha(Uint8);   //Í¸Ã÷¶È
-        void SetColor(Uint8 R,Uint8 G,Uint8 B); //É«µ÷µ÷Õû
-        void SetBlend(SDL_BlendMode);   //ÉèÖÃSDLÍ¸Ã÷·½Ê½
+        void SetZoom(int w, int h);  //è®¾ç½®ç¼©æ”¾
+        void SetAlpha(Uint8);   //é€æ˜åº¦
+        void SetColor(Uint8 R,Uint8 G,Uint8 B); //è‰²è°ƒè°ƒæ•´
+        void SetBlend(SDL_BlendMode);   //è®¾ç½®SDLé€æ˜æ–¹å¼
         /*
-        std::SDL_BLENDMODE_NONE  ²»Í¸Ã÷£¨Ä¬ÈÏ£©
-        std::SDL_BLENDMODE_BLEND ÆÕÍ¨Í¸Ã÷
-        std::SDL_BLENDMODE_ADD   ÁÁ°×É«°ëÍ¸Ã÷
-        std::SDL_BLENDMODE_MOD   ºÚ°µ°ëÍ¸Ã÷
+        std::SDL_BLENDMODE_NONE  ä¸é€æ˜ï¼ˆé»˜è®¤ï¼‰
+        std::SDL_BLENDMODE_BLEND æ™®é€šé€æ˜
+        std::SDL_BLENDMODE_ADD   äº®ç™½è‰²åŠé€æ˜
+        std::SDL_BLENDMODE_MOD   é»‘æš—åŠé€æ˜
         */
-        void GetInfo(int& w,int& h);    //È¡µÃĞÅÏ¢
-        bool InRect(int x, int y);   //ÅĞ¶ÏÄ³×ø±êÊÇ·ñÔÚ¸ÃÎÆÀí·¶Î§ÄÚ
+        void GetInfo(int& w,int& h);    //å–å¾—ä¿¡æ¯
+        bool InRect(int x, int y);   //åˆ¤æ–­æŸåæ ‡æ˜¯å¦åœ¨è¯¥çº¹ç†èŒƒå›´å†…
         virtual ~Texture();
     };
 }

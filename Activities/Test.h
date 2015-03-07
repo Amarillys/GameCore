@@ -3,7 +3,7 @@
 using namespace Core;
 using namespace std;
 
-class TestControl:public Control    //¸Ã¿Ø¼ş½Ó¹Ü¼üÅÌ°´¼ü´¦Àí
+class TestControl:public Control    //è¯¥æ§ä»¶æ¥ç®¡é”®ç›˜æŒ‰é”®å¤„ç†
 {
 public:
     bool Proc (const SDL_Event* e,Activity* a)
@@ -83,7 +83,6 @@ private:
 public:
     TestActivity2()
     {
-        DBGCLASS_SETDBGINFO(m_t1,"testTexture");
         m_t1.Load("bg.png");
         m_t1.SetPos(0x20,0,0);
         m_ansList.push_front(&m_ctr);

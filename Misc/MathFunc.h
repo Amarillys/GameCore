@@ -2,7 +2,7 @@
 #define _HEAD_MATHFUNC_
 
 
-float ArcFunc(float x); //Ô²»¡º¯Êı£¬ÏÈ¿ìºóÂı
-float FArcFunc(float x); //Ô²»¡º¯Êı£¬ÏÈÂıºó¿ì
+float ArcFunc(float x); //åœ†å¼§å‡½æ•°ï¼Œå…ˆå¿«åæ…¢
+float FArcFunc(float x); //åœ†å¼§å‡½æ•°ï¼Œå…ˆæ…¢åå¿«
 
 #endif // _HEAD_MATHFUNC_

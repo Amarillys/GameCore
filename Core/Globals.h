@@ -10,13 +10,13 @@ namespace Core{
     extern SDL_Renderer* pRnd;
     extern std::list<Activity*> actList;
     extern int Window_W,Window_H;
-    void CoreInit(const std::string& title,const int w,const int h);    //¿ò¼Ü³õÊ¼»¯
-    void CoreMain(Activity*);   //¿ò¼ÜÖ´ĞĞ
-    void SendEvent(const SDL_Event*,Activity*);  //ÏòÒ»¸ö»î¶¯·¢ËÍÏûÏ¢
-    void Goto(Activity*);   //»î¶¯Ìø×ª
+    void CoreInit(const std::string& title,const int w,const int h);    //æ¡†æ¶åˆå§‹åŒ–
+    void CoreMain(Activity*);   //æ¡†æ¶æ‰§è¡Œ
+    void SendEvent(const SDL_Event*,Activity*);  //å‘ä¸€ä¸ªæ´»åŠ¨å‘é€æ¶ˆæ¯
+    void Goto(Activity*);   //æ´»åŠ¨è·³è½¬
 
     template<class T>
-    T* NewActivity() //ÄãÓ¦¸ÃÊ¹ÓÃ¸Ã·½·¨´´½¨»î¶¯
+    T* NewActivity() //ä½ åº”è¯¥ä½¿ç”¨è¯¥æ–¹æ³•åˆ›å»ºæ´»åŠ¨
     {T* p = new T();actList.push_front((Activity*)p);return p;}
 }
 

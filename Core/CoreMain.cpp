@@ -32,24 +32,24 @@ void Goto(Activity* a)
     nowFocus -> OnShow();
 }
 
-void SendEvent(SDL_Event* e,Activity* a)    //ÏòÒ»¸ö»î¶¯·¢ËÍSDLÏûÏ¢
+void SendEvent(SDL_Event* e,Activity* a)    //å‘ä¸€ä¸ªæ´»åŠ¨å‘é€SDLæ¶ˆæ¯
 {
-    if(!(a -> m_ansList.empty())) for(auto p = a -> m_ansList.begin();p != a -> m_ansList.end();++p)  //±éÀú¿Ø¼ş±í
+    if(!(a -> m_ansList.empty())) for(auto p = a -> m_ansList.begin();p != a -> m_ansList.end();++p)  //éå†æ§ä»¶è¡¨
     {
-        if((*p) -> Proc(e,a)) return;  //·¢ÏÖÓĞ¿Ø¼ş½ÓÊÜ¸ÃĞÅÏ¢ºó·µ»Ø
+        if((*p) -> Proc(e,a)) return;  //å‘ç°æœ‰æ§ä»¶æ¥å—è¯¥ä¿¡æ¯åè¿”å›
     }
-    a -> OnEvent(e);    //ÎŞ¿Ø¼ş½ÓÊÜÏûÏ¢£¬·¢ËÍÏûÏ¢¸ø»î¶¯µÄOnEvent()
+    a -> OnEvent(e);    //æ— æ§ä»¶æ¥å—æ¶ˆæ¯ï¼Œå‘é€æ¶ˆæ¯ç»™æ´»åŠ¨çš„OnEvent()
 }
 
-void ActivityDrawProc() //»î¶¯Ë¢ĞÂÒ»´Î´¦Àí
+void ActivityDrawProc() //æ´»åŠ¨åˆ·æ–°ä¸€æ¬¡å¤„ç†
 {
-    if(isGotoing){  //Èç¹ûÕıÔÚÌø×ª
+    if(isGotoing){  //å¦‚æœæ­£åœ¨è·³è½¬
         bool lastFinished = false;
         bool nowFinished = false;
 
         if(lastFocus != nullptr && !lastFinished) {
             if(lastFocus -> GetAnimationOnHide() != nullptr){
-                lastFocus -> GetAnimationOnHide() -> OnNext();   //»æÖÆÉÏ¸ö»î¶¯
+                lastFocus -> GetAnimationOnHide() -> OnNext();   //ç»˜åˆ¶ä¸Šä¸ªæ´»åŠ¨
                 if(lastFocus -> GetAnimationOnHide() -> Finished()) lastFinished = true;
             }else lastFinished = true;
             lastFocus -> OnDraw();
@@ -57,7 +57,7 @@ void ActivityDrawProc() //»î¶¯Ë¢ĞÂÒ»´Î´¦Àí
 
         if(nowFocus != nullptr && !nowFinished) {
             if(nowFocus -> GetAnimationOnShow() != nullptr){
-                nowFocus -> GetAnimationOnShow() -> OnNext();   //»æÖÆÏÂ¸ö»î¶¯
+                nowFocus -> GetAnimationOnShow() -> OnNext();   //ç»˜åˆ¶ä¸‹ä¸ªæ´»åŠ¨
                 if(nowFocus -> GetAnimationOnShow() -> Finished()) nowFinished = true;
             }else nowFinished = true;
             nowFocus -> OnDraw();
@@ -66,7 +66,7 @@ void ActivityDrawProc() //»î¶¯Ë¢ĞÂÒ»´Î´¦Àí
         if(lastFinished && nowFinished) isGotoing = false;
     }
 
-    //Á½¸ö¶¯»­½áÊøºó¹Ø±ÕÌø×ª×´Ì¬
+    //ä¸¤ä¸ªåŠ¨ç”»ç»“æŸåå…³é—­è·³è½¬çŠ¶æ€
     else{
         nowFocus -> OnNext();
         nowFocus -> OnDraw();;
@@ -77,7 +77,7 @@ void CoreMain(Activity* start)
 {
     nowFocus = start;
     nowFocus -> OnShow();
-    /* Ö÷Ñ­»·²¿·Ö */
+    /* ä¸»å¾ªç¯éƒ¨åˆ† */
     SDL_Event e;
     Timer FPSKiller;
     while(1){
@@ -90,10 +90,10 @@ void CoreMain(Activity* start)
         ActivityDrawProc();
         SDL_RenderPresent(pRnd);
 
-        FPSKiller.WaitTimer(1000/60);   //FPSÏŞÖÆ
+        FPSKiller.WaitTimer(1000/60);   //FPSé™åˆ¶
         FPSKiller.Reset();
         }
-    /* Ö÷Ñ­»·½áÊø */
+    /* ä¸»å¾ªç¯ç»“æŸ */
 
 CORE_END:
     if(!actList.empty())

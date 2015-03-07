@@ -1,21 +1,21 @@
 #include "Thread.h"
 #define THREAD_WAIT 25
 using namespace Core;
-//×ÓÏß³ÌÄÚÌá¹©µÄAPIÊµÏÖ
+//å­çº¿ç¨‹å†…æä¾›çš„APIå®ç°
 namespace Core
 {
-    int LaunchThread(void* ThreadObject)	//Õâ¸öº¯ÊıÒÑ¾­¿ªÊ¼ĞÂÏß³ÌÁË
+    int LaunchThread(void* ThreadObject)	//è¿™ä¸ªå‡½æ•°å·²ç»å¼€å§‹æ–°çº¿ç¨‹äº†
     {
-        ((Thread*)ThreadObject) -> Lock();	//Ïß³ÌÀà³õÊ¼»¯
+        ((Thread*)ThreadObject) -> Lock();	//çº¿ç¨‹ç±»åˆå§‹åŒ–
         ((Thread*)ThreadObject) -> m_imsg = 0;
         ((Thread*)ThreadObject) -> m_omsg = 0;
         ((Thread*)ThreadObject) -> m_running = true;
         void (*thread)(Thread*) = ((Thread*)ThreadObject) -> m_func;
         ((Thread*)ThreadObject) -> Unlock();
 
-        (*thread)((Thread*)ThreadObject);	//Ö´ĞĞÏß³Ì
+        (*thread)((Thread*)ThreadObject);	//æ‰§è¡Œçº¿ç¨‹
 
-        ((Thread*)ThreadObject) -> Lock();	//Ïß³Ì½áÊø
+        ((Thread*)ThreadObject) -> Lock();	//çº¿ç¨‹ç»“æŸ
         ((Thread*)ThreadObject) -> m_imsg = 0;
         ((Thread*)ThreadObject) -> m_running = false;
         ((Thread*)ThreadObject) -> Unlock();
@@ -108,7 +108,7 @@ namespace Core
         }
     }
 
-    //ThreadÀàÊµÏÖ
+    //Threadç±»å®ç°
     Thread::Thread(void (*func)(Thread*))
     {
         m_imsg = 0;

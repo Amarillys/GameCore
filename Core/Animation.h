@@ -5,8 +5,8 @@ namespace Core{
     class Animation
     {
     public:
-        virtual void OnNext() =0;  //ĞèÒªÏÂÒ»Ö¡¶¯»­Ê±
-        virtual bool Finished() =0;    //ÊÇ·ñÒÑ¾­Íê³É¸Ã¶¯»­
+        virtual void OnNext() =0;  //éœ€è¦ä¸‹ä¸€å¸§åŠ¨ç”»æ—¶
+        virtual bool Finished() =0;    //æ˜¯å¦å·²ç»å®Œæˆè¯¥åŠ¨ç”»
     };
 }
 

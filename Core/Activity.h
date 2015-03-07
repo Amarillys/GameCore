@@ -11,26 +11,26 @@ namespace Core{
     friend void Core::SendEvent(SDL_Event* e,Activity* a);
     protected:
         std::list<Control*> m_ansList;
-        //Èç¹ûÓĞControlĞèÒªÏàÓ¦²Ù×÷£¬°ÑËü¼Óµ½Õâ¸ö±íÀï
+        //å¦‚æœæœ‰Controléœ€è¦ç›¸åº”æ“ä½œï¼ŒæŠŠå®ƒåŠ åˆ°è¿™ä¸ªè¡¨é‡Œ
     public:
         virtual ~Activity(){};
 
 
-        virtual void OnShow(){};    //µ±Gotoµ½Õâ¸ö»î¶¯Ê±Ö´ĞĞ
-        virtual void OnHide(){};    //µ±Goto³öÕâ¸ö»î¶¯Ê±Ö´ĞĞ
+        virtual void OnShow(){};    //å½“Gotoåˆ°è¿™ä¸ªæ´»åŠ¨æ—¶æ‰§è¡Œ
+        virtual void OnHide(){};    //å½“Gotoå‡ºè¿™ä¸ªæ´»åŠ¨æ—¶æ‰§è¡Œ
 
-        virtual void OnDraw()=0;    //»æÖÆ»î¶¯
+        virtual void OnDraw()=0;    //ç»˜åˆ¶æ´»åŠ¨
         virtual void OnEvent(const SDL_Event*){};
-        //µ±Ã»ÓĞ¿Ø¼ş½ÓÊÜÏûÏ¢Ê±£¬»Øµ÷´Ëº¯Êı
+        //å½“æ²¡æœ‰æ§ä»¶æ¥å—æ¶ˆæ¯æ—¶ï¼Œå›è°ƒæ­¤å‡½æ•°
         virtual void OnEvent(Control*,const int){};
-        //µ±ÓĞ¿Ø¼ş½ÓÊÕÏûÏ¢Ê±£¬ÓÉControlµ÷ÓÃ´Ëº¯Êı£¬²¢´«Èë¿Ø¼ş¸øµÄÏûÏ¢
+        //å½“æœ‰æ§ä»¶æ¥æ”¶æ¶ˆæ¯æ—¶ï¼Œç”±Controlè°ƒç”¨æ­¤å‡½æ•°ï¼Œå¹¶ä¼ å…¥æ§ä»¶ç»™çš„æ¶ˆæ¯
 
-        virtual void OnNext() {};   //ÇëÇó³ıµ­Èë¶¯»­ºÍµ­³ö¶¯»­ÒÔÍâËùÓĞ¶¯»­µÄÏÂÒ»Ö¡
+        virtual void OnNext() {};   //è¯·æ±‚é™¤æ·¡å…¥åŠ¨ç”»å’Œæ·¡å‡ºåŠ¨ç”»ä»¥å¤–æ‰€æœ‰åŠ¨ç”»çš„ä¸‹ä¸€å¸§
 
         virtual Animation* GetAnimationOnShow(){return nullptr;}
-        //µ­Èë¶¯»­£¬ÇĞ»»Ê±ÓëÉÏ¸ö¶¯»­µÄµ­³ö¶¯»­Í¬Ê±²¥·Å
+        //æ·¡å…¥åŠ¨ç”»ï¼Œåˆ‡æ¢æ—¶ä¸ä¸Šä¸ªåŠ¨ç”»çš„æ·¡å‡ºåŠ¨ç”»åŒæ—¶æ’­æ”¾
 
         virtual Animation* GetAnimationOnHide(){return nullptr;}
-        //µ­³ö¶¯»­£¬ÇĞ»»Ê±ÓëÏÂ¸ö¶¯»­µÄµ­Èë¶¯»­Í¬Ê±²¥·Å
+        //æ·¡å‡ºåŠ¨ç”»ï¼Œåˆ‡æ¢æ—¶ä¸ä¸‹ä¸ªåŠ¨ç”»çš„æ·¡å…¥åŠ¨ç”»åŒæ—¶æ’­æ”¾
     };
 }
