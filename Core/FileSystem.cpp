@@ -136,10 +136,6 @@ void ResFile::Load(std::string f)
         in.close();
     }
     m_rw = SDL_RWFromConstMem((void*)m_mem,m_size);
-    #ifdef _DEBUG
-    dbg_info = f;
-    PNT("ResFile Object:"<<this<<"   Load  "<<f<<std::endl;)
-    #endif // _DEBUG
 }
 
 void ResFile::Free()
@@ -149,17 +145,10 @@ void ResFile::Free()
     m_mem = nullptr;
     m_size = 0;
     m_rw = nullptr;
-<<<<<<< HEAD
     //#ifdef _DEBUG
     //PNT("ResFile Object:"<<this<<"   Free  "<<dbg_info<<std::endl;)
     //dbg_info.clear();
     //#endif // _DEBUG
-=======
-    #ifdef _DEBUG
-    PNT("ResFile Object:"<<this<<"   Free  "<<dbg_info<<std::endl;)
-    dbg_info.clear();
-    #endif // _DEBUG
->>>>>>> origin/master
 }
 
 Uint32 ResFile::Size() const

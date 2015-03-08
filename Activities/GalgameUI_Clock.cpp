@@ -82,6 +82,8 @@ void Clock::Init(const std::string& num,const std::string& fg)
 
     m_fg.SetAlpha(0);
     m_clk.SetAlpha(0);
+
+    m_visible_l = false;
 }
 
 void Clock::OnDraw()

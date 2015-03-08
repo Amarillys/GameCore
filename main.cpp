@@ -10,7 +10,6 @@ int main( int argc, char * argv[] )
 {
 
     CoreInit("ACGCross Demo",1024,768);
-<<<<<<< HEAD
     {
         ResFile::Init("000");
         //ACGCross_Logo acglogo;
@@ -21,17 +20,6 @@ int main( int argc, char * argv[] )
         ResFile::Quit();
     }
     CoreQuit();
-=======
-    ResFile::Init("000");
-    auto acglogo= NewActivity<ACGCross_Logo>();
-    //TestActivity* a = NewActivity<TestActivity>();
-    //TestActivity2* b = NewActivity<TestActivity2>();
-    auto gal = NewActivity<GalgameUI>();
-    acglogo -> SetGoto(gal);
-    //a -> SetTo(b);b ->SetTo(a);
-    CoreMain(acglogo);
-    ResFile::Quit();
->>>>>>> origin/master
     return 0;
 }
 

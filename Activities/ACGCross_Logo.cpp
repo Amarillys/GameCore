@@ -9,10 +9,6 @@ ACGCross_Logo::ACGCross_Logo()
 
 void ACGCross_Logo::OnShow()
 {
-<<<<<<< HEAD
-=======
-    PNT("OnShow()"<<endl;)
->>>>>>> origin/master
     m_logo.Load("ACGCross\\ACGCross_Logo.png");
     m_logo.SetZoom(192*2,192*2);
     m_logo2.Load("ACGCross\\ACGCross_Logo2.png");
@@ -39,10 +35,6 @@ void ACGCross_Logo::OnShow()
 
 void ACGCross_Logo::OnHide()
 {
-<<<<<<< HEAD
-=======
-    PNT("OnHide()"<<endl);
->>>>>>> origin/master
     m_logo.Clear();
     m_logo2.Clear();
     m_yzsz.Clear();

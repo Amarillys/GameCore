@@ -19,11 +19,8 @@ namespace Core
             //0x02是中间
             //0x40是最下边
             //两个位置组合起来形成基位置，后边的x和y会相对于基位置进行计算
-<<<<<<< HEAD
 
     bool InRect(const SDL_Rect&,int x,int y);
-=======
->>>>>>> origin/master
 }
 
 

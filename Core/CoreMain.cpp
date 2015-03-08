@@ -90,24 +90,7 @@ void CoreMain(Activity* start)
 
         FPSKiller.WaitTimer(1000/60);   //FPS限制
         FPSKiller.Reset();
-<<<<<<< HEAD
     }
-=======
-        }
-    /* 主循环结束 */
-
-CORE_END:
-    if(!actList.empty())
-        for(auto p = actList.begin();p != actList.end();++p)
-            delete *p;
-
-    SDL_DestroyRenderer(pRnd);
-    SDL_DestroyWindow(pWnd);
-    TTF_Quit();
-    IMG_Quit();
-    Sound::Quit();
-    SDL_Quit();
->>>>>>> origin/master
 }
 
 void CoreInit(const string& title,const int w,const int h)
