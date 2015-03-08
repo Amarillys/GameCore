@@ -5,7 +5,7 @@
 #include <map>
 #include "FileSystem.h"
 
-/* ÉùÒôÀà £¬Ò»¸öÉùÒôÀà´ú±íÒ»¸öÍ¨µÀ£¬¿ÉÒÔÍ¬Ê±²¥·Å¡£ */
+/* å£°éŸ³ç±» ï¼Œä¸€ä¸ªå£°éŸ³ç±»ä»£è¡¨ä¸€ä¸ªé€šé“ï¼Œå¯ä»¥åŒæ—¶æ’­æ”¾ã€‚ */
 namespace Core{
 
     class Sound
@@ -20,26 +20,26 @@ namespace Core{
     public:
         Sound();
         ~Sound();
-        static void Init();	//³õÊ¼»¯ÒôÆµÏµÍ³
-        static void Quit();	//½áÊøÒôÆµÏµÍ³
-        bool Load(const std::string&);	//¼ÓÔØÉùÒô
-        void Play(const int _fadetime = 0);	//²¥·ÅÉùÒô£¬¿ÉÑ­»·£¬¿É¶¨Ñ­»·¿ªÊ¼µã£¬¿Éµ­³öµ­Èë
-        void Play_Loop(const int _fadetime = 0);	//ÎŞÑ­»·µãÑ­»·²¥·Å
+        static void Init();	//åˆå§‹åŒ–éŸ³é¢‘ç³»ç»Ÿ
+        static void Quit();	//ç»“æŸéŸ³é¢‘ç³»ç»Ÿ
+        bool Load(const std::string&);	//åŠ è½½å£°éŸ³
+        void Play(const int _fadetime = 0);	//æ’­æ”¾å£°éŸ³ï¼Œå¯å¾ªç¯ï¼Œå¯å®šå¾ªç¯å¼€å§‹ç‚¹ï¼Œå¯æ·¡å‡ºæ·¡å…¥
+        void Play_Loop(const int _fadetime = 0);	//æ— å¾ªç¯ç‚¹å¾ªç¯æ’­æ”¾
         void Pause();
         void Resume();
         void Stop(const int _fadetime = 0);
-        void Volume(const int _vol);	//ÒôÁ¿
-        bool Playing(); //ÊÇ·ñÕıÔÚ²¥·Å
+        void Volume(const int _vol);	//éŸ³é‡
+        bool Playing(); //æ˜¯å¦æ­£åœ¨æ’­æ”¾
     };
 
     void Sound_CallBack(const int channel);
-    class Sound_Loop:public Sound	//ÓĞÑ­»·µãÑ­»·ÉùÒôÀà£¬ÓÉÁ½¸öÎÄ¼ş×é³É£¬Í·²¿ÒôÀÖºÍÑ­»·²¿·ÖÒôÀÖ
+    class Sound_Loop:public Sound	//æœ‰å¾ªç¯ç‚¹å¾ªç¯å£°éŸ³ç±»ï¼Œç”±ä¸¤ä¸ªæ–‡ä»¶ç»„æˆï¼Œå¤´éƒ¨éŸ³ä¹å’Œå¾ªç¯éƒ¨åˆ†éŸ³ä¹
     {
     friend void Core::Sound_CallBack(const int channel);
     private:
         Mix_Chunk* m_pCnk_loop;
         Core::ResFile m_loopFile;
-        static std::map<int,Mix_Chunk*> m_ChnToCnk;	//ÆµµÀ¶ÔÑ­»·ÎÄ¼ş¹ØÏµ
+        static std::map<int,Mix_Chunk*> m_ChnToCnk;	//é¢‘é“å¯¹å¾ªç¯æ–‡ä»¶å…³ç³»
     protected:
         void Free();
     public:

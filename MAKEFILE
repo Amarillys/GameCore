@@ -40,9 +40,9 @@ OBJDIR_RELEASE = bin\\Release\\obj
 DEP_RELEASE = 
 OUT_RELEASE = bin\\Release\\Galgame_Engine.exe
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)\\main.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o $(OBJDIR_DEBUG)\\Core\\Thread.o $(OBJDIR_DEBUG)\\Core\\Texture.o $(OBJDIR_DEBUG)\\Core\\Sound.o $(OBJDIR_DEBUG)\\Core\\Bundle.o $(OBJDIR_DEBUG)\\Core\\CoreMain.o $(OBJDIR_DEBUG)\\Core\\Error.o $(OBJDIR_DEBUG)\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\Core\\Font.o $(OBJDIR_DEBUG)\\Core\\Misc.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)\\Core\\Misc.o $(OBJDIR_DEBUG)\\Core\\Sound.o $(OBJDIR_DEBUG)\\Core\\Texture.o $(OBJDIR_DEBUG)\\Core\\Thread.o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o $(OBJDIR_DEBUG)\\Misc\\NumTexture.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\main.o $(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o $(OBJDIR_DEBUG)\\Core\\Bundle.o $(OBJDIR_DEBUG)\\Core\\CoreMain.o $(OBJDIR_DEBUG)\\Core\\Error.o $(OBJDIR_DEBUG)\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\Core\\Font.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)\\main.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o $(OBJDIR_RELEASE)\\Core\\Thread.o $(OBJDIR_RELEASE)\\Core\\Texture.o $(OBJDIR_RELEASE)\\Core\\Sound.o $(OBJDIR_RELEASE)\\Core\\Bundle.o $(OBJDIR_RELEASE)\\Core\\CoreMain.o $(OBJDIR_RELEASE)\\Core\\Error.o $(OBJDIR_RELEASE)\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\Core\\Font.o $(OBJDIR_RELEASE)\\Core\\Misc.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)\\Core\\Misc.o $(OBJDIR_RELEASE)\\Core\\Sound.o $(OBJDIR_RELEASE)\\Core\\Texture.o $(OBJDIR_RELEASE)\\Core\\Thread.o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o $(OBJDIR_RELEASE)\\Misc\\NumTexture.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\main.o $(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o $(OBJDIR_RELEASE)\\Core\\Bundle.o $(OBJDIR_RELEASE)\\Core\\CoreMain.o $(OBJDIR_RELEASE)\\Core\\Error.o $(OBJDIR_RELEASE)\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\Core\\Font.o
 
 all: before_build build_debug build_release after_build
 
@@ -55,9 +55,10 @@ after_build:
 
 before_debug: 
 	cmd /c if not exist bin\\Debug md bin\\Debug
-	cmd /c if not exist $(OBJDIR_DEBUG) md $(OBJDIR_DEBUG)
-	cmd /c if not exist $(OBJDIR_DEBUG)\\Misc md $(OBJDIR_DEBUG)\\Misc
 	cmd /c if not exist $(OBJDIR_DEBUG)\\Core md $(OBJDIR_DEBUG)\\Core
+	cmd /c if not exist $(OBJDIR_DEBUG)\\Misc md $(OBJDIR_DEBUG)\\Misc
+	cmd /c if not exist $(OBJDIR_DEBUG) md $(OBJDIR_DEBUG)
+	cmd /c if not exist $(OBJDIR_DEBUG)\\Activities md $(OBJDIR_DEBUG)\\Activities
 
 after_debug: 
 
@@ -68,23 +69,41 @@ debug: before_build build_debug after_build
 out_debug: before_debug $(OBJ_DEBUG) $(DEP_DEBUG)
 	$(LD) $(LIBDIR_DEBUG) -o $(OUT_DEBUG) $(OBJ_DEBUG)  $(LDFLAGS_DEBUG) $(LIB_DEBUG)
 
-$(OBJDIR_DEBUG)\\main.o: main.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.cpp -o $(OBJDIR_DEBUG)\\main.o
+$(OBJDIR_DEBUG)\\Core\\Misc.o: Core\\Misc.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Misc.cpp -o $(OBJDIR_DEBUG)\\Core\\Misc.o
 
-$(OBJDIR_DEBUG)\\icon.o: icon.rc
-	$(WINDRES) -i icon.rc -J rc -o $(OBJDIR_DEBUG)\\icon.o -O coff $(INC_DEBUG)
-
-$(OBJDIR_DEBUG)\\Misc\\MathFunc.o: Misc\\MathFunc.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Misc\\MathFunc.cpp -o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o
-
-$(OBJDIR_DEBUG)\\Core\\Thread.o: Core\\Thread.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Thread.cpp -o $(OBJDIR_DEBUG)\\Core\\Thread.o
+$(OBJDIR_DEBUG)\\Core\\Sound.o: Core\\Sound.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Sound.cpp -o $(OBJDIR_DEBUG)\\Core\\Sound.o
 
 $(OBJDIR_DEBUG)\\Core\\Texture.o: Core\\Texture.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Texture.cpp -o $(OBJDIR_DEBUG)\\Core\\Texture.o
 
-$(OBJDIR_DEBUG)\\Core\\Sound.o: Core\\Sound.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Sound.cpp -o $(OBJDIR_DEBUG)\\Core\\Sound.o
+$(OBJDIR_DEBUG)\\Core\\Thread.o: Core\\Thread.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Thread.cpp -o $(OBJDIR_DEBUG)\\Core\\Thread.o
+
+$(OBJDIR_DEBUG)\\Misc\\MathFunc.o: Misc\\MathFunc.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Misc\\MathFunc.cpp -o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o
+
+$(OBJDIR_DEBUG)\\Misc\\NumTexture.o: Misc\\NumTexture.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Misc\\NumTexture.cpp -o $(OBJDIR_DEBUG)\\Misc\\NumTexture.o
+
+$(OBJDIR_DEBUG)\\icon.o: icon.rc
+	$(WINDRES) -i icon.rc -J rc -o $(OBJDIR_DEBUG)\\icon.o -O coff $(INC_DEBUG)
+
+$(OBJDIR_DEBUG)\\main.o: main.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.cpp -o $(OBJDIR_DEBUG)\\main.o
+
+$(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o: Activities\\ACGCross_Logo.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\ACGCross_Logo.cpp -o $(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o
+
+$(OBJDIR_DEBUG)\\Activities\\GalgameUI.o: Activities\\GalgameUI.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o
+
+$(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o: Activities\\GalgameUI_Clock.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI_Clock.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o
+
+$(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o: Activities\\GalgameUI_GameMenu.cpp
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI_GameMenu.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o
 
 $(OBJDIR_DEBUG)\\Core\\Bundle.o: Core\\Bundle.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Bundle.cpp -o $(OBJDIR_DEBUG)\\Core\\Bundle.o
@@ -101,21 +120,20 @@ $(OBJDIR_DEBUG)\\Core\\FileSystem.o: Core\\FileSystem.cpp
 $(OBJDIR_DEBUG)\\Core\\Font.o: Core\\Font.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Font.cpp -o $(OBJDIR_DEBUG)\\Core\\Font.o
 
-$(OBJDIR_DEBUG)\\Core\\Misc.o: Core\\Misc.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Misc.cpp -o $(OBJDIR_DEBUG)\\Core\\Misc.o
-
 clean_debug: 
 	cmd /c del /f $(OBJ_DEBUG) $(OUT_DEBUG)
 	cmd /c rd bin\\Debug
-	cmd /c rd $(OBJDIR_DEBUG)
-	cmd /c rd $(OBJDIR_DEBUG)\\Misc
 	cmd /c rd $(OBJDIR_DEBUG)\\Core
+	cmd /c rd $(OBJDIR_DEBUG)\\Misc
+	cmd /c rd $(OBJDIR_DEBUG)
+	cmd /c rd $(OBJDIR_DEBUG)\\Activities
 
 before_release: 
 	cmd /c if not exist bin\\Release md bin\\Release
-	cmd /c if not exist $(OBJDIR_RELEASE) md $(OBJDIR_RELEASE)
-	cmd /c if not exist $(OBJDIR_RELEASE)\\Misc md $(OBJDIR_RELEASE)\\Misc
 	cmd /c if not exist $(OBJDIR_RELEASE)\\Core md $(OBJDIR_RELEASE)\\Core
+	cmd /c if not exist $(OBJDIR_RELEASE)\\Misc md $(OBJDIR_RELEASE)\\Misc
+	cmd /c if not exist $(OBJDIR_RELEASE) md $(OBJDIR_RELEASE)
+	cmd /c if not exist $(OBJDIR_RELEASE)\\Activities md $(OBJDIR_RELEASE)\\Activities
 
 after_release: 
 
@@ -126,23 +144,41 @@ release: before_build build_release after_build
 out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) -mwindows $(LIB_RELEASE)
 
-$(OBJDIR_RELEASE)\\main.o: main.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)\\main.o
+$(OBJDIR_RELEASE)\\Core\\Misc.o: Core\\Misc.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Misc.cpp -o $(OBJDIR_RELEASE)\\Core\\Misc.o
 
-$(OBJDIR_RELEASE)\\icon.o: icon.rc
-	$(WINDRES) -i icon.rc -J rc -o $(OBJDIR_RELEASE)\\icon.o -O coff $(INC_RELEASE)
-
-$(OBJDIR_RELEASE)\\Misc\\MathFunc.o: Misc\\MathFunc.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Misc\\MathFunc.cpp -o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o
-
-$(OBJDIR_RELEASE)\\Core\\Thread.o: Core\\Thread.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Thread.cpp -o $(OBJDIR_RELEASE)\\Core\\Thread.o
+$(OBJDIR_RELEASE)\\Core\\Sound.o: Core\\Sound.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Sound.cpp -o $(OBJDIR_RELEASE)\\Core\\Sound.o
 
 $(OBJDIR_RELEASE)\\Core\\Texture.o: Core\\Texture.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Texture.cpp -o $(OBJDIR_RELEASE)\\Core\\Texture.o
 
-$(OBJDIR_RELEASE)\\Core\\Sound.o: Core\\Sound.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Sound.cpp -o $(OBJDIR_RELEASE)\\Core\\Sound.o
+$(OBJDIR_RELEASE)\\Core\\Thread.o: Core\\Thread.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Thread.cpp -o $(OBJDIR_RELEASE)\\Core\\Thread.o
+
+$(OBJDIR_RELEASE)\\Misc\\MathFunc.o: Misc\\MathFunc.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Misc\\MathFunc.cpp -o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o
+
+$(OBJDIR_RELEASE)\\Misc\\NumTexture.o: Misc\\NumTexture.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Misc\\NumTexture.cpp -o $(OBJDIR_RELEASE)\\Misc\\NumTexture.o
+
+$(OBJDIR_RELEASE)\\icon.o: icon.rc
+	$(WINDRES) -i icon.rc -J rc -o $(OBJDIR_RELEASE)\\icon.o -O coff $(INC_RELEASE)
+
+$(OBJDIR_RELEASE)\\main.o: main.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)\\main.o
+
+$(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o: Activities\\ACGCross_Logo.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\ACGCross_Logo.cpp -o $(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o
+
+$(OBJDIR_RELEASE)\\Activities\\GalgameUI.o: Activities\\GalgameUI.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o
+
+$(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o: Activities\\GalgameUI_Clock.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI_Clock.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o
+
+$(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o: Activities\\GalgameUI_GameMenu.cpp
+	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI_GameMenu.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o
 
 $(OBJDIR_RELEASE)\\Core\\Bundle.o: Core\\Bundle.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Bundle.cpp -o $(OBJDIR_RELEASE)\\Core\\Bundle.o
@@ -159,15 +195,13 @@ $(OBJDIR_RELEASE)\\Core\\FileSystem.o: Core\\FileSystem.cpp
 $(OBJDIR_RELEASE)\\Core\\Font.o: Core\\Font.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Font.cpp -o $(OBJDIR_RELEASE)\\Core\\Font.o
 
-$(OBJDIR_RELEASE)\\Core\\Misc.o: Core\\Misc.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Misc.cpp -o $(OBJDIR_RELEASE)\\Core\\Misc.o
-
 clean_release: 
 	cmd /c del /f $(OBJ_RELEASE) $(OUT_RELEASE)
 	cmd /c rd bin\\Release
-	cmd /c rd $(OBJDIR_RELEASE)
-	cmd /c rd $(OBJDIR_RELEASE)\\Misc
 	cmd /c rd $(OBJDIR_RELEASE)\\Core
+	cmd /c rd $(OBJDIR_RELEASE)\\Misc
+	cmd /c rd $(OBJDIR_RELEASE)
+	cmd /c rd $(OBJDIR_RELEASE)\\Activities
 
 .PHONY: before_build after_build before_debug after_debug clean_debug before_release after_release clean_release
 

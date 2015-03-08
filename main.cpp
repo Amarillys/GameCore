@@ -1,6 +1,7 @@
 #include "Core/Core.h"
 #include "Activities/ACGCross_Logo.h"
 #include "Activities/Test.h"
+#include "Activities/GalgameUI.h"
 
 using namespace std;
 using namespace Core;
@@ -8,15 +9,17 @@ using namespace Core;
 int main( int argc, char * argv[] )
 {
 
-    CoreInit("ACGCross Demo",400,550);
-    ResFile::Init("000");
-    auto acglogo= NewActivity<ACGCross_Logo>();
-    TestActivity* a = NewActivity<TestActivity>();
-    TestActivity2* b = NewActivity<TestActivity2>();
-    a -> SetTo(b);b ->SetTo(a);
-    acglogo -> SetGoto(a);
-    CoreMain(acglogo);
-    ResFile::Quit();
+    CoreInit("ACGCross Demo",1024,768);
+    {
+        ResFile::Init("000");
+        //ACGCross_Logo acglogo;
+        GalgameUI gal;
+        //acglogo.SetGoto(&gal);
+
+        CoreMain(&gal);
+        ResFile::Quit();
+    }
+    CoreQuit();
     return 0;
 }
 
@@ -30,13 +33,13 @@ int smain( int argc, char * argv[] )
     PNT(" ");
     PNT(__TIME__);
     PNT(endl);
-    //≥ı ºªØ
+    //ÂàùÂßãÂåñ
 
     ResFile::Init("000");
 
 
-    ResFile::OpenPkg("pkr.cpk");    //¥Úø™Œƒº˛∞¸
-    //÷˜—≠ª∑
+    ResFile::OpenPkg("pkr.cpk");    //ÊâìÂºÄÊñá‰ª∂ÂåÖ
+    //‰∏ªÂæ™ÁéØ
     {
         Font f("msyh.ttf");
         Sound s;
@@ -45,7 +48,7 @@ int smain( int argc, char * argv[] )
         Texture t,bg,txt;
         bg.LoadImage("bg.png");
         t.LoadImage("0.png");
-        txt.LoadText(f,"Œƒ◊÷Œ∆¿Ì");
+        txt.LoadText(f,"ÊñáÂ≠óÁ∫πÁêÜ");
         t.SetSrc(0,0,290,290);
         bg.SetSrc(0,0,1024,768);
         txt.SetPos(0,0);
@@ -73,7 +76,7 @@ int smain( int argc, char * argv[] )
             for(register auto p = RFList.begin();p != RFList.end();++p) (*p) -> OnDraw();
             SDL_RenderPresent(pRnd);
 
-            FPSKiller.WaitTimer(100/60);   //FPSœﬁ÷∆
+            FPSKiller.WaitTimer(100/60);   //FPSÈôêÂà∂
             FPSKiller.Reset();
 
             FPSCounter ++;
@@ -89,7 +92,7 @@ int smain( int argc, char * argv[] )
     }
 
 
-    //ªÿ ’
+    //ÂõûÊî∂
     END:
 
     return 0;

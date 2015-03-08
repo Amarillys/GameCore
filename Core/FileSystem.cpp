@@ -24,7 +24,7 @@ void ResFile::Init(const std::string& pw)
     m_pkgpw = pw;
 }
 
-/* ÆÕÍ¨°æÊµÏÖ */
+/* æ™®é€šç‰ˆå®ç° */
 
 void ResFile::Quit()
 {
@@ -42,7 +42,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
     std::ifstream* pPkgf = nullptr;
     try{
         std::ifstream* pPkgf = new std::ifstream(pkg.c_str(),std::ios::binary);
-        if(!(*pPkgf)) throw Error(0x31000000,"ÎŞ·¨´ò¿ªÎÄ¼ş°ü¡£");
+        if(!(*pPkgf)) throw Error(0x31000000,"æ— æ³•æ‰“å¼€æ–‡ä»¶åŒ…ã€‚");
         m_pkgs.push_back(pPkgf);
     }
     CATCH_BADALLOC
@@ -59,10 +59,13 @@ bool ResFile::OpenPkg(const std::string& pkg)
     for(Uint32 i = 0;i < File_Count;++i)
     {
         std::string fName;
+        #ifdef _DEBUG
+        PNT("ResFile::OpenPkg   "<<fName<<"  Point Created."<<std::endl;)
+        #endif // _DEBUG
         Core::GetString(*pPkgf,fName);
         FixPath(fName);
         pPkgf -> read((char*)&Point.size,sizeof(Point.size));
-        if(m_fs.count(fName)) {PNT("´íÎó£ºÄ³Á½¸ö°üÄÚÓĞÖØÃûµÄÎÄ¼ş" + fName);}
+        if(m_fs.count(fName)) {PNT("é”™è¯¯ï¼šæŸä¸¤ä¸ªåŒ…å†…æœ‰é‡åçš„æ–‡ä»¶" + fName);}
         m_fs [fName] = Point;
         Point.start += Point.size;
     }
@@ -106,23 +109,23 @@ ResFile::ResFile(const std::string& s)
 ResFile::~ResFile()
 {
     Free();
-    PNT("ResFile Killed:"<<this<<std::endl);
+    //PNT("ResFile Killed:"<<this<<std::endl);
 }
 
 void ResFile::Load(std::string f)
 {
     Free();
     FixPath(f);
-    if(m_fs.count(f) == 1){ //°üÖĞÓĞÎÄ¼şÔò´Ó°üÖĞ¼ÓÔØ
+    if(m_fs.count(f) == 1){ //åŒ…ä¸­æœ‰æ–‡ä»¶åˆ™ä»åŒ…ä¸­åŠ è½½
         m_size = m_fs[f].size;
         try{m_mem = new BYTE [m_size];}
         CATCH_BADALLOC
         m_pkgs[m_fs[f].pkg] -> read((char*)m_mem,m_size);
         if(!m_pkgpw.empty()) for(Uint16 i = 0;i < ENC_LEN && i < m_size;++i) *(m_mem+i) ^= m_pkgpw[i%m_pkgpw.length()];
-    }else{  //·ñÔò´Ó±¾µØ¼ÓÔØ
+    }else{  //å¦åˆ™ä»æœ¬åœ°åŠ è½½
         std::ifstream in(f.c_str(),std::ios::binary);
         if(!in){
-            Error(0x30000001,"ÎŞ·¨´ò¿ª±¾µØÎÄ¼ş£º"+f);
+            Error(0x30000001,"æ— æ³•æ‰“å¼€æœ¬åœ°æ–‡ä»¶ï¼š"+f);
         }
         in.seekg(0,std::ios::end);
         m_size = in.tellg();
@@ -142,6 +145,10 @@ void ResFile::Free()
     m_mem = nullptr;
     m_size = 0;
     m_rw = nullptr;
+    //#ifdef _DEBUG
+    //PNT("ResFile Object:"<<this<<"   Free  "<<dbg_info<<std::endl;)
+    //dbg_info.clear();
+    //#endif // _DEBUG
 }
 
 Uint32 ResFile::Size() const
@@ -180,7 +187,7 @@ ResFile::operator bool () const
 }
 
 
-/* ÒıÓÃ¼ÆÊı°æ ÊµÏÖ
+/* å¼•ç”¨è®¡æ•°ç‰ˆ å®ç°
 Mutex ResFile::m_mut;
 BYTE ResFile::m_nullptr = '\0';
 
@@ -292,7 +299,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
         std::string fName;
         Core::GetString(*pPkgf,fName);
         pPkgf -> read((char*)&Point.size,sizeof(Point.size));
-        if(m_fs.count(fName)) {PNT("´íÎó£ºÄ³Á½¸ö°üÄÚÓĞÖØÃûµÄÎÄ¼ş" + fName +"¸Ã´íÎó»áµ¼ÖÂÄÚ´æĞ¹Â©¡£");return false;}
+        if(m_fs.count(fName)) {PNT("é”™è¯¯ï¼šæŸä¸¤ä¸ªåŒ…å†…æœ‰é‡åçš„æ–‡ä»¶" + fName +"è¯¥é”™è¯¯ä¼šå¯¼è‡´å†…å­˜æ³„æ¼ã€‚");return false;}
         m_fs [fName] = Point;
         Point.start += Point.size;
     }
@@ -308,7 +315,7 @@ void ResFile::SetReg(const std::string& file,const bool reg)
     if(reg == false && m_fs[file].count == 0) ForceFree(file);
 }
 
-//ResFileÎÄ¼şÖ¸Ïò²¿·ÖÊµÏÖ
+//ResFileæ–‡ä»¶æŒ‡å‘éƒ¨åˆ†å®ç°
 
 ResFile::ResFile()
 {

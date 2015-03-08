@@ -30,3 +30,10 @@ void Core::Pos(SDL_Rect& opr,
     opr.x = screen_w_p * ((base & 0xF0) / 0x10) + x;
     opr.y = screen_h_p * (base & 0x0F) + y;
 }
+
+bool Core::InRect(const SDL_Rect& r,int x,int y)
+{
+    return
+        x >= r.x && x <= r.x + r.w &&
+        y >= r.y && y <=r.y + r.h;
+}

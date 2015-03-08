@@ -2,13 +2,13 @@
 #define _HEAD_TIMER_
 #include "../Debug.h"
 
-/***** ��ʱ�� *****
-* ����NS�����ַ�����
-* ÿһ�����󶼿����Ƕ����ļ�ʱ������������ʹ�ù�ͬ�ĵײ��ʱ����
-* ԭ����ʹ��ʱ��
-* Reset����TimerΪ0��
-* GetTimer���ص�ǰ��ʱ��ֵ������������
-* WaitTimer����ʹ��SDL_Delay�ȴ���ʱ���ܵ�һ��ʱ�䡣
+/***** 计时器 *****
+* 类似NS的那种方法。
+* 每一个对象都可以是独立的计时器，但是它们使用共同的底层计时器。
+* 原理是使用时间差。
+* Reset重置Timer为0。
+* GetTimer返回当前的时间值（毫秒数）。
+* WaitTimer用来使用SDL_Delay等待计时器跑到一定时间。
 * 2014.8.24
 ******************/
 

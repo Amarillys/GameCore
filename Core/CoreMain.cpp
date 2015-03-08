@@ -21,8 +21,6 @@ int Core::Window_H;
 
 namespace Core{
 
-std::list<Activity*> actList;
-
 void Goto(Activity* a)
 {
     nowFocus -> OnHide();
@@ -32,24 +30,24 @@ void Goto(Activity* a)
     nowFocus -> OnShow();
 }
 
-void SendEvent(SDL_Event* e,Activity* a)    //œÚ“ª∏ˆªÓ∂Ø∑¢ÀÕSDLœ˚œ¢
+void SendEvent(SDL_Event* e,Activity* a)    //Âêë‰∏Ä‰∏™Ê¥ªÂä®ÂèëÈÄÅSDLÊ∂àÊÅØ
 {
-    if(!(a -> m_ansList.empty())) for(auto p = a -> m_ansList.begin();p != a -> m_ansList.end();++p)  //±È¿˙øÿº˛±Ì
+    if(!(a -> m_ansList.empty())) for(auto p = a -> m_ansList.begin();p != a -> m_ansList.end();++p)  //ÈÅçÂéÜÊéß‰ª∂Ë°®
     {
-        if((*p) -> Proc(e,a)) return;  //∑¢œ÷”–øÿº˛Ω” ‹∏√–≈œ¢∫Û∑µªÿ
+        if((*p) -> Proc(e,a)) return;  //ÂèëÁé∞ÊúâÊéß‰ª∂Êé•ÂèóËØ•‰ø°ÊÅØÂêéËøîÂõû
     }
-    a -> OnEvent(e);    //Œﬁøÿº˛Ω” ‹œ˚œ¢£¨∑¢ÀÕœ˚œ¢∏¯ªÓ∂ØµƒOnEvent()
+    a -> OnEvent(e);    //Êó†Êéß‰ª∂Êé•ÂèóÊ∂àÊÅØÔºåÂèëÈÄÅÊ∂àÊÅØÁªôÊ¥ªÂä®ÁöÑOnEvent()
 }
 
-void ActivityDrawProc() //ªÓ∂ØÀ¢–¬“ª¥Œ¥¶¿Ì
+void ActivityDrawProc() //Ê¥ªÂä®Âà∑Êñ∞‰∏ÄÊ¨°Â§ÑÁêÜ
 {
-    if(isGotoing){  //»Áπ˚’˝‘⁄Ã¯◊™
+    if(isGotoing){  //Â¶ÇÊûúÊ≠£Âú®Ë∑≥ËΩ¨
         bool lastFinished = false;
         bool nowFinished = false;
 
         if(lastFocus != nullptr && !lastFinished) {
             if(lastFocus -> GetAnimationOnHide() != nullptr){
-                lastFocus -> GetAnimationOnHide() -> OnNext();   //ªÊ÷∆…œ∏ˆªÓ∂Ø
+                lastFocus -> GetAnimationOnHide() -> OnNext();   //ÁªòÂà∂‰∏ä‰∏™Ê¥ªÂä®
                 if(lastFocus -> GetAnimationOnHide() -> Finished()) lastFinished = true;
             }else lastFinished = true;
             lastFocus -> OnDraw();
@@ -57,7 +55,7 @@ void ActivityDrawProc() //ªÓ∂ØÀ¢–¬“ª¥Œ¥¶¿Ì
 
         if(nowFocus != nullptr && !nowFinished) {
             if(nowFocus -> GetAnimationOnShow() != nullptr){
-                nowFocus -> GetAnimationOnShow() -> OnNext();   //ªÊ÷∆œ¬∏ˆªÓ∂Ø
+                nowFocus -> GetAnimationOnShow() -> OnNext();   //ÁªòÂà∂‰∏ã‰∏™Ê¥ªÂä®
                 if(nowFocus -> GetAnimationOnShow() -> Finished()) nowFinished = true;
             }else nowFinished = true;
             nowFocus -> OnDraw();
@@ -66,7 +64,7 @@ void ActivityDrawProc() //ªÓ∂ØÀ¢–¬“ª¥Œ¥¶¿Ì
         if(lastFinished && nowFinished) isGotoing = false;
     }
 
-    //¡Ω∏ˆ∂Øª≠Ω· ¯∫Ûπÿ±’Ã¯◊™◊¥Ã¨
+    //‰∏§‰∏™Âä®ÁîªÁªìÊùüÂêéÂÖ≥Èó≠Ë∑≥ËΩ¨Áä∂ÊÄÅ
     else{
         nowFocus -> OnNext();
         nowFocus -> OnDraw();;
@@ -77,12 +75,12 @@ void CoreMain(Activity* start)
 {
     nowFocus = start;
     nowFocus -> OnShow();
-    /* ÷˜—≠ª∑≤ø∑÷ */
+    /* ‰∏ªÂæ™ÁéØÈÉ®ÂàÜ */
     SDL_Event e;
     Timer FPSKiller;
     while(1){
         while(SDL_PollEvent(&e)){
-            if (e.type == SDL_QUIT) goto CORE_END;
+            if (e.type == SDL_QUIT) return;
             else SendEvent(&e,nowFocus);
         }
         SDL_SetRenderDrawColor(Core::pRnd,0x00,0x00,0x00,0xFF);
@@ -90,22 +88,9 @@ void CoreMain(Activity* start)
         ActivityDrawProc();
         SDL_RenderPresent(pRnd);
 
-        FPSKiller.WaitTimer(1000/60);   //FPSœﬁ÷∆
+        FPSKiller.WaitTimer(1000/60);   //FPSÈôêÂà∂
         FPSKiller.Reset();
-        }
-    /* ÷˜—≠ª∑Ω· ¯ */
-
-CORE_END:
-    if(!actList.empty())
-        for(auto p = actList.begin();p != actList.end();++p)
-            delete *p;
-
-    SDL_DestroyRenderer(pRnd);
-    SDL_DestroyWindow(pWnd);
-    TTF_Quit();
-    IMG_Quit();
-    Sound::Quit();
-    SDL_Quit();
+    }
 }
 
 void CoreInit(const string& title,const int w,const int h)
@@ -134,4 +119,14 @@ void CoreInit(const string& title,const int w,const int h)
 
 }
 
+}
+
+void Core::CoreQuit()
+{
+    SDL_DestroyRenderer(pRnd);
+    SDL_DestroyWindow(pWnd);
+    TTF_Quit();
+    IMG_Quit();
+    Sound::Quit();
+    SDL_Quit();
 }
