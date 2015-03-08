@@ -40,9 +40,15 @@ OBJDIR_RELEASE = bin\\Release\\obj
 DEP_RELEASE = 
 OUT_RELEASE = bin\\Release\\Galgame_Engine.exe
 
+<<<<<<< HEAD
 OBJ_DEBUG = $(OBJDIR_DEBUG)\\Core\\Misc.o $(OBJDIR_DEBUG)\\Core\\Sound.o $(OBJDIR_DEBUG)\\Core\\Texture.o $(OBJDIR_DEBUG)\\Core\\Thread.o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o $(OBJDIR_DEBUG)\\Misc\\NumTexture.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\main.o $(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o $(OBJDIR_DEBUG)\\Core\\Bundle.o $(OBJDIR_DEBUG)\\Core\\CoreMain.o $(OBJDIR_DEBUG)\\Core\\Error.o $(OBJDIR_DEBUG)\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\Core\\Font.o
 
 OBJ_RELEASE = $(OBJDIR_RELEASE)\\Core\\Misc.o $(OBJDIR_RELEASE)\\Core\\Sound.o $(OBJDIR_RELEASE)\\Core\\Texture.o $(OBJDIR_RELEASE)\\Core\\Thread.o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o $(OBJDIR_RELEASE)\\Misc\\NumTexture.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\main.o $(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o $(OBJDIR_RELEASE)\\Core\\Bundle.o $(OBJDIR_RELEASE)\\Core\\CoreMain.o $(OBJDIR_RELEASE)\\Core\\Error.o $(OBJDIR_RELEASE)\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\Core\\Font.o
+=======
+OBJ_DEBUG = $(OBJDIR_DEBUG)\\Core\\Misc.o $(OBJDIR_DEBUG)\\Core\\Sound.o $(OBJDIR_DEBUG)\\Core\\Texture.o $(OBJDIR_DEBUG)\\Core\\Thread.o $(OBJDIR_DEBUG)\\Misc\\MathFunc.o $(OBJDIR_DEBUG)\\Misc\\NumTexture.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\main.o $(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o $(OBJDIR_DEBUG)\\Core\\Bundle.o $(OBJDIR_DEBUG)\\Core\\CoreMain.o $(OBJDIR_DEBUG)\\Core\\Error.o $(OBJDIR_DEBUG)\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\Core\\Font.o
+
+OBJ_RELEASE = $(OBJDIR_RELEASE)\\Core\\Misc.o $(OBJDIR_RELEASE)\\Core\\Sound.o $(OBJDIR_RELEASE)\\Core\\Texture.o $(OBJDIR_RELEASE)\\Core\\Thread.o $(OBJDIR_RELEASE)\\Misc\\MathFunc.o $(OBJDIR_RELEASE)\\Misc\\NumTexture.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\main.o $(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o $(OBJDIR_RELEASE)\\Core\\Bundle.o $(OBJDIR_RELEASE)\\Core\\CoreMain.o $(OBJDIR_RELEASE)\\Core\\Error.o $(OBJDIR_RELEASE)\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\Core\\Font.o
+>>>>>>> origin/master
 
 all: before_build build_debug build_release after_build
 
@@ -98,12 +104,15 @@ $(OBJDIR_DEBUG)\\Activities\\ACGCross_Logo.o: Activities\\ACGCross_Logo.cpp
 
 $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o: Activities\\GalgameUI.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI.o
+<<<<<<< HEAD
 
 $(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o: Activities\\GalgameUI_Clock.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI_Clock.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_Clock.o
 
 $(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o: Activities\\GalgameUI_GameMenu.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Activities\\GalgameUI_GameMenu.cpp -o $(OBJDIR_DEBUG)\\Activities\\GalgameUI_GameMenu.o
+=======
+>>>>>>> origin/master
 
 $(OBJDIR_DEBUG)\\Core\\Bundle.o: Core\\Bundle.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Core\\Bundle.cpp -o $(OBJDIR_DEBUG)\\Core\\Bundle.o
@@ -173,12 +182,15 @@ $(OBJDIR_RELEASE)\\Activities\\ACGCross_Logo.o: Activities\\ACGCross_Logo.cpp
 
 $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o: Activities\\GalgameUI.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI.o
+<<<<<<< HEAD
 
 $(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o: Activities\\GalgameUI_Clock.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI_Clock.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_Clock.o
 
 $(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o: Activities\\GalgameUI_GameMenu.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Activities\\GalgameUI_GameMenu.cpp -o $(OBJDIR_RELEASE)\\Activities\\GalgameUI_GameMenu.o
+=======
+>>>>>>> origin/master
 
 $(OBJDIR_RELEASE)\\Core\\Bundle.o: Core\\Bundle.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c Core\\Bundle.cpp -o $(OBJDIR_RELEASE)\\Core\\Bundle.o

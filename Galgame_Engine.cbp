@@ -56,8 +56,11 @@
 		<Unit filename="Activities/ACGCross_Logo.h" />
 		<Unit filename="Activities/GalgameUI.cpp" />
 		<Unit filename="Activities/GalgameUI.h" />
+<<<<<<< HEAD
 		<Unit filename="Activities/GalgameUI_Clock.cpp" />
 		<Unit filename="Activities/GalgameUI_GameMenu.cpp" />
+=======
+>>>>>>> origin/master
 		<Unit filename="Activities/Test.h" />
 		<Unit filename="Core/Activity.h" />
 		<Unit filename="Core/Animation.h" />

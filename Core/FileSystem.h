@@ -80,7 +80,11 @@ namespace Core
         Uint32 size;
     };
 
+<<<<<<< HEAD
     class ResFile{  //你可以把它当成一个文件实例，不需要关心内存是否释放，尽情使用就是
+=======
+    class ResFile FDBGCLASS{  //你可以把它当成一个文件实例，不需要关心内存是否释放，尽情使用就是
+>>>>>>> origin/master
         //你也可以调用函数时直接传递对象实例
         //这个是一对一版本
     private:

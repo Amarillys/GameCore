@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 #pragma once
 #include "../Core/Core.h"
 
+=======
+#include "../Core/Core.h"
+#include "../Misc/MathFunc.h"
+>>>>>>> origin/master
 #include "../Misc/NumTexture.h"
 
 
@@ -26,6 +31,7 @@ private:
     float m_fg_last = 0.0;
     Core::Timer m_timer_fg;
 public:
+<<<<<<< HEAD
     ~Clock(){};
     void OnNext();
     void OnDraw();
@@ -59,12 +65,20 @@ public:
     void OnNext();
     void OnDraw();
     void Init(const std::string& menuBtn);  //å¿…é¡»å…ˆInitï¼Œå¦åˆ™å¯èƒ½å‡ºé”™
+=======
+    void OnNext();
+    void OnDraw();
+    void OnInit(const std::string& num,const std::string& fg);  //±ØÐëÏÈInit£¬·ñÔò¿ÉÄÜ³ö´í
+>>>>>>> origin/master
     void Destory();
     void Hide();
     void Show();
     void SetPos(int x,int y);
     bool GetVisible(){return m_visible_l;}
+<<<<<<< HEAD
     bool Proc (const SDL_Event* e,Core::Activity*);
+=======
+>>>>>>> origin/master
 };
 
 class GalgameUI:public Core::Activity
@@ -72,6 +86,7 @@ class GalgameUI:public Core::Activity
 
 private:
     Clock m_clk;
+<<<<<<< HEAD
     GameMenuBtn m_menuBtn;
 public:
     GalgameUI();
@@ -82,4 +97,13 @@ public:
     void OnDraw();
     void OnEvent(const SDL_Event* e);
     void OnEvent(const Core::Control*,const int);
+=======
+public:
+    GalgameUI(){};
+    void OnShow();
+    void OnHide(){};
+    void OnNext();
+    void OnDraw();
+    void OnEvent(const SDL_Event* e);
+>>>>>>> origin/master
 };

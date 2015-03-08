@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #pragma once
+=======
+>>>>>>> origin/master
 #include "../Core/Texture.h"
 
 class NumTexture:public Core::Texture
