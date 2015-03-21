@@ -74,6 +74,8 @@ void ACGCross_Logo::OnNext()
         if(x == -1.0) {
             m_stat = 5;
         }
+    }else if(m_stat == 5){
+        Goto(m_goto);
     }
 }
 
@@ -85,7 +87,7 @@ void ACGCross_Logo::OnDraw()
         if(m_sta0_logoRect.h >= 384) {m_stat = 1;m_timer.Reset();}
     }else if(m_stat == 1){
         SDL_SetRenderDrawColor(Core::pRnd,0xFF,0xFF,0xFF,0xFF);
-        SDL_RenderDrawRect(Core::pRnd,&m_sta0_logoRect);
+        SDL_RenderFillRect(Core::pRnd,&m_sta0_logoRect);
 
         SDL_RenderFillRect(Core::pRnd,&m_sta1_backRect);
         SDL_SetRenderDrawColor(Core::pRnd,0x00,0x00,0x00,0xFF);
@@ -110,6 +112,5 @@ void ACGCross_Logo::OnDraw()
     }else{
         SDL_SetRenderDrawColor(Core::pRnd,0,0,0,0xFF);
         SDL_RenderClear(Core::pRnd);
-        Goto(m_goto);
     }
 }

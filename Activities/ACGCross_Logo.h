@@ -19,8 +19,11 @@ private:
     SDL_Rect m_sta1_backRect;
 public:
     ACGCross_Logo();
-    void SetInitThread(Core::Thread* t){m_init = t;}
-    void SetGoto(Activity* a){m_goto = a;}
+
+    //以下两接口应该在执行前调用
+    void SetInitThread(Core::Thread* t){m_init = t;}    //如果需要启动一个线程用于初始化，请在执行前使用这个
+    void SetGoto(Activity* a){m_goto = a;}  //你必须在执行前使用该方法指定要启动的活动
+
     void OnShow();
     void OnHide();
     void OnNext();

@@ -1,4 +1,4 @@
-#include "GalGameUI.h"
+#include "../GalGameUI.h"
 
 using namespace std;
 using namespace Core;
@@ -26,12 +26,14 @@ void GalgameUI::OnNext()
 {
     m_clk.OnNext();
     m_menuBtn.OnNext();
+   // m_textBox.OnNext();
 }
 
 void GalgameUI::OnDraw()
 {
     m_clk.OnDraw();
     m_menuBtn.OnDraw();
+    //m_textBox.OnDraw();
 }
 
 void GalgameUI::OnEvent(const SDL_Event* e)
@@ -53,5 +55,5 @@ void GalgameUI::OnEvent(Control* c,const int m){
         if(m == 0) PNT("MenuButtonClicked"<<endl);
         if(m == 1) PNT("MenuButtonMotion"<<endl);
     }
-};
+}
 

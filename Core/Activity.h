@@ -13,9 +13,6 @@ namespace Core{
         std::list<Control*> m_ansList;
         //如果有Control需要相应操作，把它加到这个表里
     public:
-        virtual ~Activity(){};
-
-
         virtual void OnShow(){};    //当Goto到这个活动时执行
         virtual void OnHide(){};    //当Goto出这个活动时执行
 
@@ -27,10 +24,10 @@ namespace Core{
 
         virtual void OnNext() {};   //请求除淡入动画和淡出动画以外所有动画的下一帧
 
-        virtual Animation* GetAnimationOnShow(){return nullptr;}
+        //virtual Animation* GetAnimationOnShow(){return nullptr;}
         //淡入动画，切换时与上个动画的淡出动画同时播放
 
-        virtual Animation* GetAnimationOnHide(){return nullptr;}
+        //virtual Animation* GetAnimationOnHide(){return nullptr;}
         //淡出动画，切换时与下个动画的淡入动画同时播放
     };
 }

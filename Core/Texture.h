@@ -2,7 +2,7 @@
 #define _HEAD_TEXTURE_
 
 #include "Globals.h"
-#include "RenderDrawer.h"
+//#include "RenderDrawer.h"
 #include "FileSystem.h"
 
 
@@ -10,7 +10,7 @@
 namespace Core
 {
     class Font;
-    class Texture: public RenderDrawer
+    class Texture//: public RenderDrawer
     {
     protected:
         SDL_Texture * m_tex;

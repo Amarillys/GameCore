@@ -54,16 +54,12 @@
 		</ExtraCommands>
 		<Unit filename="Activities/ACGCross_Logo.cpp" />
 		<Unit filename="Activities/ACGCross_Logo.h" />
-		<Unit filename="Activities/GalgameUI.cpp" />
 		<Unit filename="Activities/GalgameUI.h" />
-<<<<<<< HEAD
-		<Unit filename="Activities/GalgameUI_Clock.cpp" />
-		<Unit filename="Activities/GalgameUI_GameMenu.cpp" />
-=======
->>>>>>> origin/master
-		<Unit filename="Activities/Test.h" />
+		<Unit filename="Activities/GalgameUI/GalgameUI.cpp" />
+		<Unit filename="Activities/GalgameUI/GalgameUI_Clock.cpp" />
+		<Unit filename="Activities/GalgameUI/GalgameUI_GameMenu.cpp" />
+		<Unit filename="Activities/GalgameUI/GalgameUI_TextBox.cpp" />
 		<Unit filename="Core/Activity.h" />
-		<Unit filename="Core/Animation.h" />
 		<Unit filename="Core/Bundle.cpp" />
 		<Unit filename="Core/Bundle.h" />
 		<Unit filename="Core/Control.h" />
@@ -79,7 +75,6 @@
 		<Unit filename="Core/Misc.cpp" />
 		<Unit filename="Core/Misc.h" />
 		<Unit filename="Core/OS.h" />
-		<Unit filename="Core/RenderDrawer.h" />
 		<Unit filename="Core/SDLbase.h" />
 		<Unit filename="Core/Sound.cpp" />
 		<Unit filename="Core/Sound.h" />

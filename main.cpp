@@ -1,6 +1,5 @@
 #include "Core/Core.h"
 #include "Activities/ACGCross_Logo.h"
-#include "Activities/Test.h"
 #include "Activities/GalgameUI.h"
 
 using namespace std;
@@ -9,16 +8,15 @@ using namespace Core;
 int main( int argc, char * argv[] )
 {
 
-    CoreInit("ACGCross Demo",1024,768);
+    CoreInit("ACGCross Demo",false,800,600);
+    ResFile::Init("000");
     {
-        ResFile::Init("000");
-        //ACGCross_Logo acglogo;
+        //ACGCross_Logo l;
         GalgameUI gal;
-        //acglogo.SetGoto(&gal);
-
+        //l.SetGoto(&gal);
         CoreMain(&gal);
-        ResFile::Quit();
     }
+    ResFile::Quit();
     CoreQuit();
     return 0;
 }

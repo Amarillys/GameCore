@@ -3,6 +3,7 @@
 
 /* 绘制类 */
 /* 继承于该类的子类可以绘制东西到屏幕上 */
+
 namespace Core
 {
     class RenderDrawer{
@@ -11,4 +12,5 @@ namespace Core
         virtual ~RenderDrawer(){};
     };
 }
+
 #endif

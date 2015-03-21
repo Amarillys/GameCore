@@ -3,8 +3,13 @@
 using namespace Core;
 using namespace std;
 
+Font::Font()
+{
+    m_font = nullptr;
+}
+
 Font::Font(const std::string& file,int pt)
-{m_font = nullptr;Open(file);}
+{m_font = nullptr;Open(file,pt);}
 
 void Font::Open(const std::string& file,int pt)
 {

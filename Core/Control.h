@@ -15,7 +15,7 @@ namespace Core{
     class Control   //控件基类
     {
     public:
-        virtual bool Proc (const SDL_Event* e,Activity*) =0;
+        virtual bool OnEvent (const SDL_Event* e,Activity*) =0;
         //回调函数,处理消息，如果该控件接受此消息，则返回true，否则返回false
     };
 }

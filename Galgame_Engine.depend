@@ -1,0 +1,1573 @@
+# depslib dependency file v1.0
+1425803372 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui.cpp
+	"GalGameUI.h"
+
+1426834372 l:\galgame_engine\acgcross_gameengine\activities\galgameui.h
+	"../Core/Core.h"
+	"../Misc/NumTexture.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\core.h
+	"Activity.h"
+	"Animation.h"
+	"Bundle.h"
+	"Control.h"
+	"Error.h"
+	"FileSystem.h"
+	"Font.h"
+	"Globals.h"
+	"Misc.h"
+	"Sound.h"
+	"Texture.h"
+	"Thread.h"
+	"Timer.h"
+
+1425713162 l:\galgame_engine\acgcross_gameengine\core\activity.h
+	<list>
+	"SDLbase.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\sdlbase.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\close_code.h
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156426 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156342 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156544 l:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1425710904 l:\galgame_engine\acgcross_gameengine\core\animation.h
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\bundle.h
+	"Globals.h"
+	<fstream>
+	"Bundle.cpp"
+
+1423176576 l:\galgame_engine\acgcross_gameengine\core\globals.h
+	"SDLbase.h"
+	<string>
+	"../Debug.h"
+	"OS.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\debug.h
+	<iostream>
+	<string>
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\os.h
+
+1425710822 l:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1423172840 l:\galgame_engine\acgcross_gameengine\core\control.h
+	"SDLbase.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\error.h
+	"SDLbase.h"
+	<string>
+	"OS.h"
+
+1425791024 l:\galgame_engine\acgcross_gameengine\core\filesystem.h
+	<fstream>
+	<map>
+	<vector>
+	"Globals.h"
+	"../Debug.h"
+
+1426834074 l:\galgame_engine\acgcross_gameengine\core\font.h
+	"SDLbase.h"
+	<string>
+	"FileSystem.h"
+
+1425787604 l:\galgame_engine\acgcross_gameengine\core\misc.h
+	<fstream>
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\sound.h
+	"SDLbase.h"
+	<map>
+	"FileSystem.h"
+
+1423172766 l:\galgame_engine\acgcross_gameengine\core\texture.h
+	"Globals.h"
+	"FileSystem.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\renderdrawer.h
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\thread.h
+	"SDLbase.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\core\timer.h
+	"../Debug.h"
+	"SDLbase.h"
+
+1425790642 l:\galgame_engine\acgcross_gameengine\misc\numtexture.h
+	"../Core/Texture.h"
+
+1425804142 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui_gamemenu.cpp
+	"GalGameUI.h"
+	"../Core/Core.h"
+	"../Misc/NumTexture.h"
+
+1425710822 source:l:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1423176736 source:l:\galgame_engine\acgcross_gameengine\core\coremain.cpp
+	"Activity.h"
+	"Timer.h"
+	"Sound.h"
+	"Globals.h"
+	"Control.h"
+	"Animation.h"
+	"../Debug.h"
+
+1425541516 source:l:\galgame_engine\acgcross_gameengine\core\error.cpp
+	"error.h"
+	<iostream>
+	<stdlib.h>
+	"../Debug.h"
+	<windows.h>
+
+1425791148 source:l:\galgame_engine\acgcross_gameengine\core\filesystem.cpp
+	"FileSystem.h"
+	"../Debug.h"
+	"Misc.h"
+	"Thread.h"
+	"Error.h"
+	<string.h>
+
+1425710822 source:l:\galgame_engine\acgcross_gameengine\core\font.cpp
+	"Font.h"
+
+1425787946 source:l:\galgame_engine\acgcross_gameengine\core\misc.cpp
+	"Misc.h"
+	"SDLbase.h"
+	"Activity.h"
+	"Globals.h"
+
+1425710822 source:l:\galgame_engine\acgcross_gameengine\core\sound.cpp
+	<sdl.h>
+	"Sound.h"
+
+1425791148 source:l:\galgame_engine\acgcross_gameengine\core\texture.cpp
+	"Globals.h"
+	"Texture.h"
+	"Font.h"
+	<string>
+	"Misc.h"
+	"../Debug.h"
+
+1425710822 source:l:\galgame_engine\acgcross_gameengine\core\thread.cpp
+	"Thread.h"
+
+1425707570 source:l:\galgame_engine\acgcross_gameengine\icon.rc
+
+1425710822 source:l:\galgame_engine\acgcross_gameengine\misc\mathfunc.cpp
+	"MathFunc.h"
+	<math.h>
+
+1425710906 l:\galgame_engine\acgcross_gameengine\misc\mathfunc.h
+
+1425726766 source:l:\galgame_engine\acgcross_gameengine\misc\numtexture.cpp
+	"NumTexture.h"
+
+1423173550 source:l:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.cpp
+	"ACGCross_Logo.h"
+
+1425710904 l:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.h
+	"../Core/Core.h"
+	"../Misc/MathFunc.h"
+
+1423176986 source:l:\galgame_engine\acgcross_gameengine\main.cpp
+	"Core/Core.h"
+	"Activities/ACGCross_Logo.h"
+	"Activities/GalgameUI.h"
+
+1425711540 l:\galgame_engine\acgcross_gameengine\activities\test.h
+	"..\Core\Core.h"
+	<iostream>
+
+1423173550 source:f:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.cpp
+	"ACGCross_Logo.h"
+
+1425710904 f:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.h
+	"../Core/Core.h"
+	"../Misc/MathFunc.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\core.h
+	"Activity.h"
+	"Animation.h"
+	"Bundle.h"
+	"Control.h"
+	"Error.h"
+	"FileSystem.h"
+	"Font.h"
+	"Globals.h"
+	"Misc.h"
+	"Sound.h"
+	"Texture.h"
+	"Thread.h"
+	"Timer.h"
+
+1425713162 f:\galgame_engine\acgcross_gameengine\core\activity.h
+	<list>
+	"SDLbase.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\sdlbase.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\close_code.h
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156426 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156342 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156544 f:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1425710904 f:\galgame_engine\acgcross_gameengine\core\animation.h
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\bundle.h
+	"Globals.h"
+	<fstream>
+	"Bundle.cpp"
+
+1423176576 f:\galgame_engine\acgcross_gameengine\core\globals.h
+	"SDLbase.h"
+	<string>
+	"../Debug.h"
+	"OS.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\debug.h
+	<iostream>
+	<string>
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\os.h
+
+1425710822 f:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1423172840 f:\galgame_engine\acgcross_gameengine\core\control.h
+	"SDLbase.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\error.h
+	"SDLbase.h"
+	<string>
+	"OS.h"
+
+1425791024 f:\galgame_engine\acgcross_gameengine\core\filesystem.h
+	<fstream>
+	<map>
+	<vector>
+	"Globals.h"
+	"../Debug.h"
+
+1426834074 f:\galgame_engine\acgcross_gameengine\core\font.h
+	"SDLbase.h"
+	<string>
+	"FileSystem.h"
+
+1425787604 f:\galgame_engine\acgcross_gameengine\core\misc.h
+	<fstream>
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\sound.h
+	"SDLbase.h"
+	<map>
+	"FileSystem.h"
+
+1423172766 f:\galgame_engine\acgcross_gameengine\core\texture.h
+	"Globals.h"
+	"FileSystem.h"
+
+1423172596 f:\galgame_engine\acgcross_gameengine\core\renderdrawer.h
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\thread.h
+	"SDLbase.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\core\timer.h
+	"../Debug.h"
+	"SDLbase.h"
+
+1425710906 f:\galgame_engine\acgcross_gameengine\misc\mathfunc.h
+
+1425710822 source:f:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1423176736 source:f:\galgame_engine\acgcross_gameengine\core\coremain.cpp
+	"Activity.h"
+	"Timer.h"
+	"Sound.h"
+	"Globals.h"
+	"Control.h"
+	"Animation.h"
+	"../Debug.h"
+
+1425541516 source:f:\galgame_engine\acgcross_gameengine\core\error.cpp
+	"error.h"
+	<iostream>
+	<stdlib.h>
+	"../Debug.h"
+	<windows.h>
+
+1425791148 source:f:\galgame_engine\acgcross_gameengine\core\filesystem.cpp
+	"FileSystem.h"
+	"../Debug.h"
+	"Misc.h"
+	"Thread.h"
+	"Error.h"
+	<string.h>
+
+1425710822 source:f:\galgame_engine\acgcross_gameengine\core\font.cpp
+	"Font.h"
+
+1425787946 source:f:\galgame_engine\acgcross_gameengine\core\misc.cpp
+	"Misc.h"
+	"SDLbase.h"
+	"Activity.h"
+	"Globals.h"
+
+1425710822 source:f:\galgame_engine\acgcross_gameengine\core\sound.cpp
+	<sdl.h>
+	"Sound.h"
+
+1425791148 source:f:\galgame_engine\acgcross_gameengine\core\texture.cpp
+	"Globals.h"
+	"Texture.h"
+	"Font.h"
+	<string>
+	"Misc.h"
+	"../Debug.h"
+
+1425710822 source:f:\galgame_engine\acgcross_gameengine\core\thread.cpp
+	"Thread.h"
+
+1425707570 source:f:\galgame_engine\acgcross_gameengine\icon.rc
+
+1423176986 source:f:\galgame_engine\acgcross_gameengine\main.cpp
+	"Core/Core.h"
+	"Activities/ACGCross_Logo.h"
+	"Activities/GalgameUI.h"
+
+1425711540 f:\galgame_engine\acgcross_gameengine\activities\test.h
+	"..\Core\Core.h"
+	<iostream>
+
+1426834372 f:\galgame_engine\acgcross_gameengine\activities\galgameui.h
+	"../Core/Core.h"
+	"../Misc/NumTexture.h"
+
+1425790642 f:\galgame_engine\acgcross_gameengine\misc\numtexture.h
+	"../Core/Texture.h"
+
+1425710822 source:f:\galgame_engine\acgcross_gameengine\misc\mathfunc.cpp
+	"MathFunc.h"
+	<math.h>
+
+1425726766 source:f:\galgame_engine\acgcross_gameengine\misc\numtexture.cpp
+	"NumTexture.h"
+
+1426833102 source:f:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui.cpp
+	"../GalGameUI.h"
+
+1423172854 source:f:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_gamemenu.cpp
+	"../GalGameUI.h"
+	"../../Core/Core.h"
+	"../../Misc/NumTexture.h"
+
+1423171714 source:f:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_clock.cpp
+	"../../Misc/MathFunc.h"
+	"../GalGameUI.h"
+	<ctime>
+
+1423173072 source:f:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_textbox.cpp
+	"../GalGameUI.h"
+
+1426833102 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui.cpp
+	"../GalGameUI.h"
+
+1423171714 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_clock.cpp
+	"../../Misc/MathFunc.h"
+	"../GalGameUI.h"
+	<ctime>
+
+1423172854 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_gamemenu.cpp
+	"../GalGameUI.h"
+	"../../Core/Core.h"
+	"../../Misc/NumTexture.h"
+
+1426834360 source:l:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_textbox.cpp
+	"../GalGameUI.h"
+
+1423173550 source:i:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.cpp
+	"ACGCross_Logo.h"
+
+1426923774 i:\galgame_engine\acgcross_gameengine\activities\acgcross_logo.h
+	"../Core/Core.h"
+	"../Misc/MathFunc.h"
+
+1426923150 i:\galgame_engine\acgcross_gameengine\core\core.h
+	"Activity.h"
+	"Bundle.h"
+	"Control.h"
+	"Error.h"
+	"FileSystem.h"
+	"Font.h"
+	"Globals.h"
+	"Misc.h"
+	"Sound.h"
+	"Texture.h"
+	"Thread.h"
+	"Timer.h"
+
+1426923782 i:\galgame_engine\acgcross_gameengine\core\activity.h
+	<list>
+	"SDLbase.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\sdlbase.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\close_code.h
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937196 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394937198 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156426 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_mixer.h
+	"SDL_stdinc.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156342 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_image.h
+	"SDL.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1376156544 i:\codeblocks\sdk\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl_ttf.h
+	"SDL.h"
+	"begin_code.h"
+	"close_code.h"
+
+1425710904 i:\galgame_engine\acgcross_gameengine\core\animation.h
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\bundle.h
+	"Globals.h"
+	<fstream>
+	"Bundle.cpp"
+
+1426922854 i:\galgame_engine\acgcross_gameengine\core\globals.h
+	"SDLbase.h"
+	<string>
+	"../Debug.h"
+	"OS.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\debug.h
+	<iostream>
+	<string>
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\os.h
+
+1425710822 i:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1423172840 i:\galgame_engine\acgcross_gameengine\core\control.h
+	"SDLbase.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\error.h
+	"SDLbase.h"
+	<string>
+	"OS.h"
+
+1425791024 i:\galgame_engine\acgcross_gameengine\core\filesystem.h
+	<fstream>
+	<map>
+	<vector>
+	"Globals.h"
+	"../Debug.h"
+
+1426834074 i:\galgame_engine\acgcross_gameengine\core\font.h
+	"SDLbase.h"
+	<string>
+	"FileSystem.h"
+
+1425787604 i:\galgame_engine\acgcross_gameengine\core\misc.h
+	<fstream>
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\sound.h
+	"SDLbase.h"
+	<map>
+	"FileSystem.h"
+
+1423172766 i:\galgame_engine\acgcross_gameengine\core\texture.h
+	"Globals.h"
+	"FileSystem.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\thread.h
+	"SDLbase.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\core\timer.h
+	"../Debug.h"
+	"SDLbase.h"
+
+1425710906 i:\galgame_engine\acgcross_gameengine\misc\mathfunc.h
+
+1426924188 source:i:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui.cpp
+	"../GalGameUI.h"
+
+1426924372 i:\galgame_engine\acgcross_gameengine\activities\galgameui.h
+	"../Core/Core.h"
+	"../Misc/NumTexture.h"
+
+1425790642 i:\galgame_engine\acgcross_gameengine\misc\numtexture.h
+	"../Core/Texture.h"
+
+1423171714 source:i:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_clock.cpp
+	"../../Misc/MathFunc.h"
+	"../GalGameUI.h"
+	<ctime>
+
+1423172854 source:i:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_gamemenu.cpp
+	"../GalGameUI.h"
+	"../../Core/Core.h"
+	"../../Misc/NumTexture.h"
+
+1426924392 source:i:\galgame_engine\acgcross_gameengine\activities\galgameui\galgameui_textbox.cpp
+	"../GalGameUI.h"
+
+1425710822 source:i:\galgame_engine\acgcross_gameengine\core\bundle.cpp
+
+1426924042 source:i:\galgame_engine\acgcross_gameengine\core\coremain.cpp
+	"Activity.h"
+	"Timer.h"
+	"Sound.h"
+	"Globals.h"
+	"Control.h"
+	"../Debug.h"
+
+1425541516 source:i:\galgame_engine\acgcross_gameengine\core\error.cpp
+	"error.h"
+	<iostream>
+	<stdlib.h>
+	"../Debug.h"
+	<windows.h>
+
+1425791148 source:i:\galgame_engine\acgcross_gameengine\core\filesystem.cpp
+	"FileSystem.h"
+	"../Debug.h"
+	"Misc.h"
+	"Thread.h"
+	"Error.h"
+	<string.h>
+
+1426834168 source:i:\galgame_engine\acgcross_gameengine\core\font.cpp
+	"Font.h"
+
+1425787946 source:i:\galgame_engine\acgcross_gameengine\core\misc.cpp
+	"Misc.h"
+	"SDLbase.h"
+	"Activity.h"
+	"Globals.h"
+
+1425710822 source:i:\galgame_engine\acgcross_gameengine\core\sound.cpp
+	<sdl.h>
+	"Sound.h"
+
+1425791148 source:i:\galgame_engine\acgcross_gameengine\core\texture.cpp
+	"Globals.h"
+	"Texture.h"
+	"Font.h"
+	<string>
+	"Misc.h"
+	"../Debug.h"
+
+1425710822 source:i:\galgame_engine\acgcross_gameengine\core\thread.cpp
+	"Thread.h"
+
+1425707570 source:i:\galgame_engine\acgcross_gameengine\icon.rc
+
+1426924730 source:i:\galgame_engine\acgcross_gameengine\main.cpp
+	"Core/Core.h"
+	"Activities/ACGCross_Logo.h"
+	"Activities/GalgameUI.h"
+
+1425710822 source:i:\galgame_engine\acgcross_gameengine\misc\mathfunc.cpp
+	"MathFunc.h"
+	<math.h>
+
+1425726766 source:i:\galgame_engine\acgcross_gameengine\misc\numtexture.cpp
+	"NumTexture.h"
+

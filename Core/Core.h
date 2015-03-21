@@ -2,7 +2,6 @@
 #define _HEAD_CORE_
 
 #include "Activity.h"
-#include "Animation.h"
 #include "Bundle.h"
 #include "Control.h"
 #include "Error.h"

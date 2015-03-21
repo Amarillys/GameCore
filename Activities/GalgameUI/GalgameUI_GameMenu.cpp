@@ -1,29 +1,29 @@
-#include "GalGameUI.h"
-#include "../Core/Core.h"
-#include "../Misc/NumTexture.h"
+#include "../GalGameUI.h"
+#include "../../Core/Core.h"
+#include "../../Misc/NumTexture.h"
 
 using namespace Core;
 using namespace std;
 
-/* m_stat ◊¥Ã¨
-0 “˛≤ÿ
-1 ∆’Õ®œ‘ æ
-2 ∞¥≈•µ≠»Î
-3 ∞¥≈•µ≠≥ˆ
+/* m_stat Áä∂ÊÄÅ
+0 ÈöêËóè
+1 ÊôÆÈÄöÊòæÁ§∫
+2 ÊåâÈíÆÊ∑°ÂÖ•
+3 ÊåâÈíÆÊ∑°Âá∫
 
-4 ∞¥≈•±ª÷∏…œ
-5 ∞¥≈•≤ª‘Ÿ±ª÷∏…œ
-6 ∞¥≈•±ª∞¥œ¬
-7 ∞¥≈•±ªÀ…ø™
+4 ÊåâÈíÆË¢´Êåá‰∏ä
+5 ÊåâÈíÆ‰∏çÂÜçË¢´Êåá‰∏ä
+6 ÊåâÈíÆË¢´Êåâ‰∏ã
+7 ÊåâÈíÆË¢´ÊùæÂºÄ
 */
 
-/* m_showstat ◊¥Ã¨
-0 ∆’Õ®∞¥≈•◊¥Ã¨
-1 ∞¥≈•±ª÷∏…œ◊¥Ã¨
-2 ∞¥≈•±ª∞¥œ¬◊¥Ã¨
+/* m_showstat Áä∂ÊÄÅ
+0 ÊôÆÈÄöÊåâÈíÆÁä∂ÊÄÅ
+1 ÊåâÈíÆË¢´Êåá‰∏äÁä∂ÊÄÅ
+2 ÊåâÈíÆË¢´Êåâ‰∏ãÁä∂ÊÄÅ
 */
 
-bool GameMenuBtn::Proc(const SDL_Event* e, Core::Activity* a)
+bool GalgameUI_GameMenuBtn::OnEvent(const SDL_Event* e, Core::Activity* a)
 {
     if(e -> type == SDL_MOUSEBUTTONDOWN)
         if(InRect(m_rect,e->button.x,e->button.y))
@@ -33,7 +33,7 @@ bool GameMenuBtn::Proc(const SDL_Event* e, Core::Activity* a)
         if(InRect(m_rect,e->button.x,e->button.y))
         {
             m_showstat = 1;
-            a -> OnEvent(this,0);
+            a -> OnEvent((Control*)this,0);
             return true;
         }
     if(e -> type == SDL_MOUSEMOTION){
@@ -48,47 +48,47 @@ bool GameMenuBtn::Proc(const SDL_Event* e, Core::Activity* a)
     return false;   //todo
 }
 
-void GameMenuBtn::SetPos(int x, int y)
+void GalgameUI_GameMenuBtn::SetPos(int x, int y)
 {
     m_x = x;m_y = y;
     m_rect.x = x;m_rect.y = y;
     m_btn.GetInfo(m_rect.w,m_rect.h);
 }
 
-void GameMenuBtn::Show()
+void GalgameUI_GameMenuBtn::Show()
 {
     m_stat = 2;
     m_visible_l = true;
     m_timer.Reset();
 }
 
-void GameMenuBtn::Hide()
+void GalgameUI_GameMenuBtn::Hide()
 {
     m_stat = 3;
     m_visible_l = false;
     m_timer.Reset();
 }
 
-void GameMenuBtn::Destory()
+void GalgameUI_GameMenuBtn::Destory()
 {
     m_btn.Clear();
 }
 
-void GameMenuBtn::Init(const string& menuBtn)
+void GalgameUI_GameMenuBtn::Init(const string& menuBtn)
 {
     m_btn.Load(menuBtn);
     m_visible_l = false;
-    m_stat = 0; //≤ªœ‘ æ
+    m_stat = 0; //‰∏çÊòæÁ§∫
 }
 
-void GameMenuBtn::OnDraw()
+void GalgameUI_GameMenuBtn::OnDraw()
 {
     if(m_stat != 0){
         m_btn.OnDraw();
     }
 }
 
-void GameMenuBtn::OnNext()
+void GalgameUI_GameMenuBtn::OnNext()
 {
     if(m_stat == 1)switch(m_showstat){
     case 0:

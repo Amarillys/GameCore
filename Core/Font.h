@@ -14,6 +14,7 @@ namespace Core
         TTF_Font* m_font;
         ResFile m_file;
     public:
+        Font();
         Font(const std::string&,int pt = 32);
         void Open(const std::string&,int pt = 32);
         operator TTF_Font* ();
