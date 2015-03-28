@@ -6,6 +6,7 @@
 #include "../Debug.h"
 using namespace std;
 using namespace Core;
+
 void Texture::Load(const std::string& fileName)
 {
     Clear();

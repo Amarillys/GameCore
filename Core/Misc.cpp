@@ -2,7 +2,10 @@
 #include "SDLbase.h"
 #include "Activity.h"
 #include "Globals.h"
+
 using namespace Core;
+
+const int Window_H = pRnd.GetH(),Window_W = pRnd.GetW();
 
 void Core::GetString(std::ifstream& in,std::string& str)
 {
@@ -18,8 +21,8 @@ void Core::GetString(std::ifstream& in,std::string& str)
 void Core::Pos(SDL_Rect& opr,
                         float x,float y)
 {
-    opr.x = Core::Window_W * x;
-    opr.y = Core::Window_H * y;
+    opr.x = Window_W * x;
+    opr.y = Window_H * y;
 }
 
 void Core::Pos(SDL_Rect& opr,

@@ -32,7 +32,7 @@ void GalgameUI_TextBox::SetWindow(char base, int x, int y, int w, int h)
 
 void GalgameUI_TextBox::SetFont(const std::string& font)
 {
-    //m_font.Open(font);
+    m_font.Open(font);
 }
 
 void GalgameUI_TextBox::SetEffect(int effectNumber, int fps)

@@ -8,58 +8,26 @@
 using namespace Core;
 using namespace std;
 
-SDL_Window* Core::pWnd= nullptr;
-SDL_Renderer* Core::pRnd  = nullptr;
-//bool isGotoing = true;
 Activity* nowFocus;
-//Activity* lastFocus;
+Activity* nextFocus;
 
-int Core::Window_W;
-int Core::Window_H;
+RndPtr pRnd;
 
 
 namespace Core{
 
-void RefreshRender(){
-    if(pRnd != nullptr) SDL_DestroyRenderer(pRnd);
-    pRnd = SDL_CreateRenderer(pWnd,-1,
-                                SDL_RENDERER_ACCELERATED|
-                                SDL_RENDERER_PRESENTVSYNC);
-}
-
-void FullScreen(){
-    if(pWnd != nullptr) SDL_DestroyWindow(pWnd);
-    pWnd = SDL_CreateWindow("",
-                                SDL_WINDOWPOS_UNDEFINED,
-                                SDL_WINDOWPOS_UNDEFINED,
-                                0,0,
-                                SDL_WINDOW_FULLSCREEN_DESKTOP |
-                                SDL_WINDOW_OPENGL);
-    RefreshRender();
-}
-
-void WindowScreen(const string& title,const int w,const int h)
+void Goto_Really()
 {
-    if(pWnd != nullptr) SDL_DestroyWindow(pWnd);
-    pWnd = SDL_CreateWindow(title.c_str(),
-                            SDL_WINDOWPOS_UNDEFINED,
-                            SDL_WINDOWPOS_UNDEFINED,
-                            w,h,
-                            SDL_WINDOW_OPENGL);
-    RefreshRender();
+    nowFocus -> OnHide();
+    nextFocus -> OnShow();
+    nowFocus = nextFocus;
+
+    nextFocus = nullptr;
 }
 
-void Goto(Activity* a)
+void Goto(Activity& a)
 {
-    if(a == nowFocus) return;
-    else{
-        nowFocus -> OnHide();
-        a -> OnShow();
-
-        //lastFocus = nowFocus;
-        nowFocus = a;
-        //isGotoing = true;
-    }
+    if(&a != nowFocus) nextFocus = &a;
 }
 
 void SendEvent(SDL_Event* e,Activity* a)    //向一个活动发送SDL消息
@@ -105,19 +73,20 @@ void ActivityDrawProc() //活动刷新一次处理
     //}
 }
 
-void CoreMain(Activity* start)
+void CoreMain(Activity& start)
 {
-    nowFocus = start;
+    nowFocus = &start;
     nowFocus -> OnShow();
     /* 主循环部分 */
     SDL_Event e;
     Timer FPSKiller;
     while(1){
+        if(nextFocus != nullptr) Goto_Really();
         while(SDL_PollEvent(&e)){
             if (e.type == SDL_QUIT) {nowFocus -> OnHide();return;}
             else SendEvent(&e,nowFocus);
         }
-        SDL_SetRenderDrawColor(Core::pRnd,0x00,0x00,0x00,0xFF);
+        SDL_SetRenderDrawColor(pRnd,0x00,0x00,0x00,0xFF);
         SDL_RenderClear(pRnd);
         ActivityDrawProc();
         SDL_RenderPresent(pRnd);
@@ -136,25 +105,19 @@ void CoreInit(const string& title,const bool fullScreen,const int w,const int h)
     IMG_Init(IMG_INIT_PNG);
     TTF_Init();
 
+    pRnd.Create(title,fullScreen,w,h);
+
     Sound::Init();
 
-    if(fullScreen) FullScreen();
-    else WindowScreen(title,w,h);
-
-    SDL_RenderPresent(pRnd);
-    SDL_GetWindowSize(pWnd,&Window_W,&Window_H);
-
     nowFocus = nullptr;
-    //lastFocus = nullptr;
-
+    nextFocus = nullptr;
 }
 
 }
 
 void Core::CoreQuit()
 {
-    if(pRnd != nullptr)SDL_DestroyRenderer(pRnd);
-    if(pWnd != nullptr) SDL_DestroyWindow(pWnd);
+    pRnd.Destory();
     TTF_Quit();
     IMG_Quit();
     Sound::Quit();

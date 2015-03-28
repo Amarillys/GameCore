@@ -23,6 +23,8 @@ using namespace std;
 2 按钮被按下状态
 */
 
+const int Window_H = pRnd.GetH(),Window_W = pRnd.GetW();
+
 bool GalgameUI_GameMenuBtn::OnEvent(const SDL_Event* e, Core::Activity* a)
 {
     if(e -> type == SDL_MOUSEBUTTONDOWN)

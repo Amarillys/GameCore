@@ -22,6 +22,7 @@ private:
     int m_effectType;
     int m_effectFps;
     int m_wordSize;
+    Core::Font m_font;
 
     //文字内容
     std::wstring m_input;

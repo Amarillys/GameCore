@@ -5,7 +5,6 @@
 //#include "RenderDrawer.h"
 #include "FileSystem.h"
 
-
 /* 纹理类 属于SDL封装部分，不要在活动层使用。*/
 namespace Core
 {

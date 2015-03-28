@@ -83,6 +83,7 @@
 		<Unit filename="Core/Thread.cpp" />
 		<Unit filename="Core/Thread.h" />
 		<Unit filename="Core/Timer.h" />
+		<Unit filename="Core/Window.cpp" />
 		<Unit filename="Debug.h" />
 		<Unit filename="Misc/MathFunc.cpp" />
 		<Unit filename="Misc/MathFunc.h" />

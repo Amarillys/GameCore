@@ -2,6 +2,10 @@
 #include "Activities/ACGCross_Logo.h"
 #include "Activities/GalgameUI.h"
 
+//#ifdef _OS_WINDOWS
+//#include
+//#endif // _OS_WINDOWS
+
 using namespace std;
 using namespace Core;
 
@@ -9,13 +13,17 @@ int main( int argc, char * argv[] )
 {
 
     CoreInit("ACGCross Demo",false,800,600);
+
+
+
     ResFile::Init("000");
     {
         //ACGCross_Logo l;
         GalgameUI gal;
-        //l.SetGoto(&gal);
-        CoreMain(&gal);
+        //l.SetGoto(gal);
+        CoreMain(gal);
     }
+
     ResFile::Quit();
     CoreQuit();
     return 0;

@@ -2,6 +2,8 @@
 using namespace std;
 using namespace Core;
 
+int Window_H = pRnd.GetH(),Window_W = pRnd.GetW();
+
 ACGCross_Logo::ACGCross_Logo()
 {
     m_init = nullptr;
@@ -23,13 +25,13 @@ void ACGCross_Logo::OnShow()
     m_logo.SetBlend(SDL_BLENDMODE_MOD);
     m_logo.SetAlpha(0);
 
-    Core::Pos(m_sta0_logoRect,0x22,-192,-192);
+    Pos(m_sta0_logoRect,0x22,-192,-192);
     m_sta0_logoRect.w = 0;m_sta0_logoRect.h = 0;
 
     m_sta1_logoRect = m_sta0_logoRect;
     m_sta1_logoRect.x += 1;m_sta1_logoRect.y += 1;
     m_sta1_logoRect.w = 382;
-    m_sta1_backRect = {0,Core::Window_H,Core::Window_W,0};
+    m_sta1_backRect = {0,Window_H,Window_W,0};
     m_timer.Reset();
 }
 
@@ -47,9 +49,9 @@ void ACGCross_Logo::OnNext()
         if(m_sta0_logoRect.h >= 384) m_sta0_logoRect.h = m_sta0_logoRect.w = 384;
     }else if(m_stat == 1){
         float x = ArcFunc(float(m_timer.GetTimer()) / 512);
-        m_sta1_logoRect.y = Core::Window_H/2 - 192 +382 * x;
-        m_sta1_logoRect.h = Core::Window_H/2 + 192 - m_sta1_logoRect.y;
-        m_sta1_backRect.h = -(Core::Window_H * x);
+        m_sta1_logoRect.y = Window_H/2 - 192 +382 * x;
+        m_sta1_logoRect.h = Window_H/2 + 192 - m_sta1_logoRect.y;
+        m_sta1_backRect.h = -(Window_H * x);
         if(x == -1.0) {m_stat = 2;m_timer.Reset();}
     }else if(m_stat == 2){
         float x = float(m_timer.GetTimer()) / 512;
@@ -75,28 +77,28 @@ void ACGCross_Logo::OnNext()
             m_stat = 5;
         }
     }else if(m_stat == 5){
-        Goto(m_goto);
+        Goto(*m_goto);
     }
 }
 
 void ACGCross_Logo::OnDraw()
 {
     if(m_stat == 0){
-        SDL_SetRenderDrawColor(Core::pRnd,0xFF,0xFF,0xFF,0xFF);
-        SDL_RenderDrawRect(Core::pRnd,&m_sta0_logoRect);
+        SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
+        SDL_RenderDrawRect(pRnd,&m_sta0_logoRect);
         if(m_sta0_logoRect.h >= 384) {m_stat = 1;m_timer.Reset();}
     }else if(m_stat == 1){
-        SDL_SetRenderDrawColor(Core::pRnd,0xFF,0xFF,0xFF,0xFF);
-        SDL_RenderFillRect(Core::pRnd,&m_sta0_logoRect);
+        SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
+        SDL_RenderFillRect(pRnd,&m_sta0_logoRect);
 
-        SDL_RenderFillRect(Core::pRnd,&m_sta1_backRect);
-        SDL_SetRenderDrawColor(Core::pRnd,0x00,0x00,0x00,0xFF);
-        SDL_RenderFillRect(Core::pRnd,&m_sta1_logoRect);
+        SDL_RenderFillRect(pRnd,&m_sta1_backRect);
+        SDL_SetRenderDrawColor(pRnd,0x00,0x00,0x00,0xFF);
+        SDL_RenderFillRect(pRnd,&m_sta1_logoRect);
         m_logo.OnDraw();
 
     }else if(m_stat == 2 || m_stat == 3){
-        SDL_SetRenderDrawColor(Core::pRnd,0xFF,0xFF,0xFF,0xFF);
-        SDL_RenderClear(Core::pRnd);
+        SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
+        SDL_RenderClear(pRnd);
         if(m_stat == 2) m_logo.OnDraw();
         m_logo2.OnDraw();
         m_yzsz.OnDraw();
@@ -105,12 +107,12 @@ void ACGCross_Logo::OnDraw()
             else {m_stat = 4;m_timer.Reset();}
         }
     }else if(m_stat == 4){
-        SDL_SetRenderDrawColor(Core::pRnd,0xFF,0xFF,0xFF,0xFF);
-        SDL_RenderClear(Core::pRnd);
+        SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
+        SDL_RenderClear(pRnd);
         m_logo2.OnDraw();
         m_yzsz.OnDraw();
     }else{
-        SDL_SetRenderDrawColor(Core::pRnd,0,0,0,0xFF);
-        SDL_RenderClear(Core::pRnd);
+        SDL_SetRenderDrawColor(pRnd,0,0,0,0xFF);
+        SDL_RenderClear(pRnd);
     }
 }
