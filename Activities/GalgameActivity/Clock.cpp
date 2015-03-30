@@ -1,13 +1,15 @@
 #include "../../Misc/MathFunc.h"
-#include "../GalGameUI.h"
+#include "../GalGameActivity.h"
 #include <ctime>
 
-void GalgameUI_Clock::SetPos(int x, int y)
+using namespace ACGCross::Galgame;
+
+void Clock::SetPos(int x, int y)
 {
     m_bx = x;m_y = y;
 }
 
-void GalgameUI_Clock::OnNext()
+void Clock::OnNext()
 {
 
 
@@ -46,27 +48,27 @@ void GalgameUI_Clock::OnNext()
     }
 }
 
-void GalgameUI_Clock::Hide()
+void Clock::Hide()
 {
     m_visible_l = false;
     m_stat = 2;
     m_timer_fg.Reset();
 }
 
-void GalgameUI_Clock::Show()
+void Clock::Show()
 {
     m_visible_l = m_visible = true;
     m_stat = 1;
     m_timer_fg.Reset();
 }
 
-void GalgameUI_Clock::Destory()
+void Clock::Destory()
 {
     m_fg.Clear();
     m_clk.Clear();
 }
 
-void GalgameUI_Clock::Init(const std::string& num,const std::string& fg)
+void Clock::Init(const std::string& num,const std::string& fg)
 {
     m_fg.Load(num);
     m_clk.Load(fg);
@@ -86,7 +88,7 @@ void GalgameUI_Clock::Init(const std::string& num,const std::string& fg)
     m_visible_l = false;
 }
 
-void GalgameUI_Clock::OnDraw()
+void Clock::OnDraw()
 {
     if(m_visible){
         m_fg.SetPos(m_x + 2*m_numWei,m_y);

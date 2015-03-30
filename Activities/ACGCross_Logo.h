@@ -3,31 +3,34 @@
 #include "../Core/Core.h"
 #include "../Misc/MathFunc.h"
 
+namespace ACGCross{
 
+    class Logo:public Core::Activity
+    {
+    private:
+        Core::Texture m_logo;
+        Core::Texture m_logo2;
+        Core::Texture m_yzsz;
+        Core::Thread* m_init;
+        Core::Timer m_timer;
+        Uint8 m_stat;
+        Core::Activity* m_goto;
 
-class ACGCross_Logo:public Core::Activity
-{
-private:
-    Core::Texture m_logo;
-    Core::Texture m_logo2;
-    Core::Texture m_yzsz;
-    Core::Thread* m_init;
-    Core::Timer m_timer;
-    Uint8 m_stat;
-    Core::Activity* m_goto;
+        SDL_Rect m_sta0_logoRect;
+        SDL_Rect m_sta1_logoRect;
+        SDL_Rect m_sta1_backRect;
+    public:
+        Logo();
 
-    SDL_Rect m_sta0_logoRect;
-    SDL_Rect m_sta1_logoRect;
-    SDL_Rect m_sta1_backRect;
-public:
-    ACGCross_Logo();
+        //ä»¥ä¸‹ä¸¤æ¥å£åº”è¯¥åœ¨æ‰§è¡Œå‰è°ƒç”¨
+        void SetInitThread(Core::Thread* t){m_init = t;}    //å¦‚æœéœ€è¦å¯åŠ¨ä¸€ä¸ªçº¿ç¨‹ç”¨äºåˆå§‹åŒ–ï¼Œè¯·åœ¨æ‰§è¡Œå‰ä½¿ç”¨è¿™ä¸ª
+        void SetGoto(Activity& a){m_goto = &a;}  //ä½ å¿…é¡»åœ¨æ‰§è¡Œå‰ä½¿ç”¨è¯¥æ–¹æ³•æŒ‡å®šè¦å¯åŠ¨çš„æ´»åŠ¨
 
-    //ÒÔÏÂÁ½½Ó¿ÚÓ¦¸ÃÔÚÖ´ĞĞÇ°µ÷ÓÃ
-    void SetInitThread(Core::Thread* t){m_init = t;}    //Èç¹ûĞèÒªÆô¶¯Ò»¸öÏß³ÌÓÃÓÚ³õÊ¼»¯£¬ÇëÔÚÖ´ĞĞÇ°Ê¹ÓÃÕâ¸ö
-    void SetGoto(Activity& a){m_goto = &a;}  //Äã±ØĞëÔÚÖ´ĞĞÇ°Ê¹ÓÃ¸Ã·½·¨Ö¸¶¨ÒªÆô¶¯µÄ»î¶¯
+        void OnShow();
+        void OnHide();
+        void OnNext();
+        void OnDraw();
+    };
 
-    void OnShow();
-    void OnHide();
-    void OnNext();
-    void OnDraw();
-};
+}
+

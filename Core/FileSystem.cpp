@@ -19,7 +19,7 @@ void FixPath(string& path)
     }
 }
 
-void ResFile::Init(const std::string& pw)
+void ResFile::SetPassword(const std::string& pw)
 {
     m_pkgpw = pw;
 }

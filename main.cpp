@@ -1,6 +1,6 @@
 #include "Core/Core.h"
 #include "Activities/ACGCross_Logo.h"
-#include "Activities/GalgameUI.h"
+#include "Activities/GalgameActivity.h"
 
 //#ifdef _OS_WINDOWS
 //#include
@@ -9,23 +9,21 @@
 using namespace std;
 using namespace Core;
 
+
 int main( int argc, char * argv[] )
 {
 
     CoreInit("ACGCross Demo",false,800,600);
-
-
-
-    ResFile::Init("000");
     {
-        //ACGCross_Logo l;
-        GalgameUI gal;
+        //ACGCross::Logo l;
+        ACGCross::Galgame::GalgameActivity gal;
         //l.SetGoto(gal);
         CoreMain(gal);
     }
-
-    ResFile::Quit();
+    cout<<"CoreQuit Start"<<endl;
     CoreQuit();
+    cout<<"Exited"<<endl;
+    cout<<SDL_GetError()<<endl;
     return 0;
 }
 

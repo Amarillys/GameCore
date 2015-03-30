@@ -11,13 +11,17 @@ namespace Core{
     class RndPtr;
 
     void CoreInit(const std::string& title,const bool FullScreen,const int w,const int h);
-    //框架初始化
+    //框架初始化并创建窗口
+    //运行该代码后再单开代码块，声明和初始化各个活动
 
     extern RndPtr pRnd;
     void CoreMain(Activity&);   //框架执行
+    //初始化活动的代码块的最后一行调用此函数，传入第一个执行的活动即可
+
     void CoreQuit();    //框架销毁
-    void SendEvent(const SDL_Event*,Activity*);  //向一个活动发送消息
-    void Goto(Activity&);   //活动跳转
+    //在代码块外执行该函数
+
+    void Goto(Activity*);   //跳转活动
 
     class RndPtr{   //渲染器和窗口智能指针
     friend void CoreInit(const std::string& title,const bool FullScreen,const int w,const int h);
@@ -30,8 +34,8 @@ namespace Core{
         void Create(const std::string& title,const bool FullScreen,const int w,const int h);
         void Destory();
     public:
-        inline int GetW(){return m_w;};
-        inline int GetH(){return m_h;};
+        inline int GetW(){return m_w;}; //窗口长
+        inline int GetH(){return m_h;}; //窗口宽
         inline operator SDL_Window* (){return m_wnd;};
         inline operator SDL_Renderer* (){return m_rnd;};
     };

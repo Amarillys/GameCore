@@ -5,7 +5,6 @@
 
 using namespace Core;
 
-const int Window_H = pRnd.GetH(),Window_W = pRnd.GetW();
 
 void Core::GetString(std::ifstream& in,std::string& str)
 {
@@ -18,20 +17,23 @@ void Core::GetString(std::ifstream& in,std::string& str)
     }
 }
 
-void Core::Pos(SDL_Rect& opr,
+void Core::Pos(int& opr_x,int& opr_y,
                         float x,float y)
 {
-    opr.x = Window_W * x;
-    opr.y = Window_H * y;
+    opr_x = pRnd.GetW() * x;
+    opr_y = pRnd.GetH() * y;
 }
 
-void Core::Pos(SDL_Rect& opr,
+void Core::Pos(int& opr_x,int& opr_y,
                         const char base,int x,int y)
 {
-    const static int screen_w_p = Window_W/4;
-    const static int screen_h_p = Window_H/4;
-    opr.x = screen_w_p * ((base & 0xF0) / 0x10) + x;
-    opr.y = screen_h_p * (base & 0x0F) + y;
+    if((base & 0xF0) == 0xA0) opr_x = pRnd.GetW()/3;
+    else if((base & 0xF0) == 0xB0) opr_x = pRnd.GetW()/3 * 2;
+    else opr_x = (pRnd.GetW()/3) * ((base & 0xF0) / 0x10) + x;
+
+    if((base & 0x0F) == 0x0A) opr_y = pRnd.GetH()/3;
+    else if((base & 0x0F) == 0x0B) opr_y = pRnd.GetH()/3 * 2;
+    else opr_y = (pRnd.GetH()/3) * (base & 0x0F) + y;
 }
 
 bool Core::InRect(const SDL_Rect& r,int x,int y)
@@ -40,3 +42,6 @@ bool Core::InRect(const SDL_Rect& r,int x,int y)
         x >= r.x && x <= r.x + r.w &&
         y >= r.y && y <=r.y + r.h;
 }
+
+void Core::Activity::RegControl(Control& c)
+{m_ansList.push_back(&c);}

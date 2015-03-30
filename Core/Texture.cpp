@@ -74,12 +74,12 @@ void Texture::SetPos(int x, int y)
 
 void Texture::SetPos(char base,int x,int y)
 {
-    Pos(m_dst,base,x,y);
+    Pos(m_dst.x,m_dst.y,base,x,y);
 }
 
 void Texture::SetPos(float x,float y)
 {
-    Pos(m_dst,x,y);
+    Pos(m_dst.x,m_dst.y,x,y);
 }
 
 void Texture::SetZoom(int w,int h)

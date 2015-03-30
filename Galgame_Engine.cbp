@@ -54,11 +54,14 @@
 		</ExtraCommands>
 		<Unit filename="Activities/ACGCross_Logo.cpp" />
 		<Unit filename="Activities/ACGCross_Logo.h" />
-		<Unit filename="Activities/GalgameUI.h" />
-		<Unit filename="Activities/GalgameUI/GalgameUI.cpp" />
-		<Unit filename="Activities/GalgameUI/GalgameUI_Clock.cpp" />
-		<Unit filename="Activities/GalgameUI/GalgameUI_GameMenu.cpp" />
-		<Unit filename="Activities/GalgameUI/GalgameUI_TextBox.cpp" />
+		<Unit filename="Activities/GalgameActivity.h" />
+		<Unit filename="Activities/GalgameActivity/Clock.cpp" />
+		<Unit filename="Activities/GalgameActivity/Clock.h" />
+		<Unit filename="Activities/GalgameActivity/GalgameActivity.cpp" />
+		<Unit filename="Activities/GalgameActivity/GameMenu.cpp" />
+		<Unit filename="Activities/GalgameActivity/GameMenu.h" />
+		<Unit filename="Activities/GalgameActivity/TextBox.cpp" />
+		<Unit filename="Activities/GalgameActivity/TextBox.h" />
 		<Unit filename="Core/Activity.h" />
 		<Unit filename="Core/Bundle.cpp" />
 		<Unit filename="Core/Bundle.h" />
@@ -74,10 +77,13 @@
 		<Unit filename="Core/Globals.h" />
 		<Unit filename="Core/Misc.cpp" />
 		<Unit filename="Core/Misc.h" />
+		<Unit filename="Core/MouseTouchEventGetterControl.h" />
 		<Unit filename="Core/OS.h" />
 		<Unit filename="Core/SDLbase.h" />
 		<Unit filename="Core/Sound.cpp" />
 		<Unit filename="Core/Sound.h" />
+		<Unit filename="Core/Sprite.cpp" />
+		<Unit filename="Core/Sprite.h" />
 		<Unit filename="Core/Texture.cpp" />
 		<Unit filename="Core/Texture.h" />
 		<Unit filename="Core/Thread.cpp" />

@@ -22,7 +22,7 @@ Font::operator TTF_Font* ()
 {return m_font;}
 
 Font::~Font()
-{TTF_CloseFont(m_font);}
+{if(m_font != nullptr) TTF_CloseFont(m_font);}
 
 int Font::GetCharWei(const char ch)
 {

@@ -32,6 +32,7 @@ namespace Core{
         void ReadFromFile(std::ifstream&,Uint64 pos=0);
         //从文件读取数据包
 
+        inline operator void* (){return (void*)&m_data[0];}
         ~Bundle(){};
     };
 }

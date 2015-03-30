@@ -11,36 +11,18 @@ using namespace std;
 Activity* nowFocus;
 Activity* nextFocus;
 
-RndPtr pRnd;
-
 
 namespace Core{
 
-void Goto_Really()
-{
-    nowFocus -> OnHide();
-    nextFocus -> OnShow();
-    nowFocus = nextFocus;
+RndPtr pRnd;
 
-    nextFocus = nullptr;
+void Goto(Activity* a)
+{
+    if(a != nowFocus) nextFocus = a;
 }
 
-void Goto(Activity& a)
-{
-    if(&a != nowFocus) nextFocus = &a;
-}
-
-void SendEvent(SDL_Event* e,Activity* a)    //向一个活动发送SDL消息
-{
-    if(!(a -> m_ansList.empty())) for(auto p = a -> m_ansList.begin();p != a -> m_ansList.end();++p)  //遍历控件表
-    {
-        if((*p) -> OnEvent(e,a)) return;  //发现有控件接受该信息后返回
-    }
-    a -> OnEvent(e);    //无控件接受消息，发送消息给活动的OnEvent()
-}
-
-void ActivityDrawProc() //活动刷新一次处理
-{
+//void ActivityDrawProc() //活动刷新一次处理
+//{
     /*  取消活动间跳转动画功能   *
     if(isGotoing){  //如果正在跳转
         bool lastFinished = false;
@@ -68,10 +50,10 @@ void ActivityDrawProc() //活动刷新一次处理
     //两个动画结束后关闭跳转状态
     else{
         */
-        nowFocus -> OnNext();
-        nowFocus -> OnDraw();
+        //nowFocus -> OnNext();
+        //nowFocus -> OnDraw();
     //}
-}
+//}
 
 void CoreMain(Activity& start)
 {
@@ -81,14 +63,36 @@ void CoreMain(Activity& start)
     SDL_Event e;
     Timer FPSKiller;
     while(1){
-        if(nextFocus != nullptr) Goto_Really();
-        while(SDL_PollEvent(&e)){
-            if (e.type == SDL_QUIT) {nowFocus -> OnHide();return;}
-            else SendEvent(&e,nowFocus);
+
+        /**** 如果有Goto消息则执行Goto ****/
+        if(nextFocus != nullptr){
+                nowFocus -> OnHide();
+                nextFocus -> OnShow();
+                nowFocus = nextFocus;
+                nextFocus = nullptr;
         }
+
+        /**** 处理当前帧所有的事件 ****/
+        while(SDL_PollEvent(&e)){
+            if (e.type == SDL_QUIT) {   //如果是退出
+                nowFocus -> OnHide();
+                return;
+            }
+            else {
+                if(!(nowFocus -> m_ansList.empty()))
+                    for(auto p = nowFocus -> m_ansList.begin();p != nowFocus -> m_ansList.end();++p)  //遍历控件表
+                    {
+                        if((*p) -> OnEvent(e,*nowFocus)) continue;  //发现有控件接受该信息后返回
+                    }
+                    nowFocus -> OnEvent(e);    //无控件接受消息，发送消息给活动的OnEvent()
+            }
+        }
+
+        /**** 绘制 ****/
         SDL_SetRenderDrawColor(pRnd,0x00,0x00,0x00,0xFF);
         SDL_RenderClear(pRnd);
-        ActivityDrawProc();
+        nowFocus -> OnNext();
+        nowFocus -> OnDraw();
         SDL_RenderPresent(pRnd);
 
         FPSKiller.WaitTimer(1000/FPS);   //FPS限制
@@ -121,5 +125,8 @@ void Core::CoreQuit()
     TTF_Quit();
     IMG_Quit();
     Sound::Quit();
+    ResFile::Quit();
+    cout<<"SDL_Quit() Started."<<endl;
     SDL_Quit();
+    cout<<"SDL_Quited"<<endl;
 }

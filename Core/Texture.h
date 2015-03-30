@@ -5,7 +5,6 @@
 //#include "RenderDrawer.h"
 #include "FileSystem.h"
 
-/* 纹理类 属于SDL封装部分，不要在活动层使用。*/
 namespace Core
 {
     class Font;
@@ -40,6 +39,7 @@ namespace Core
         */
         void GetInfo(int& w,int& h);    //取得信息
         bool InRect(int x, int y);   //判断某坐标是否在该纹理范围内
+        inline operator SDL_Texture* (){return m_tex;}
         virtual ~Texture();
     };
 }

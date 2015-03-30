@@ -83,6 +83,7 @@ namespace Core
     class ResFile{  //你可以把它当成一个文件实例，不需要关心内存是否释放，尽情使用就是
         //你也可以调用函数时直接传递对象实例
         //这个是一对一版本
+    friend void Core::CoreQuit();
     private:
         static std::vector<std::ifstream*> m_pkgs;
         static std::string m_pkgpw;
@@ -91,9 +92,9 @@ namespace Core
         Uint32 m_size;
         SDL_RWops* m_rw;
 
-    public:
-        static void Init(const std::string& pw);    //初始化，输入文件包密码
         static void Quit(); //终期化，释放内存
+    public:
+        static void SetPassword(const std::string& pw);    //输入文件包密码
         static bool OpenPkg(const std::string&);    //打开文件包
 
         ResFile();

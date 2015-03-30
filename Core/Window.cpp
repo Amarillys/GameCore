@@ -1,6 +1,7 @@
 #include "Globals.h"
 
 using namespace Core;
+using namespace std;
 
 void RndPtr::Create(const std::string& title,const bool FullScreen,const int w,const int h)
 {

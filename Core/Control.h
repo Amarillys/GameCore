@@ -3,6 +3,7 @@
 
 #include "SDLbase.h"
 
+#define ActivityEvent(UINT32_EVENT) a.OnEvent((Control*)this,UINT32_EVENT);
 
 /* 控件基类介绍 */
 /*
@@ -15,7 +16,7 @@ namespace Core{
     class Control   //控件基类
     {
     public:
-        virtual bool OnEvent (const SDL_Event* e,Activity*) =0;
+        virtual bool OnEvent (const SDL_Event&,Activity&) =0;
         //回调函数,处理消息，如果该控件接受此消息，则返回true，否则返回false
     };
 }

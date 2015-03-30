@@ -1,15 +1,14 @@
 #include "ACGCross_Logo.h"
 using namespace std;
 using namespace Core;
+using namespace ACGCross;
 
-int Window_H = pRnd.GetH(),Window_W = pRnd.GetW();
-
-ACGCross_Logo::ACGCross_Logo()
+Logo::Logo()
 {
     m_init = nullptr;
 }
 
-void ACGCross_Logo::OnShow()
+void Logo::OnShow()
 {
     m_logo.Load("ACGCross\\ACGCross_Logo.png");
     m_logo.SetZoom(192*2,192*2);
@@ -25,33 +24,33 @@ void ACGCross_Logo::OnShow()
     m_logo.SetBlend(SDL_BLENDMODE_MOD);
     m_logo.SetAlpha(0);
 
-    Pos(m_sta0_logoRect,0x22,-192,-192);
+    Pos(m_sta0_logoRect.x,m_sta0_logoRect.y,0x22,-192,-192);
     m_sta0_logoRect.w = 0;m_sta0_logoRect.h = 0;
 
     m_sta1_logoRect = m_sta0_logoRect;
     m_sta1_logoRect.x += 1;m_sta1_logoRect.y += 1;
     m_sta1_logoRect.w = 382;
-    m_sta1_backRect = {0,Window_H,Window_W,0};
+    m_sta1_backRect = {0,pRnd.GetH(),pRnd.GetW(),0};
     m_timer.Reset();
 }
 
-void ACGCross_Logo::OnHide()
+void Logo::OnHide()
 {
     m_logo.Clear();
     m_logo2.Clear();
     m_yzsz.Clear();
 }
 
-void ACGCross_Logo::OnNext()
+void Logo::OnNext()
 {
     if(m_stat == 0){
         m_sta0_logoRect.h = m_sta0_logoRect.w = float(m_timer.GetTimer()) / 256 * 384;
         if(m_sta0_logoRect.h >= 384) m_sta0_logoRect.h = m_sta0_logoRect.w = 384;
     }else if(m_stat == 1){
         float x = ArcFunc(float(m_timer.GetTimer()) / 512);
-        m_sta1_logoRect.y = Window_H/2 - 192 +382 * x;
-        m_sta1_logoRect.h = Window_H/2 + 192 - m_sta1_logoRect.y;
-        m_sta1_backRect.h = -(Window_H * x);
+        m_sta1_logoRect.y = pRnd.GetH()/2 - 192 +382 * x;
+        m_sta1_logoRect.h = pRnd.GetH()/2 + 192 - m_sta1_logoRect.y;
+        m_sta1_backRect.h = -(pRnd.GetH() * x);
         if(x == -1.0) {m_stat = 2;m_timer.Reset();}
     }else if(m_stat == 2){
         float x = float(m_timer.GetTimer()) / 512;
@@ -77,11 +76,11 @@ void ACGCross_Logo::OnNext()
             m_stat = 5;
         }
     }else if(m_stat == 5){
-        Goto(*m_goto);
+        Goto(m_goto);
     }
 }
 
-void ACGCross_Logo::OnDraw()
+void Logo::OnDraw()
 {
     if(m_stat == 0){
         SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);

@@ -42,7 +42,7 @@ namespace Core
         virtual void Unlock(){SDL_UnlockMutex(m_mtx);};
     };
 
-    class Thread:public Mutex
+    class Thread:protected Mutex
     {
         friend int LaunchThread(void*);
         friend int GetMsg(Thread*);
