@@ -1,4 +1,4 @@
-#include "../../Misc/MathFunc.h"
+#include "../../ACGCross/MathFunc.h"
 #include "../GalGameActivity.h"
 #include <ctime>
 
@@ -64,7 +64,7 @@ void Clock::Show()
 
 void Clock::Destory()
 {
-    m_fg.Clear();
+    //m_fg.Clear();   //此处崩溃
     m_clk.Clear();
 }
 

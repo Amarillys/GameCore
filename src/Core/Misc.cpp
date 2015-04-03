@@ -3,6 +3,7 @@
 #include "Activity.h"
 #include "Globals.h"
 
+using namespace std;
 using namespace Core;
 
 
@@ -29,11 +30,11 @@ void Core::Pos(int& opr_x,int& opr_y,
 {
     if((base & 0xF0) == 0xA0) opr_x = pRnd.GetW()/3;
     else if((base & 0xF0) == 0xB0) opr_x = pRnd.GetW()/3 * 2;
-    else opr_x = (pRnd.GetW()/3) * ((base & 0xF0) / 0x10) + x;
+    else opr_x = (pRnd.GetW()/4) * ((base & 0xF0) / 0x10) + x;
 
     if((base & 0x0F) == 0x0A) opr_y = pRnd.GetH()/3;
     else if((base & 0x0F) == 0x0B) opr_y = pRnd.GetH()/3 * 2;
-    else opr_y = (pRnd.GetH()/3) * (base & 0x0F) + y;
+    else opr_y = (pRnd.GetH()/4) * (base & 0x0F) + y;
 }
 
 bool Core::InRect(const SDL_Rect& r,int x,int y)

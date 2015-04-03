@@ -1,6 +1,6 @@
 #include "Core/Core.h"
-#include "Activities/ACGCross_Logo.h"
-#include "Activities/GalgameActivity.h"
+#include "ACGCross/ACGCross_Logo.h"
+#include "ACGCross/GalgameActivity.h"
 
 //#ifdef _OS_WINDOWS
 //#include
@@ -20,10 +20,7 @@ int main( int argc, char * argv[] )
         //l.SetGoto(gal);
         CoreMain(gal);
     }
-    cout<<"CoreQuit Start"<<endl;
     CoreQuit();
-    cout<<"Exited"<<endl;
-    cout<<SDL_GetError()<<endl;
     return 0;
 }
 

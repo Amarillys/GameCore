@@ -1,6 +1,6 @@
 #include "../GalGameActivity.h"
 #include "../../Core/Core.h"
-#include "../../Misc/NumTexture.h"
+#include "../../ACGCross/NumTexture.h"
 
 using namespace Core;
 using namespace std;

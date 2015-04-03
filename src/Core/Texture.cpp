@@ -3,7 +3,7 @@
 #include "Font.h"
 #include <string>
 #include "Misc.h"
-#include "../Debug.h"
+#include "../Core/Debug.h"
 using namespace std;
 using namespace Core;
 

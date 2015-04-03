@@ -1,6 +1,6 @@
 #pragma once
 #include "../Core/Texture.h"
-
+namespace ACGCross{
 class NumTexture:public Core::Texture
 {
 public:
@@ -8,3 +8,4 @@ public:
     void Load(const std::string&);
     int GetWei();
 };
+}

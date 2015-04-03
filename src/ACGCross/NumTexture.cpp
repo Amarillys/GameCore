@@ -1,4 +1,6 @@
 #include "NumTexture.h"
+using namespace ACGCross;
+
 
 void NumTexture::SetNum(char n)
 {

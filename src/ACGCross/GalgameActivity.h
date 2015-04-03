@@ -1,6 +1,6 @@
 #pragma once
 #include "../Core/Core.h"
-#include "../Misc/NumTexture.h"
+#include "../ACGCross/NumTexture.h"
 
 #include "GalgameActivity/TextBox.h"
 #include "GalgameActivity/Clock.h"
@@ -13,7 +13,7 @@ class GalgameActivity:public Core::Activity
 {
 
 private:
-    //Clock m_clk;        //崩溃是因为表坏了
+    Clock m_clk;        //崩溃是因为表坏了
     GameMenuBtn m_menuBtn;
     TextBox m_textBox;
 public:

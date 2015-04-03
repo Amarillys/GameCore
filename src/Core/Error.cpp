@@ -1,7 +1,7 @@
 #include "error.h"
 #include <iostream>
 #include <stdlib.h>
-#include "../Debug.h"
+#include "../Core/Debug.h"
 #define ERROR_COUNT 128
 
 #ifdef _OS_WINDOWS

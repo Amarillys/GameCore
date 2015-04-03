@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include "Globals.h"
-#include "../Debug.h"
+#include "../Core/Debug.h"
 
 #define ENC_LEN 64*1024
 

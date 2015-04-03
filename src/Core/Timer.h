@@ -1,6 +1,6 @@
 #ifndef _HEAD_TIMER_
 #define _HEAD_TIMER_
-#include "../Debug.h"
+#include "../Core/Debug.h"
 
 /***** 计时器 *****
 * 类似NS的那种方法。

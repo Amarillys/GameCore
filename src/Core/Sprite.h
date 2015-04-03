@@ -1,5 +1,5 @@
 #pragma once
-#include <list>
+#include <vector>
 #include "Texture.h"
 /**** 关于,float (*EffectConverter)(float x) ****/
 /* 指向一个函数，给该函数传入的x值在[0,正无穷)之间
@@ -24,13 +24,14 @@ class Sprite:public Texture{
 struct SpriteTask{
         short int TaskType;
         int FPStime;
-        float per;
-        int int_arg[8];
-        float float_arg[4];
+        int nowFPS;
+        std::vector<int> m_datInt;
+        std::vector<float> m_datFlt;
 };
 
 private:
-    std::list<SpriteTask> m_tasks;
+    std::vector<SpriteTask> m_tasks;
+    bool m_AnimePaused;
 
     bool m_rollEnabled;
     float m_rollAngle;
@@ -50,11 +51,14 @@ public:
     void XSetRGB(Uint8 r,Uint8 g,Uint8 b,int _FPStime,float (*EffectConverter)(float x) = nullptr);
     void XZoom(int w,int h,int _FPStime,float (*EffectConverter)(float x) = nullptr);
     void XSetSrc(int x,int y,int w,int h,int _FPStime,float (*EffectConverter)(float x) = nullptr);
+    void XImgLineAnime(int cutCount,bool loop,int fpsOneCut_Speed);
     void XStopAll();
     void XStopTimeLimited();
     void XStopTimeUnlimited();
 
     void SetRoll(float angle,int center_x,int center_y,int time,SDL_RendererFlip flip);
+
+    bool OnEvent(const SDL_Event&,Core::Activity&);
 };
 
 }

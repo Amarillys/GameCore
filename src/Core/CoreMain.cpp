@@ -3,7 +3,7 @@
 #include "Sound.h"
 #include "Globals.h"
 #include "Control.h"
-#include "../Debug.h"
+#include "../Core/Debug.h"
 
 using namespace Core;
 using namespace std;
@@ -126,7 +126,5 @@ void Core::CoreQuit()
     IMG_Quit();
     Sound::Quit();
     ResFile::Quit();
-    cout<<"SDL_Quit() Started."<<endl;
     SDL_Quit();
-    cout<<"SDL_Quited"<<endl;
 }

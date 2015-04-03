@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Core/Core.h"
-#include "../Misc/MathFunc.h"
+#include "../ACGCross/MathFunc.h"
 
 namespace ACGCross{
 

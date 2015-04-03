@@ -5,7 +5,7 @@
 
 #include "SDLbase.h"
 #include <string>
-#include "../Debug.h"
+#include "../Core/Debug.h"
 namespace Core{
     class Activity;
     class RndPtr;

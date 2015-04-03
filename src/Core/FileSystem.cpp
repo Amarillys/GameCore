@@ -1,5 +1,5 @@
 #include "FileSystem.h"
-#include "../Debug.h"
+#include "../Core/Debug.h"
 #include "Misc.h"
 #include "Thread.h"
 #include "Error.h"
