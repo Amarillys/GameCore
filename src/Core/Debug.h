@@ -18,7 +18,7 @@ public:
     ~dbg_class(){std::cout<<this<<"Killed   info:"<<dbg_info<<std::endl;}
 };
 
-#define DBGCLASS_SETDBGINFO(s,t) s.dbg_info = t;
+#define DBGCLASS_SETDBGINFO(s,t) (s).dbg_info = t;
 #define DBGCLASS_PNTDBGINFO(s) cout<<s.dbg_info;
 
 #endif // _HEAD_DEBUG_

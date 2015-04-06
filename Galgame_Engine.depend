@@ -2386,7 +2386,7 @@
 	"../Core/Debug.h"
 	"OS.h"
 
-1425710906 i:\galgame_engine\acgcross_gameengine\src\core\debug.h
+1428288464 i:\galgame_engine\acgcross_gameengine\src\core\debug.h
 	<iostream>
 	<string>
 
@@ -2402,7 +2402,7 @@
 	<string>
 	"OS.h"
 
-1009817934 i:\galgame_engine\acgcross_gameengine\src\core\filesystem.h
+1428288002 i:\galgame_engine\acgcross_gameengine\src\core\filesystem.h
 	<fstream>
 	<map>
 	<vector>
@@ -2422,7 +2422,7 @@
 	<map>
 	"FileSystem.h"
 
-1427616120 i:\galgame_engine\acgcross_gameengine\src\core\texture.h
+1428287248 i:\galgame_engine\acgcross_gameengine\src\core\texture.h
 	"Globals.h"
 	"FileSystem.h"
 
@@ -2435,7 +2435,7 @@
 
 1009818996 i:\galgame_engine\acgcross_gameengine\src\acgcross\mathfunc.h
 
-1428042816 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
+1428289164 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
 	"../GalgameActivity.h"
 
 1428042686 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity.h
@@ -2450,7 +2450,7 @@
 
 1427694392 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.h
 
-1427694392 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.h
+1428289164 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.h
 
 1427694392 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\gamemenu.h
 
@@ -2486,7 +2486,7 @@
 	"../Core/Debug.h"
 	<windows.h>
 
-1009817934 source:i:\galgame_engine\acgcross_gameengine\src\core\filesystem.cpp
+1428288690 source:i:\galgame_engine\acgcross_gameengine\src\core\filesystem.cpp
 	"FileSystem.h"
 	"../Core/Debug.h"
 	"Misc.h"
@@ -2514,7 +2514,7 @@
 	<vector>
 	"Texture.h"
 
-1009817934 source:i:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
+1428288744 source:i:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
 	"Globals.h"
 	"Texture.h"
 	"Font.h"
@@ -2532,4 +2532,9 @@
 	"Core/Core.h"
 	"ACGCross/ACGCross_Logo.h"
 	"ACGCross/GalgameActivity.h"
+
+1428287804 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.cpp
+	"../../ACGCross/MathFunc.h"
+	"../GalGameActivity.h"
+	<ctime>
 

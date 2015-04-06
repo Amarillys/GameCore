@@ -60,7 +60,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
     {
         std::string fName;
         #ifdef _DEBUG
-        PNT("ResFile::OpenPkg   "<<fName<<"  Point Created."<<std::endl;)
+        //PNT("ResFile::OpenPkg   "<<fName<<"  Point Created."<<std::endl;)
         #endif // _DEBUG
         Core::GetString(*pPkgf,fName);
         FixPath(fName);
@@ -136,19 +136,30 @@ void ResFile::Load(std::string f)
         in.close();
     }
     m_rw = SDL_RWFromConstMem((void*)m_mem,m_size);
+    #ifdef _DEBUG
+    DBGCLASS_SETDBGINFO(*this,f);
+    #endif // _DEBUG
 }
 
 void ResFile::Free()
 {
-    if(m_rw != nullptr) SDL_FreeRW(m_rw);
-    if(m_mem != nullptr) delete [] m_mem;
+    if(m_rw != nullptr)
+    {
+        SDL_FreeRW(m_rw);
+        //PNT("SDLRWFree:"<<dbg_info<<std::endl);
+    }
+    if(m_mem != nullptr)
+    {
+        delete [] m_mem;
+       // PNT("SDLSPACEFree:"<<dbg_info<<std::endl);
+    }
     m_mem = nullptr;
     m_size = 0;
     m_rw = nullptr;
-    //#ifdef _DEBUG
+    #ifdef _DEBUG
     //PNT("ResFile Object:"<<this<<"   Free  "<<dbg_info<<std::endl;)
-    //dbg_info.clear();
-    //#endif // _DEBUG
+    dbg_info.clear();
+    #endif // _DEBUG
 }
 
 Uint32 ResFile::Size() const

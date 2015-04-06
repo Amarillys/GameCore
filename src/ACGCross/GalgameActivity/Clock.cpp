@@ -68,10 +68,14 @@ void Clock::Destory()
     m_clk.Clear();
 }
 
-void Clock::Init(const std::string& num,const std::string& fg)
+Clock::Clock()
 {
-    m_fg.Load(num);
-    m_clk.Load(fg);
+    m_fg.Load("GalGameSystem\\fg.png");
+}
+
+void Clock::Init()
+{
+    m_clk.Load("GalGameSystem\\num.png");
     m_fg.SetAlpha(0);
     m_fg_showing = false;
     m_timer_fg.Reset();

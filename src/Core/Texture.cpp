@@ -57,6 +57,7 @@ void Texture::Clear()
     {
         SDL_DestroyTexture(m_tex);
         m_tex = nullptr;
+        PNT("TextureClear:"<<this<<endl);
     }
     m_file.Free();
 }

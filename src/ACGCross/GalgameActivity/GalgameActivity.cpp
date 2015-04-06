@@ -11,7 +11,7 @@ GalgameActivity::GalgameActivity()
 
 void GalgameActivity::OnShow()
 {
-    m_clk.Init("GalGameSystem\\fg.png","GalGameSystem\\num.png");
+    m_clk.Init();
     m_clk.SetPos(20,22);
     m_menuBtn.Init("GalGameSystem\\menuBtn.png");
     m_menuBtn.SetPos(pRnd.GetW() - 125,22);

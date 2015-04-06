@@ -24,9 +24,10 @@ private:
     float m_fg_last = 0.0;
     Core::Timer m_timer_fg;
 public:
+    Clock();
     void OnNext();
     void OnDraw();
-    void Init(const std::string& num,const std::string& fg);  //必须先Init，否则可能出错
+    void Init();  //必须先Init，否则可能出错
     void Destory();
     void Hide();
     void Show();
