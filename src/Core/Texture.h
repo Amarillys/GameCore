@@ -39,6 +39,11 @@ namespace Core
         */
         void GetInfo(int& w,int& h);    //取得信息
         bool InRect(int x, int y);   //判断某坐标是否在该纹理范围内
+
+        void SetRoll(float angle,int center_x,int center_y,int time,SDL_RendererFlip flip);
+        //设置旋转
+        //TODO:未实现
+
         inline operator SDL_Texture* (){return m_tex;}
         virtual ~Texture();
     };

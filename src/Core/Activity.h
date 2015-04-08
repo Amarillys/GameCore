@@ -1,6 +1,6 @@
 #pragma once
 
-#include <list>
+#include <forward_list>
 #include "SDLbase.h"
 
 namespace Core{
@@ -12,10 +12,13 @@ namespace Core{
     {
     friend void Core::CoreMain(Activity&);
     private:
-        std::list<Control*> m_ansList;
+        std::forward_list<Control*> m_ansList;
 
     protected:
         void RegControl(Control&);
+        void SetLogicScreenSize(int w,int h);
+        //TODO:未实现
+        //设置屏幕逻辑大小
     public:
         virtual void OnShow(){};    //当Goto到这个活动时执行
         virtual void OnHide(){};    //当Goto出这个活动时执行

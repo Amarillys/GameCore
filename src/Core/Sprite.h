@@ -1,64 +1,13 @@
 #pragma once
-#include <vector>
 #include "Texture.h"
-/**** ¹ØÓÚ,float (*EffectConverter)(float x) ****/
-/* Ö¸ÏòÒ»¸öº¯Êı£¬¸ø¸Ãº¯Êı´«ÈëµÄxÖµÔÚ[0,ÕıÎŞÇî)Ö®¼ä
-* ÒªÇó¸Ãº¯ÊıÔÚx´óÓÚµÈÓÚ1.0Ê±·µ»Ø -1.0
-* ´«ÈëµÄxÎª¶¯»­½øÕ¹µÄ°Ù·Ö±È
-* º¯ÊıÓ¦¸Ã¶Ôx½øĞĞ×ª»»£¬Ê¹Æä±äÎª·ûºÏÄãÏëÒªµÄ¶¯»­µÄº¯Êı
-* ±ÈÈç£¬Ô²»¡Æ½»¬ÒÆ¶¯Ê±£¬ĞèÒªÓÃµ½Ô²»¡º¯Êı
-* ÄÇÃ´Äã¿ÉÒÔ²Î¿¼ÒÔÏÂ´úÂë£º
-float ArcFunc(float x)
-{
-    if (x>=1.0) return -1.0;
-    else return sqrt(1-(x-1)*(x-1));
-}
-* elseºó±ßµÄÊÇ¾­¹ıÍÆËãµÃ³öµÄÔ²»¡º¯ÊıµÄ´úÂë
-*/
+#include "Animation.h"
+#include "Control.h"
 
-//int _FPStimeÈç¹û´«Èë-1ÔòÎŞÊ±¼äÏŞÖÆ£¬µ¥Î»ÎªÖ¡£¬¶ø´ËÊ±ÊäÈëµÄÊı¾İ¶¼ÊÇÒÔÃ¿ÃëÎªµ¥Î»
+//TODO:æœªå®ç°
 namespace Core{
-
-class Sprite:public Texture{
-
-struct SpriteTask{
-        short int TaskType;
-        int FPStime;
-        int nowFPS;
-        std::vector<int> m_datInt;
-        std::vector<float> m_datFlt;
-};
-
-private:
-    std::vector<SpriteTask> m_tasks;
-    bool m_AnimePaused;
-
-    bool m_rollEnabled;
-    float m_rollAngle;
-    SDL_Point m_rollCenter;
-    SDL_RendererFlip m_rollFlip;
+class Sprite:public Texture,public AnimationPool,public Control{
 public:
-    Sprite();
-    void OnNext();
-    void OnDraw();
-    bool Finished();    //½öÈ·¶¨ÓĞÊ±¼äÏŞÖÆµÄ¶¯»­ÊÇ·ñ½áÊø
-
-    void XMove(int x,int y,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XMove(char base,int x,int y,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XMove(float x,float y,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XSetAlpha(int alp,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XSetRoll(float angle,int center_x,int center_y,int _FPStime,SDL_RendererFlip flip,float (*EffectConverter)(float x) = nullptr);
-    void XSetRGB(Uint8 r,Uint8 g,Uint8 b,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XZoom(int w,int h,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XSetSrc(int x,int y,int w,int h,int _FPStime,float (*EffectConverter)(float x) = nullptr);
-    void XImgLineAnime(int cutCount,bool loop,int fpsOneCut_Speed);
-    void XStopAll();
-    void XStopTimeLimited();
-    void XStopTimeUnlimited();
-
-    void SetRoll(float angle,int center_x,int center_y,int time,SDL_RendererFlip flip);
-
-    bool OnEvent(const SDL_Event&,Core::Activity&);
+    bool OnEvent (const SDL_Event&,Activity&);
+    //è¾“å‡ºé¼ æ ‡æŒ‰ä¸‹ï¼Œå¼¹å‡ºï¼Œè¿›å…¥ï¼Œé€€å‡ºçš„æ¶ˆæ¯
 };
-
 }

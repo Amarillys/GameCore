@@ -70,6 +70,7 @@
 		<Unit filename="src/ACGCross/NumTexture.cpp" />
 		<Unit filename="src/ACGCross/NumTexture.h" />
 		<Unit filename="src/Core/Activity.h" />
+		<Unit filename="src/Core/Animation.h" />
 		<Unit filename="src/Core/Bundle.cpp" />
 		<Unit filename="src/Core/Bundle.h" />
 		<Unit filename="src/Core/Control.h" />
@@ -89,7 +90,6 @@
 		<Unit filename="src/Core/SDLbase.h" />
 		<Unit filename="src/Core/Sound.cpp" />
 		<Unit filename="src/Core/Sound.h" />
-		<Unit filename="src/Core/Sprite.cpp" />
 		<Unit filename="src/Core/Sprite.h" />
 		<Unit filename="src/Core/Texture.cpp" />
 		<Unit filename="src/Core/Texture.h" />

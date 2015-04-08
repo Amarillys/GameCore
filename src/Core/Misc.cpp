@@ -45,4 +45,4 @@ bool Core::InRect(const SDL_Rect& r,int x,int y)
 }
 
 void Core::Activity::RegControl(Control& c)
-{m_ansList.push_back(&c);}
+{m_ansList.push_front(&c);}

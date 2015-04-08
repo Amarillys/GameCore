@@ -40,9 +40,9 @@ OBJDIR_RELEASE = bin\\Release\\obj
 DEP_RELEASE = 
 OUT_RELEASE = bin\\Release\\Galgame_Engine.exe
 
-OBJ_DEBUG = $(OBJDIR_DEBUG)\\src\\Core\\Error.o $(OBJDIR_DEBUG)\\src\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\src\\Core\\Font.o $(OBJDIR_DEBUG)\\src\\Core\\Misc.o $(OBJDIR_DEBUG)\\src\\Core\\Sound.o $(OBJDIR_DEBUG)\\src\\Core\\Sprite.o $(OBJDIR_DEBUG)\\src\\Core\\Texture.o $(OBJDIR_DEBUG)\\src\\Core\\Thread.o $(OBJDIR_DEBUG)\\src\\Core\\Window.o $(OBJDIR_DEBUG)\\src\\main.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\src\\ACGCross\\ACGCross_Logo.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\Clock.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\GalgameActivity.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\GameMenu.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\TextBox.o $(OBJDIR_DEBUG)\\src\\ACGCross\\MathFunc.o $(OBJDIR_DEBUG)\\src\\ACGCross\\NumTexture.o $(OBJDIR_DEBUG)\\src\\Core\\Bundle.o $(OBJDIR_DEBUG)\\src\\Core\\CoreMain.o
+OBJ_DEBUG = $(OBJDIR_DEBUG)\\src\\Core\\Error.o $(OBJDIR_DEBUG)\\src\\Core\\FileSystem.o $(OBJDIR_DEBUG)\\src\\Core\\Font.o $(OBJDIR_DEBUG)\\src\\Core\\Misc.o $(OBJDIR_DEBUG)\\src\\Core\\Sound.o $(OBJDIR_DEBUG)\\src\\Core\\Texture.o $(OBJDIR_DEBUG)\\src\\Core\\Thread.o $(OBJDIR_DEBUG)\\src\\Core\\Window.o $(OBJDIR_DEBUG)\\src\\main.o $(OBJDIR_DEBUG)\\icon.o $(OBJDIR_DEBUG)\\src\\ACGCross\\ACGCross_Logo.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\Clock.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\GalgameActivity.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\GameMenu.o $(OBJDIR_DEBUG)\\src\\ACGCross\\GalgameActivity\\TextBox.o $(OBJDIR_DEBUG)\\src\\ACGCross\\MathFunc.o $(OBJDIR_DEBUG)\\src\\ACGCross\\NumTexture.o $(OBJDIR_DEBUG)\\src\\Core\\Bundle.o $(OBJDIR_DEBUG)\\src\\Core\\CoreMain.o
 
-OBJ_RELEASE = $(OBJDIR_RELEASE)\\src\\Core\\Error.o $(OBJDIR_RELEASE)\\src\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\src\\Core\\Font.o $(OBJDIR_RELEASE)\\src\\Core\\Misc.o $(OBJDIR_RELEASE)\\src\\Core\\Sound.o $(OBJDIR_RELEASE)\\src\\Core\\Sprite.o $(OBJDIR_RELEASE)\\src\\Core\\Texture.o $(OBJDIR_RELEASE)\\src\\Core\\Thread.o $(OBJDIR_RELEASE)\\src\\Core\\Window.o $(OBJDIR_RELEASE)\\src\\main.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\src\\ACGCross\\ACGCross_Logo.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\Clock.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\GalgameActivity.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\GameMenu.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\TextBox.o $(OBJDIR_RELEASE)\\src\\ACGCross\\MathFunc.o $(OBJDIR_RELEASE)\\src\\ACGCross\\NumTexture.o $(OBJDIR_RELEASE)\\src\\Core\\Bundle.o $(OBJDIR_RELEASE)\\src\\Core\\CoreMain.o
+OBJ_RELEASE = $(OBJDIR_RELEASE)\\src\\Core\\Error.o $(OBJDIR_RELEASE)\\src\\Core\\FileSystem.o $(OBJDIR_RELEASE)\\src\\Core\\Font.o $(OBJDIR_RELEASE)\\src\\Core\\Misc.o $(OBJDIR_RELEASE)\\src\\Core\\Sound.o $(OBJDIR_RELEASE)\\src\\Core\\Texture.o $(OBJDIR_RELEASE)\\src\\Core\\Thread.o $(OBJDIR_RELEASE)\\src\\Core\\Window.o $(OBJDIR_RELEASE)\\src\\main.o $(OBJDIR_RELEASE)\\icon.o $(OBJDIR_RELEASE)\\src\\ACGCross\\ACGCross_Logo.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\Clock.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\GalgameActivity.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\GameMenu.o $(OBJDIR_RELEASE)\\src\\ACGCross\\GalgameActivity\\TextBox.o $(OBJDIR_RELEASE)\\src\\ACGCross\\MathFunc.o $(OBJDIR_RELEASE)\\src\\ACGCross\\NumTexture.o $(OBJDIR_RELEASE)\\src\\Core\\Bundle.o $(OBJDIR_RELEASE)\\src\\Core\\CoreMain.o
 
 all: before_build build_debug build_release after_build
 
@@ -84,9 +84,6 @@ $(OBJDIR_DEBUG)\\src\\Core\\Misc.o: src\\Core\\Misc.cpp
 
 $(OBJDIR_DEBUG)\\src\\Core\\Sound.o: src\\Core\\Sound.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Core\\Sound.cpp -o $(OBJDIR_DEBUG)\\src\\Core\\Sound.o
-
-$(OBJDIR_DEBUG)\\src\\Core\\Sprite.o: src\\Core\\Sprite.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Core\\Sprite.cpp -o $(OBJDIR_DEBUG)\\src\\Core\\Sprite.o
 
 $(OBJDIR_DEBUG)\\src\\Core\\Texture.o: src\\Core\\Texture.cpp
 	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c src\\Core\\Texture.cpp -o $(OBJDIR_DEBUG)\\src\\Core\\Texture.o
@@ -170,9 +167,6 @@ $(OBJDIR_RELEASE)\\src\\Core\\Misc.o: src\\Core\\Misc.cpp
 
 $(OBJDIR_RELEASE)\\src\\Core\\Sound.o: src\\Core\\Sound.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Core\\Sound.cpp -o $(OBJDIR_RELEASE)\\src\\Core\\Sound.o
-
-$(OBJDIR_RELEASE)\\src\\Core\\Sprite.o: src\\Core\\Sprite.cpp
-	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Core\\Sprite.cpp -o $(OBJDIR_RELEASE)\\src\\Core\\Sprite.o
 
 $(OBJDIR_RELEASE)\\src\\Core\\Texture.o: src\\Core\\Texture.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c src\\Core\\Texture.cpp -o $(OBJDIR_RELEASE)\\src\\Core\\Texture.o

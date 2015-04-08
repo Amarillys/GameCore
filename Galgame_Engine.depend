@@ -2365,8 +2365,8 @@
 	"Thread.h"
 	"Timer.h"
 
-1427693916 i:\galgame_engine\acgcross_gameengine\src\core\activity.h
-	<list>
+1428471450 i:\galgame_engine\acgcross_gameengine\src\core\activity.h
+	<forward_list>
 	"SDLbase.h"
 
 1425710906 i:\galgame_engine\acgcross_gameengine\src\core\sdlbase.h
@@ -2422,7 +2422,7 @@
 	<map>
 	"FileSystem.h"
 
-1428287248 i:\galgame_engine\acgcross_gameengine\src\core\texture.h
+1428471394 i:\galgame_engine\acgcross_gameengine\src\core\texture.h
 	"Globals.h"
 	"FileSystem.h"
 
@@ -2497,7 +2497,7 @@
 1427620652 source:i:\galgame_engine\acgcross_gameengine\src\core\font.cpp
 	"Font.h"
 
-1428043968 source:i:\galgame_engine\acgcross_gameengine\src\core\misc.cpp
+1428469746 source:i:\galgame_engine\acgcross_gameengine\src\core\misc.cpp
 	"Misc.h"
 	"SDLbase.h"
 	"Activity.h"
@@ -2533,7 +2533,7 @@
 	"ACGCross/ACGCross_Logo.h"
 	"ACGCross/GalgameActivity.h"
 
-1428287804 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.cpp
+1428289192 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.cpp
 	"../../ACGCross/MathFunc.h"
 	"../GalGameActivity.h"
 	<ctime>
