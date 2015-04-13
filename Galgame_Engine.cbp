@@ -70,6 +70,7 @@
 		<Unit filename="src/ACGCross/NumTexture.cpp" />
 		<Unit filename="src/ACGCross/NumTexture.h" />
 		<Unit filename="src/Core/Activity.h" />
+		<Unit filename="src/Core/Animation.cpp" />
 		<Unit filename="src/Core/Animation.h" />
 		<Unit filename="src/Core/Bundle.cpp" />
 		<Unit filename="src/Core/Bundle.h" />

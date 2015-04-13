@@ -1,5 +1,5 @@
 #pragma once
-#include <forward_list>
+#include <list>
 
 namespace Core{
 class AnimationPool;
@@ -22,8 +22,8 @@ public:
 //TODO:未实现
 class AnimationPool{
 private:
-    std::forward_list<Animation*> m_aniList_s;
-    std::forward_list<Animation*> m_aniList_h;
+    std::list<Animation*> m_aniList_s;
+    std::list<Animation*> m_aniList_h;
 public:
     void OnNext();  //请求下一帧
     bool OnceAnimationFinished();   //不永久执行的动画是否已经全部完成
