@@ -34,8 +34,10 @@ namespace Core{
         void Create(const std::string& title,const bool FullScreen,const int w,const int h);
         void Destory();
     public:
-        inline int GetW(){return m_w;}; //窗口长
-        inline int GetH(){return m_h;}; //窗口宽
+        int GetW(); //逻辑宽
+        int GetH(); //逻辑高
+        inline int GetPhW(){return m_w;}    //物理宽
+        inline int GetPhH(){return m_h;}    //物理高
         inline operator SDL_Window* (){return m_wnd;};
         inline operator SDL_Renderer* (){return m_rnd;};
     };

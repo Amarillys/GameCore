@@ -1,4 +1,5 @@
 #pragma once
+#include "../NumTexture.h"
 namespace ACGCross{
 namespace Galgame{
 

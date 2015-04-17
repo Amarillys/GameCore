@@ -1,4 +1,4 @@
-#include "../GalgameActivity.h"
+#include "GalgameActivity.h"
 
 using namespace std;
 using namespace Core;
@@ -15,28 +15,28 @@ void GalgameActivity::OnShow()
     m_clk.SetPos(20,22);
     m_menuBtn.Init("GalGameSystem\\menuBtn.png");
     m_menuBtn.SetPos(pRnd.GetW() - 125,22);
-    m_textBox.Init();
+    //m_textBox.Init();
 }
 
 void GalgameActivity::OnHide()
 {
     m_clk.Destory();
     m_menuBtn.Destory();
-    m_textBox.Destory();
+    //m_textBox.Destory();
 }
 
 void GalgameActivity::OnNext()
 {
     m_clk.OnNext();
     m_menuBtn.OnNext();
-    m_textBox.OnNext();
+    //m_textBox.OnNext();
 }
 
 void GalgameActivity::OnDraw()
 {
     m_clk.OnDraw();
     m_menuBtn.OnDraw();
-    m_textBox.OnDraw();
+    //m_textBox.OnDraw();
 }
 
 void GalgameActivity::OnEvent(const SDL_Event& e)

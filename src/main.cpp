@@ -1,6 +1,6 @@
 #include "Core/Core.h"
 #include "ACGCross/ACGCross_Logo.h"
-#include "ACGCross/GalgameActivity.h"
+#include "ACGCross/GalgameActivity/GalgameActivity.h"
 
 //#ifdef _OS_WINDOWS
 //#include

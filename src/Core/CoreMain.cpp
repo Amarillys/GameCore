@@ -18,7 +18,8 @@ RndPtr pRnd;
 
 void Goto(Activity* a)
 {
-    if(a != nowFocus) nextFocus = a;
+    if(a != nowFocus)
+        nextFocus = a;
 }
 
 //void ActivityDrawProc() //活动刷新一次处理
@@ -70,6 +71,7 @@ void CoreMain(Activity& start)
                 nextFocus -> OnShow();
                 nowFocus = nextFocus;
                 nextFocus = nullptr;
+                SDL_RenderSetLogicalSize(pRnd,nowFocus -> m_logic_w,nowFocus -> m_logic_h);
         }
 
         /**** 处理当前帧所有的事件 ****/
@@ -128,3 +130,14 @@ void Core::CoreQuit()
     ResFile::Quit();
     SDL_Quit();
 }
+
+int RndPtr::GetH()
+{
+    return nowFocus -> m_logic_h;
+}
+
+int RndPtr::GetW()
+{
+    return nowFocus -> m_logic_w;
+}
+

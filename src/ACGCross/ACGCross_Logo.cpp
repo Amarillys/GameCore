@@ -1,4 +1,7 @@
 #include "ACGCross_Logo.h"
+#define LOGO_SIZE 90
+#define PER_LOGO_WH 1.380487804878049f
+#define WORD_SIZE 128
 using namespace std;
 using namespace Core;
 using namespace ACGCross;
@@ -11,13 +14,27 @@ Logo::Logo()
 void Logo::OnShow()
 {
     m_logo.Load("ACGCross\\ACGCross_Logo.png");
-    m_logo.SetZoom(192*2,192*2);
+    m_logo.SetZoom(LOGO_SIZE*2,LOGO_SIZE*2*PER_LOGO_WH);
     m_logo2.Load("ACGCross\\ACGCross_Logo2.png");
-    m_logo2.SetZoom(192*2,192*2);
-    m_yzsz.Load("ACGCross\\ACGCross_Chn.png");
-    m_logo.SetPos(0x22,-192,-192);
-    m_logo2.SetPos(0x22,-192,-192);
-    m_yzsz.SetAlpha(0);
+    m_logo2.SetZoom(LOGO_SIZE*2,LOGO_SIZE*2*PER_LOGO_WH);
+    m_yzsz_yu.Load("ACGCross\\ACGCross_Chn_1.png");
+    m_yzsz_yu.SetPos(0x22,-2*WORD_SIZE,-WORD_SIZE/2);
+    m_yzsz_zhai.Load("ACGCross\\ACGCross_Chn_2.png");
+    m_yzsz_zhai.SetPos(0x22,-WORD_SIZE,-WORD_SIZE/2);
+    m_yzsz_zi.Load("ACGCross\\ACGCross_Chn_3.png");
+    m_yzsz_zi.SetPos(0x22,WORD_SIZE,-WORD_SIZE/2);
+    m_yzsz_eng.Load("ACGCross\\ACGCross_Eng.png");
+    m_yzsz_eng.SetPos(0x2B,-100,0);
+
+    m_yzsz_yu.SetAlpha(0);
+    m_yzsz_zhai.SetAlpha(0);
+    m_yzsz_zi.SetAlpha(0);
+
+    m_logo.SetPos(0x22,-LOGO_SIZE,-LOGO_SIZE*PER_LOGO_WH+15);
+    m_logo2.SetPos(0x22,-LOGO_SIZE,-LOGO_SIZE*PER_LOGO_WH+15);
+    m_effect.Load("ACGCross\\ACGCross_Effect.png");
+    m_effect.SetAlpha(128);
+    //m_yzsz.SetAlpha(0);
 
     if(m_init != nullptr) m_init -> Run();
     m_stat = 0;
@@ -38,7 +55,11 @@ void Logo::OnHide()
 {
     m_logo.Clear();
     m_logo2.Clear();
-    m_yzsz.Clear();
+    m_yzsz_yu.Clear();
+    m_yzsz_zhai.Clear();
+    m_yzsz_zi.Clear();
+    m_yzsz_eng.Clear();
+    m_effect.Clear();
 }
 
 void Logo::OnNext()
@@ -51,27 +72,44 @@ void Logo::OnNext()
         m_sta1_logoRect.y = pRnd.GetH()/2 - 192 +382 * x;
         m_sta1_logoRect.h = pRnd.GetH()/2 + 192 - m_sta1_logoRect.y;
         m_sta1_backRect.h = -(pRnd.GetH() * x);
-        if(x == -1.0) {m_stat = 2;m_timer.Reset();}
+        m_logo2.SetAlpha(x * 255);
+        if(x == -1.0) {m_stat = 2;m_timer.Reset();m_logo2.SetAlpha(255);}
     }else if(m_stat == 2){
-        float x = float(m_timer.GetTimer()) / 512;
-        m_logo.SetPos(0x22,-192,-192-96*ArcFunc(x));
-        m_logo2.SetPos(0x22,-192,-192-96*ArcFunc(x));
-        m_yzsz.SetPos(0x22,-193,200 - 256*ArcFunc(x));
-        m_yzsz.SetAlpha(255*ArcFunc(x));
-        m_logo2.SetAlpha(255*ArcFunc(x));
-        if(x >= 1.0){
+        float x = ArcFunc(float(m_timer.GetTimer()) / 512);
+
+        int logo2_x,logo2_x_dst,logo2_y;
+        Pos(logo2_x,logo2_y,0x22,-LOGO_SIZE,-LOGO_SIZE*PER_LOGO_WH+15);
+        Pos(logo2_x_dst,logo2_y,0x22,-25,-LOGO_SIZE*PER_LOGO_WH+15);
+        m_logo2.SetPos(int((logo2_x_dst - logo2_x)*x + logo2_x),logo2_y);
+
+        m_yzsz_yu.SetAlpha(255*x);
+        m_yzsz_zhai.SetAlpha(255*x);
+        m_yzsz_zi.SetAlpha(255*x);
+        if(x == -1.0){
             m_stat = 3;
-            m_logo2.SetPos(0x22,-192,-192-96);
-            m_yzsz.SetPos(0x22,-193,200 - 256);
-            m_yzsz.SetAlpha(255);
-            m_logo2.SetAlpha(255);
+            m_logo2.SetPos(logo2_x_dst,logo2_y);
+            m_yzsz_yu.SetAlpha(255);
+            m_yzsz_zhai.SetAlpha(255);
+            m_yzsz_zi.SetAlpha(255);
             m_timer.Reset();
         }
-    }else if(m_stat == 4){
+    }
+    else if(m_stat == 3)
+    {
+        float x = ArcFunc(float(m_timer.GetTimer()) / 1024);
+        if(x<=1.0)
+            m_effect.SetPos(int(pRnd.GetW() * x)-pRnd.GetW()/3,pRnd.GetH()/2-150);
+        else m_effect.SetAlpha(0);
+    }
+    else if(m_stat == 4){
         float x = ArcFunc(float(m_timer.GetTimer()) / 512);
         Uint8 v = 255*x;
         m_logo2.SetAlpha(255-v);
-        m_yzsz.SetAlpha(255-v);
+        m_yzsz_eng.SetAlpha(255-v);
+        m_yzsz_yu.SetAlpha(255-v);
+        m_yzsz_zhai.SetAlpha(255-v);
+        m_yzsz_zi.SetAlpha(255-v);
+        //m_yzsz.SetAlpha(255-v);
         if(x == -1.0) {
             m_stat = 5;
         }
@@ -92,15 +130,21 @@ void Logo::OnDraw()
 
         SDL_RenderFillRect(pRnd,&m_sta1_backRect);
         SDL_SetRenderDrawColor(pRnd,0x00,0x00,0x00,0xFF);
-        SDL_RenderFillRect(pRnd,&m_sta1_logoRect);
         m_logo.OnDraw();
+        m_logo2.OnDraw();
+        SDL_RenderFillRect(pRnd,&m_sta1_logoRect);
+
 
     }else if(m_stat == 2 || m_stat == 3){
         SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
         SDL_RenderClear(pRnd);
-        if(m_stat == 2) m_logo.OnDraw();
         m_logo2.OnDraw();
-        m_yzsz.OnDraw();
+        //m_yzsz.OnDraw();
+        m_yzsz_yu.OnDraw();
+        m_yzsz_zhai.OnDraw();
+        m_yzsz_zi.OnDraw();
+        m_yzsz_eng.OnDraw();
+        m_effect.OnDraw();
         if(m_stat == 3 && m_timer.GetTimer() >= 1500){
             if(m_init != nullptr) {if(!m_init -> Running()) {m_stat = 4;m_timer.Reset();}}
             else {m_stat = 4;m_timer.Reset();}
@@ -109,7 +153,11 @@ void Logo::OnDraw()
         SDL_SetRenderDrawColor(pRnd,0xFF,0xFF,0xFF,0xFF);
         SDL_RenderClear(pRnd);
         m_logo2.OnDraw();
-        m_yzsz.OnDraw();
+        m_yzsz_yu.OnDraw();
+        m_yzsz_zhai.OnDraw();
+        m_yzsz_zi.OnDraw();
+        m_yzsz_eng.OnDraw();
+        //m_yzsz.OnDraw();
     }else{
         SDL_SetRenderDrawColor(pRnd,0,0,0,0xFF);
         SDL_RenderClear(pRnd);

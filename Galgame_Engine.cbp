@@ -16,6 +16,7 @@
 					<Add option="-g" />
 					<Add option="-D_DEBUG" />
 					<Add directory="Core" />
+					<Add directory="src" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -26,6 +27,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="Core" />
+					<Add directory="src" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -57,10 +59,10 @@
 		</Unit>
 		<Unit filename="src/ACGCross/ACGCross_Logo.cpp" />
 		<Unit filename="src/ACGCross/ACGCross_Logo.h" />
-		<Unit filename="src/ACGCross/GalgameActivity.h" />
 		<Unit filename="src/ACGCross/GalgameActivity/Clock.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/Clock.h" />
 		<Unit filename="src/ACGCross/GalgameActivity/GalgameActivity.cpp" />
+		<Unit filename="src/ACGCross/GalgameActivity/GalgameActivity.h" />
 		<Unit filename="src/ACGCross/GalgameActivity/GameMenu.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/GameMenu.h" />
 		<Unit filename="src/ACGCross/GalgameActivity/TextBox.cpp" />

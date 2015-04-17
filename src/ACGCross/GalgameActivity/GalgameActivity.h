@@ -1,10 +1,9 @@
 #pragma once
-#include "../Core/Core.h"
-#include "../ACGCross/NumTexture.h"
+#include "../../Core/Core.h"
 
-#include "GalgameActivity/TextBox.h"
-#include "GalgameActivity/Clock.h"
-#include "GalgameActivity/GameMenu.h"
+//#include "TextBox.h"
+#include "Clock.h"
+#include "GameMenu.h"
 
 namespace ACGCross{
 namespace Galgame{
@@ -15,7 +14,7 @@ class GalgameActivity:public Core::Activity
 private:
     Clock m_clk;        //崩溃是因为表坏了
     GameMenuBtn m_menuBtn;
-    TextBox m_textBox;
+    //TextBox m_textBox;
 public:
     GalgameActivity();
     void OnShow();

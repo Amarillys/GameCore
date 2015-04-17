@@ -10,7 +10,11 @@ namespace ACGCross{
     private:
         Core::Texture m_logo;
         Core::Texture m_logo2;
-        Core::Texture m_yzsz;
+        Core::Texture m_yzsz_yu;
+        Core::Texture m_yzsz_zhai;
+        Core::Texture m_yzsz_zi;
+        Core::Texture m_yzsz_eng;
+        Core::Texture m_effect;
         Core::Thread* m_init;
         Core::Timer m_timer;
         Uint8 m_stat;

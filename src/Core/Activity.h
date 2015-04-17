@@ -2,6 +2,7 @@
 
 #include <forward_list>
 #include "SDLbase.h"
+#include "Globals.h"
 
 namespace Core{
     class Activity;
@@ -11,15 +12,17 @@ namespace Core{
     class Activity
     {
     friend void Core::CoreMain(Activity&);
+    friend class RndPtr;
     private:
         std::forward_list<Control*> m_ansList;
-
+        int m_logic_w,m_logic_h;
     protected:
         void RegControl(Control&);
-        void SetLogicScreenSize(int w,int h);
-        //TODO:未实现
+        void SetLogicScreenSize(int w,int h)
+        {m_logic_h = h;m_logic_w = w;SDL_RenderSetLogicalSize(pRnd,w,h);}
         //设置屏幕逻辑大小
     public:
+        Activity(){m_logic_h = pRnd.GetPhH();m_logic_w = pRnd.GetPhW();}
         virtual void OnShow(){};    //当Goto到这个活动时执行
         virtual void OnHide(){};    //当Goto出这个活动时执行
 
