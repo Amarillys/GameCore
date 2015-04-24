@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include <list>
 #include "../../Core/Core.h"
 
 namespace ACGCross {
@@ -13,7 +14,7 @@ class TextBox
 
         //字体接口
         void SetColor(int r,int g,int b);
-        void SetFont(const std::string&);
+        void SetFont(Core::Font&);
         void SetHeight(int h);  //按比例同时缩放宽度
 
         //文本接口
@@ -40,11 +41,15 @@ class TextBox
     protected:
     private:
         std::vector<int> m_lineWord;    //每行文字数
-        std::vector<Core::Texture> m_text;  //文字
+        std::list<Core::Texture> m_text;  //文字
+        Core::Font* m_font;  //字体
         int m_r,m_g,m_b,    //颜色
             m_fpsSpeed, //FPS/字 速度
             m_stat, //状态
             m_nowFps;   //FPS计数器
+        SDL_Rect m_rect;    //文字框位置
+        int m_word_h;  //文字长度
+        int m_showing_word; //显示中的文字
 };
 
 } // namespace Galgame

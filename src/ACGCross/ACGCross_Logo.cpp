@@ -98,7 +98,7 @@ void Logo::OnNext()
     {
         float x = ArcFunc(float(m_timer.GetTimer()) / 1024);
         if(x<=1.0)
-            m_effect.SetPos(int(pRnd.GetW() * x)-pRnd.GetW()/3,pRnd.GetH()/2-150);
+            m_effect.SetPos(int(pRnd.GetW() * x)-pRnd.GetW()/3 -70,pRnd.GetH()/2-150 - 70);
         else m_effect.SetAlpha(0);
     }
     else if(m_stat == 4){

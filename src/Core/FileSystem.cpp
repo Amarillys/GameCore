@@ -29,7 +29,7 @@ void ResFile::SetPassword(const std::string& pw)
 void ResFile::Quit()
 {
     if(!m_pkgs.empty())
-    for(auto p = m_pkgs.begin();p != m_pkgs.end();++p){
+    FOR_EACH(p,m_pkgs.begin(),m_pkgs.end()){
         (*p) -> close();
         delete *p;
     }
@@ -71,7 +71,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
     }
 
     const Uint32 PkgDataStart = pPkgf -> tellg();
-    for(auto p = m_fs.begin();p != m_fs.end();++p) (p -> second).start += PkgDataStart;
+    FOR_EACH(p,m_fs.begin(),m_fs.end()) (p -> second).start += PkgDataStart;
     return true;
 }
 

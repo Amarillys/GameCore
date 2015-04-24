@@ -1,10 +1,11 @@
 #include "Animation.h"
+#include "Globals.h"
 using namespace std;
 using namespace Core;
 
 void AnimationPool::OnNext()
 {
-    for(auto p = m_aniList_s.begin();p != m_aniList_s.end();++p)
+    FOR_EACH(p,m_aniList_s.begin(),m_aniList_s.end())
     {
         if(!(*p) -> Finished()) (*p) -> OnNext();
         else{
@@ -12,7 +13,7 @@ void AnimationPool::OnNext()
             m_aniList_s.erase(p);
         }
     }
-    for(auto p = m_aniList_h.begin();p != m_aniList_h.end();++p)
+    FOR_EACH(p,m_aniList_h.begin(),m_aniList_h.end())
     {
         if(!(*p) -> Finished()) (*p) -> OnNext();
         else {
@@ -24,21 +25,21 @@ void AnimationPool::OnNext()
 
 bool AnimationPool::OnceAnimationFinished()
 {
-    for(auto p = m_aniList_s.begin();p != m_aniList_s.end();++p)
+    FOR_EACH(p,m_aniList_s.begin(),m_aniList_s.end())
         if(!((*p) -> Forever()) && !((*p) -> Finished())) return false;
-    for(auto p = m_aniList_h.begin();p != m_aniList_h.end();++p)
+    FOR_EACH(p,m_aniList_h.begin(),m_aniList_h.end())
         if(!((*p) -> Forever()) && !((*p) -> Finished())) return false;
     return true;
 }
 
 void AnimationPool::StopOnceAnimation()
 {
-    for(auto p = m_aniList_s.begin();p != m_aniList_s.end();++p)
+    FOR_EACH(p,m_aniList_s.begin(),m_aniList_s.end())
         if(!((*p) -> Forever())) {
             (*p) -> Reset();
             m_aniList_s.erase(p);
         }
-    for(auto p = m_aniList_h.begin();p != m_aniList_h.end();++p)
+    FOR_EACH(p,m_aniList_h.begin(),m_aniList_h.end())
         if(!((*p) -> Forever())) {
             delete &(*p);
             m_aniList_s.erase(p);
@@ -47,15 +48,15 @@ void AnimationPool::StopOnceAnimation()
 
 void AnimationPool::StopAllAnimation()
 {
-    for(auto p = m_aniList_s.begin();p != m_aniList_s.end();++p)
+    FOR_EACH(p,m_aniList_s.begin(),m_aniList_s.end())
     {
         (*p) -> Reset();
         m_aniList_s.erase(p);
     }
-    for(auto p = m_aniList_h.begin();p != m_aniList_h.end();++p)
+    FOR_EACH(p,m_aniList_h.begin(),m_aniList_h.end())
     {
         delete &(*p);
-        m_aniList_s.erase(p);
+        m_aniList_h.erase(p);
     }
 }
 

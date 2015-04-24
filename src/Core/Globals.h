@@ -3,6 +3,8 @@
 
 #define FPS 60
 
+#define FOR_EACH(val,begin,end) for(auto val = begin;val != end;++val)
+
 #include "SDLbase.h"
 #include <string>
 #include "../Core/Debug.h"

@@ -1,4 +1,4 @@
-#include "../GalGameActivity.h"
+#include "GalGameActivity.h"
 #include "../../Core/Core.h"
 #include "../../ACGCross/NumTexture.h"
 

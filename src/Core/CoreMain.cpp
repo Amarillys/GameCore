@@ -82,7 +82,7 @@ void CoreMain(Activity& start)
             }
             else {
                 if(!(nowFocus -> m_ansList.empty()))
-                    for(auto p = nowFocus -> m_ansList.begin();p != nowFocus -> m_ansList.end();++p)  //遍历控件表
+                    FOR_EACH(p,nowFocus -> m_ansList.begin(),nowFocus -> m_ansList.end())  //遍历控件表
                     {
                         if((*p) -> OnEvent(e,*nowFocus)) continue;  //发现有控件接受该信息后返回
                     }

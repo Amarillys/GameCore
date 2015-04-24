@@ -15,10 +15,10 @@ int main( int argc, char * argv[] )
 
     CoreInit("ACGCross Demo",false,800,600);
     {
-        //ACGCross::Logo l;
+        ACGCross::Logo l;
         ACGCross::Galgame::GalgameActivity gal;
-        //l.SetGoto(gal);
-        CoreMain(gal);
+        l.SetGoto(gal);
+        CoreMain(l);
     }
     CoreQuit();
     return 0;
