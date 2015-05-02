@@ -1,4 +1,4 @@
-#include "Core/Core.h"
+#include "Core.h"
 #include "ACGCross/ACGCross_Logo.h"
 #include "ACGCross/GalgameActivity/GalgameActivity.h"
 
@@ -15,10 +15,10 @@ int main( int argc, char * argv[] )
 
     CoreInit("ACGCross Demo",false,800,600);
     {
-        ACGCross::Logo l;
+        //ACGCross::Logo l;
         ACGCross::Galgame::GalgameActivity gal;
-        l.SetGoto(gal);
-        CoreMain(l);
+        //l.SetGoto(gal);
+        CoreMain(gal);
     }
     CoreQuit();
     return 0;

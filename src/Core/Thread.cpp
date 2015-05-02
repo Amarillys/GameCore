@@ -1,4 +1,4 @@
-#include "Thread.h"
+#include "Core/Thread.h"
 #define THREAD_WAIT 25
 using namespace Core;
 //子线程内提供的API实现

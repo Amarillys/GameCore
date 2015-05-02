@@ -1,5 +1,5 @@
-#include "../../ACGCross/MathFunc.h"
-#include "../GalGameActivity.h"
+#include "ACGCross/MathFunc.h"
+#include "ACGCross/GalgameActivity/GalgameActivity.h"
 #include <ctime>
 
 using namespace ACGCross::Galgame;
@@ -64,18 +64,17 @@ void Clock::Show()
 
 void Clock::Destory()
 {
-    //m_fg.Clear();   //此处崩溃
+    m_fg.Clear();   //此处崩溃
     m_clk.Clear();
 }
 
 Clock::Clock()
-{
-    m_fg.Load("GalGameSystem\\fg.png");
-}
+{}
 
 void Clock::Init()
 {
     m_clk.Load("GalGameSystem\\num.png");
+    m_fg.Load("GalGameSystem\\fg.png");
     m_fg.SetAlpha(0);
     m_fg_showing = false;
     m_timer_fg.Reset();

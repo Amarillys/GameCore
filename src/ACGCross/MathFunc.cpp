@@ -1,4 +1,4 @@
-#include "MathFunc.h"
+#include "ACGCross/MathFunc.h"
 #include <math.h>
 using namespace ACGCross;
 

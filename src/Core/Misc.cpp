@@ -1,7 +1,7 @@
-#include "Misc.h"
-#include "SDLbase.h"
-#include "Activity.h"
-#include "Globals.h"
+#include "Core/Misc.h"
+#include "Core/SDLbase.h"
+#include "Core/Activity.h"
+#include "Core/Globals.h"
 
 using namespace std;
 using namespace Core;

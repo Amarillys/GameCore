@@ -1,5 +1,5 @@
-#include "Animation.h"
-#include "Globals.h"
+#include "Core/Animation.h"
+#include "Core/Globals.h"
 using namespace std;
 using namespace Core;
 

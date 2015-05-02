@@ -1,4 +1,4 @@
-#include "ACGCross_Logo.h"
+#include "ACGCross\ACGCross_Logo.h"
 #define LOGO_SIZE 90
 #define PER_LOGO_WH 1.380487804878049f
 #define WORD_SIZE 128

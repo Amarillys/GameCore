@@ -1,9 +1,9 @@
-#include "Globals.h"
-#include "Texture.h"
-#include "Font.h"
+#include "Core/Globals.h"
+#include "Core/Texture.h"
+#include "Core/Font.h"
 #include <string>
-#include "Misc.h"
-#include "../Core/Debug.h"
+#include "Core/Misc.h"
+#include "Core/Debug.h"
 using namespace std;
 using namespace Core;
 
@@ -18,11 +18,11 @@ void Texture::Load(const std::string& fileName)
     SetZoom(w,h);
 }
 
-void Texture::Load(Font& font,const string& text)
+void Texture::Load(Font& font,const wstring& text)
 {
     Clear();
     SDL_Color fg = {255,255,255};
-    SDL_Surface* pSur = TTF_RenderUTF8_Blended((TTF_Font*)font,text.c_str(),fg);
+    SDL_Surface* pSur = TTF_RenderUNICODE_Blended((TTF_Font*)font,(const Uint16*)text.c_str(),fg);
     Load(pSur);
     SDL_FreeSurface(pSur);
 }
@@ -57,7 +57,7 @@ void Texture::Clear()
     {
         SDL_DestroyTexture(m_tex);
         m_tex = nullptr;
-        PNT("TextureClear:"<<this<<endl);
+        //PNT("TextureClear:"<<this<<endl);
     }
     m_file.Free();
 }

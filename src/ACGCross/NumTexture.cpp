@@ -1,4 +1,4 @@
-#include "NumTexture.h"
+#include "ACGCross\NumTexture.h"
 using namespace ACGCross;
 
 

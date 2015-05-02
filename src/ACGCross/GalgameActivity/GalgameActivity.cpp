@@ -1,4 +1,4 @@
-#include "GalgameActivity.h"
+#include "ACGCross\GalgameActivity\GalgameActivity.h"
 
 using namespace std;
 using namespace Core;
@@ -15,7 +15,20 @@ void GalgameActivity::OnShow()
     m_clk.SetPos(20,22);
     m_menuBtn.Init("GalGameSystem\\menuBtn.png");
     m_menuBtn.SetPos(pRnd.GetW() - 125,22);
-    //m_textBox.Init();
+
+    m_fnt.Open("C:\\WINDOWS\\FONTS\\simhei.ttf");
+    m_textBox.Init();
+    m_textBox.SetFont(m_fnt);
+    m_textBox.SetSpeed(500);
+    m_textBox.SetColor(255,255,255);
+    m_textBox.SetRect(50,200,500,200);
+    m_textBox.SetHeight(32);
+    wstring str = L"测试中的文本框。";
+    m_textBox.AddText(str);
+    m_textBox.SetColor(255,255,0);
+    m_textBox.Br();
+    m_textBox.SetHeight(16);
+    m_textBox.AddText(str);
 }
 
 void GalgameActivity::OnHide()
@@ -29,14 +42,14 @@ void GalgameActivity::OnNext()
 {
     m_clk.OnNext();
     m_menuBtn.OnNext();
-    //m_textBox.OnNext();
+    m_textBox.OnNext();
 }
 
 void GalgameActivity::OnDraw()
 {
     m_clk.OnDraw();
     m_menuBtn.OnDraw();
-    //m_textBox.OnDraw();
+    m_textBox.OnDraw();
 }
 
 void GalgameActivity::OnEvent(const SDL_Event& e)
@@ -50,6 +63,10 @@ void GalgameActivity::OnEvent(const SDL_Event& e)
         }
         else if(e.motion.y >= pRnd.GetH()/5 && /*m_clk.GetVisible() &&*/ m_menuBtn.GetVisible())
         {m_clk.Hide();m_menuBtn.Hide();}
+    }else if(e.type == SDL_MOUSEBUTTONUP){
+        //wstring str = L"点击测试中呵呵呵呵呵呵呵";
+        //m_textBox.AddText(str);
+        m_textBox.Clear();
     }
 }
 

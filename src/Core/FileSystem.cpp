@@ -1,8 +1,8 @@
-#include "FileSystem.h"
-#include "../Core/Debug.h"
-#include "Misc.h"
-#include "Thread.h"
-#include "Error.h"
+#include "Core/FileSystem.h"
+#include "Core/Debug.h"
+#include "Core/Misc.h"
+#include "Core/Thread.h"
+#include "Core/Error.h"
 #include <string.h>
 
 using namespace Core;
@@ -137,7 +137,7 @@ void ResFile::Load(std::string f)
     }
     m_rw = SDL_RWFromConstMem((void*)m_mem,m_size);
     #ifdef _DEBUG
-    DBGCLASS_SETDBGINFO(*this,f);
+    //DBGCLASS_SETDBGINFO(*this,f);
     #endif // _DEBUG
 }
 
@@ -158,7 +158,7 @@ void ResFile::Free()
     m_rw = nullptr;
     #ifdef _DEBUG
     //PNT("ResFile Object:"<<this<<"   Free  "<<dbg_info<<std::endl;)
-    dbg_info.clear();
+    //dbg_info.clear();
     #endif // _DEBUG
 }
 

@@ -1,9 +1,9 @@
-#include "Activity.h"
-#include "Timer.h"
-#include "Sound.h"
-#include "Globals.h"
-#include "Control.h"
-#include "../Core/Debug.h"
+#include "Core/Activity.h"
+#include "Core/Timer.h"
+#include "Core/Sound.h"
+#include "Core/Globals.h"
+#include "Core/Control.h"
+#include "Core/Debug.h"
 
 using namespace Core;
 using namespace std;
@@ -63,7 +63,22 @@ void CoreMain(Activity& start)
     /* 主循环部分 */
     SDL_Event e;
     Timer FPSKiller;
+
+    #ifdef _DEBUG
+    Timer FPSCounter;
+    int fps = 0;
+    #endif // _DEBUG
+
     while(1){
+        #ifdef _DEBUG
+        fps++;
+        if(FPSCounter.GetTimer()>=1000)
+        {
+            PNT("FPS:"<<fps<<endl);
+            fps = 0;
+            FPSCounter.Reset();
+        }
+        #endif // _DEBUG
 
         /**** 如果有Goto消息则执行Goto ****/
         if(nextFocus != nullptr){

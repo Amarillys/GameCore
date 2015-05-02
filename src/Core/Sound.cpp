@@ -1,6 +1,6 @@
 
 #include <sdl.h>
-#include "Sound.h"
+#include "Core/Sound.h"
 using namespace Core;
 
 //std::map<int,Mix_Chunk*> Sound_Loop::m_ChnToCnk;

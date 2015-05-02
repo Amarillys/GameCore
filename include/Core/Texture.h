@@ -20,7 +20,7 @@ namespace Core
         void OnDraw();
         void Clear();
         void Load(const std::string& file);  //从文件加载图像
-        void Load(Font&,const std::string&); //加载文字
+        void Load(Font&,const std::wstring&); //加载文字
         void Load(SDL_Surface*);
         void Load(SDL_Texture*);
         void SetSrc(int x, int y, int w, int h); //图像剪裁
