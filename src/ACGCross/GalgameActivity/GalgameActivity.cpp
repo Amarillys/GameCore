@@ -18,8 +18,9 @@ void GalgameActivity::OnShow()
 
     m_fnt.Open("C:\\WINDOWS\\FONTS\\simhei.ttf");
     m_textBox.Init();
+    m_textBox.SetEffectSpeed(1000);
     m_textBox.SetFont(m_fnt);
-    m_textBox.SetSpeed(500);
+    m_textBox.SetSpeed(100);
     m_textBox.SetColor(255,255,255);
     m_textBox.SetRect(50,200,500,200);
     m_textBox.SetHeight(32);
@@ -66,7 +67,8 @@ void GalgameActivity::OnEvent(const SDL_Event& e)
     }else if(e.type == SDL_MOUSEBUTTONUP){
         //wstring str = L"点击测试中呵呵呵呵呵呵呵";
         //m_textBox.AddText(str);
-        m_textBox.Clear();
+        ///m_textBox.Clear();
+        m_textBox.StopSpeak();
     }
 }
 

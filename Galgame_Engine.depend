@@ -2442,7 +2442,7 @@
 
 1009818996 i:\galgame_engine\acgcross_gameengine\src\acgcross\mathfunc.h
 
-1430553318 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
+1430630830 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
 	"ACGCross\GalgameActivity\GalgameActivity.h"
 
 1428042686 i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity.h
@@ -2471,7 +2471,7 @@
 	"Core.h"
 	"ACGCross\NumTexture.h"
 
-1430553470 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
+1430631198 source:i:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
 	"ACGCross/GalgameActivity/TextBox.h"
 	"ACGCross/MathFunc.h"
 
@@ -2873,7 +2873,7 @@
 
 1427694392 i:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\gamemenu.h
 
-1430553246 i:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\textbox.h
+1430631264 i:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\textbox.h
 	<string>
 	<vector>
 	<list>

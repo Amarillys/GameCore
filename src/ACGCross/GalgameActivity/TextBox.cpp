@@ -7,16 +7,6 @@ using namespace std;
 namespace ACGCross {
 namespace Galgame {
 
-#define NOEVENT 0   //闲置
-#define TXT_SHOWING 1  //文字显示中
-//define TXT_CHANGWORD 2 //文字交替中
-#define TXT_KILLING 3   //文字消除中
-#define TXT_STOPSPEAK 4 //文字全部强制显示
-//define RECT_SHOW 10   //全局显示
-#define RECT_HIDE 11   //全局隐藏
-#define RECT_SHOWING 12 //正在全局显示
-#define RECT_HIDING 13  //正在全局隐藏
-
 TextBox::TextBox()
 {
     //ctor
@@ -112,9 +102,9 @@ void TextBox::AddText(const std::wstring& s)
 
 void TextBox::OnNext()
 {
-    if(m_stat == TXT_SHOWING){
+    if(m_stat == TXT_SHOWING){  //正在显示文字
         m_nowFps++;
-        if(m_nowFps - m_fpsCounter >= Uint16(m_fpsSpeed))
+        if(m_nowFps - m_fpsCounter >= Uint16(m_fpsSpeed))   //如果已经结束
         {
             auto p = m_text.begin();
             for(int i = 0;i < m_showing_word ; ++i)
@@ -132,17 +122,30 @@ void TextBox::OnNext()
             for(int i = 0;i < m_showing_word ; ++i)
                 ++p;
             p -> SetAlpha(
-                ArcFunc(float(m_nowFps - m_fpsCounter) / FPS) * 255);
+                ArcFunc(float(m_nowFps - m_fpsCounter) / m_fpsSpeed) * 255);
         }
-    }else if(m_stat == TXT_KILLING){
+    }else if(m_stat == TXT_KILLING){    //正在消除文字
         m_nowFps++;
-        if(m_nowFps - m_fpsCounter >= Uint16(m_fpsSpeed)){
+        if(m_nowFps - m_fpsCounter >= Uint16(m_fpsEffectSpeed)){
             ForceClear();
             m_stat = NOEVENT;
             return;
         }else{
             FOR_EACH(p,m_text.begin(),m_text.end())
-                p -> SetAlpha(255 - ArcFunc(float(m_nowFps - m_fpsCounter) / FPS) * 255);
+                p -> SetAlpha(255 - ArcFunc(float(m_nowFps - m_fpsCounter) / m_fpsEffectSpeed) * 255);
+        }
+    }else if(m_stat == TXT_STOPSPEAK){
+        m_nowFps++;
+        if(m_nowFps - m_fpsCounter >= Uint16(m_fpsEffectSpeed)){
+            m_stat = NOEVENT;
+            FOR_EACH(ps,m_text.begin(),m_text.end())
+                ps -> SetAlpha(255);
+            return;
+        }else{
+            auto p = m_text.begin();
+            for(int i = 0;i < m_showing_word ; ++i) ++p;
+            FOR_EACH(ps,p,m_text.end())
+                ps -> SetAlpha(ArcFunc(float(m_nowFps - m_fpsCounter) / m_fpsEffectSpeed) * 255);
         }
     }
 }
@@ -160,7 +163,7 @@ void TextBox::Init()
 {
     m_lineWord.push_back(0);
     m_fpsSpeed = 20;
-    m_stat = 0;
+    m_stat = NOEVENT;
     m_nowFps = 0;
     SetColor(255,255,255);
     m_showing_word = 0;
@@ -175,8 +178,11 @@ void TextBox::Destroy()
 void TextBox::SetSpeed(int time)
 {m_fpsSpeed = float(time) / 1000 * FPS;}
 
-void TextBox::StopSpeak(int time)
-{m_stat = 4;}
+void TextBox::SetEffectSpeed(int time)
+{m_fpsEffectSpeed = float(time) / 1000 * FPS;}
+
+void TextBox::StopSpeak()
+{m_stat = TXT_STOPSPEAK;}
 
 void TextBox::SetRect(int x, int y, int w, int h)
 {m_rect = {x,y,w,h};}
