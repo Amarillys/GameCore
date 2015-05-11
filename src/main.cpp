@@ -74,7 +74,7 @@ int smain( int argc, char * argv[] )
                 if (e.type == SDL_QUIT) goto END;
             }
             SDL_RenderClear(pRnd);
-            for(register auto p = RFList.begin();p != RFList.end();++p) (*p) -> OnDraw();
+            FOR_EACH(autoautoregister auto p = RFList.begin();p != RFList.end();++p) (*p) -> OnDraw();
             SDL_RenderPresent(pRnd);
 
             FPSKiller.WaitTimer(100/60);   //FPS限制

@@ -13,7 +13,7 @@ void Texture::Load(const std::string& fileName)
     m_file.Load(fileName);
     m_tex = IMG_LoadTexture_RW(pRnd,(SDL_RWops*)m_file,m_file.Size());
     int w,h;
-    GetInfo(w,h);
+    GetSize(w,h);
     SetSrc(0,0,w,h);
     SetZoom(w,h);
 }
@@ -31,7 +31,7 @@ void Texture::Load(SDL_Surface* pSur)
 {
     int w,h;
     m_tex = SDL_CreateTextureFromSurface(pRnd,pSur);
-    GetInfo(w,h);
+    GetSize(w,h);
     SetSrc(0,0,w,h);
     SetZoom(w,h);
 }
@@ -109,9 +109,15 @@ void Texture::SetBlend(SDL_BlendMode bln)
     SDL_SetTextureBlendMode(m_tex,bln);
 }
 
-void Texture::GetInfo(int& w,int& h)
+void Texture::GetSize(int& w,int& h)
 {
     SDL_QueryTexture(m_tex,nullptr,nullptr,&w,&h);
+}
+
+void Texture::GetPos(int& x,int& y)
+{
+    x = m_dst.x;
+    y = m_dst.y;
 }
 
 Texture::~Texture()

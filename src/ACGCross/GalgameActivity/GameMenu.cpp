@@ -53,7 +53,7 @@ void GameMenuBtn::SetPos(int x, int y)
 {
     m_x = x;m_y = y;
     m_rect.x = x;m_rect.y = y;
-    m_btn.GetInfo(m_rect.w,m_rect.h);
+    m_btn.GetSize(m_rect.w,m_rect.h);
 }
 
 void GameMenuBtn::Show()

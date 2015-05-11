@@ -2,18 +2,7 @@
 #include <vector>
 #include <list>
 #include "Core.h"
-/*
-#define NOEVENT 0   //闲置
-#define TXT_SHOWING 1  //文字显示中
-//define TXT_CHANGWORD 2 //文字交替中
-#define TXT_KILLING 3   //文字消除中
-#define TXT_STOPSPEAK 4 //文字全部强制显示
 
-//define RECT_SHOW 10   //全局显示
-#define RECT_HIDE 11   //全局隐藏
-#define RECT_SHOWING 12 //正在全局显示
-#define RECT_HIDING 13  //正在全局隐藏
-*/
 namespace ACGCross {
 namespace Galgame {
 
@@ -44,11 +33,14 @@ class TextBox
         void Br();  //换行
         void Clear();
         void AddText(const std::wstring&);  //追加文本
+        void AddPic(const std::string& file,const int fps,const int time);   //追加表情图
+        //文件名，文件中包含的帧数（横向），ms/帧 单位的播放速度
 
         //系统接口
         void OnNext();
         void OnDraw();
-        bool Finished();
+        inline bool Finished()
+        {return m_stat == NOEVENT || m_stat == RECT_HIDE;};
         void Init();
         void Destroy();
 
@@ -64,6 +56,7 @@ class TextBox
 
         //强制添加文字接口，没有动画效果
         std::list<Core::Texture>::iterator ForceAddText(const std::wstring&);
+        std::list<Core::Texture>::iterator ForceAddPic(const std::string& file,const int fps,const int time);
         //返回迭代器，该迭代器指向输入文本的第一文字的迭代器
 
         std::list<Core::Texture>::iterator GetTextEnd()
@@ -85,11 +78,20 @@ class TextBox
         Uint32 m_nowFps;   //FPS计数器
         SDL_Rect m_rect;    //文字框位置
         int m_word_h;  //文字长度
-        int m_showing_word; //显示中的文字
+        std::list<Core::Texture>::iterator m_showing_word; //显示中的文字
         Uint32 m_fpsCounter; //FPS的计数关键点
 
         int m_linePos;  //现在已经显示到的相对rect横行坐标
         int m_heiPos;  //现在已经显示到的相对rect竖行坐标
+
+        struct TextPicInfo{
+            std::list<Core::Texture>::iterator tex;
+            int fpsCount;
+            int nowFps;
+            int fpsCounter;
+            int fpsTime;
+        };
+        std::list<TextPicInfo> m_tpiv;
 };
 
 } // namespace Galgame

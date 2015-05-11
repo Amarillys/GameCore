@@ -4,16 +4,16 @@ using namespace Core;
 //子线程内提供的API实现
 namespace Core
 {
-    int LaunchThread(void* ThreadObject)	//这个函数已经开始新线程了
+    int LaunchThread(THREAD_ID ThreadObject)	//这个函数已经开始新线程了
     {
         ((Thread*)ThreadObject) -> Lock();	//线程类初始化
         ((Thread*)ThreadObject) -> m_imsg = 0;
         ((Thread*)ThreadObject) -> m_omsg = 0;
         ((Thread*)ThreadObject) -> m_running = true;
-        void (*thread)(Thread*) = ((Thread*)ThreadObject) -> m_func;
+        void (*thread)(THREAD_ID) = ((Thread*)ThreadObject) -> m_func;
         ((Thread*)ThreadObject) -> Unlock();
 
-        (*thread)((Thread*)ThreadObject);	//执行线程
+        (*thread)(ThreadObject);	//执行线程
 
         ((Thread*)ThreadObject) -> Lock();	//线程结束
         ((Thread*)ThreadObject) -> m_imsg = 0;
@@ -22,42 +22,42 @@ namespace Core
         return 0;
     }
 
-    int GetMsg(Thread* obj)
+    int GetMsg(THREAD_ID obj)
     {
-        obj -> Lock();
-        int msg = obj -> m_imsg;
-        obj -> m_imsg = 0;
-        obj -> Unlock();
+        ((Thread*)obj) -> Lock();
+        int msg = ((Thread*)obj) -> m_imsg;
+        ((Thread*)obj) -> m_imsg = 0;
+        ((Thread*)obj) -> Unlock();
         return msg;
     }
 
-    void ReturnMsg(Thread* obj,const int msg)
+    void ReturnMsg(THREAD_ID obj,const int msg)
     {
         while(1)
         {
-            obj -> Lock();
-            if (obj -> m_omsg !=0)
+            ((Thread*)obj) -> Lock();
+            if (((Thread*)obj) -> m_omsg !=0)
             {
-                obj -> Unlock();
+                ((Thread*)obj) -> Unlock();
                 SDL_Delay(THREAD_WAIT);
                 continue;
             }
             else
             {
-                obj -> m_omsg = msg;
-                obj -> Unlock();
+                ((Thread*)obj) -> m_omsg = msg;
+                ((Thread*)obj) -> Unlock();
                 break;
             }
         }
     }
 
-    void WaitMsg(Thread* obj,const int msg)
+    void WaitMsg(THREAD_ID obj,const int msg)
     {
         while(GetMsg(obj) != msg)
             SDL_Delay(THREAD_WAIT);
     }
 
-    int WaitMsg(Thread* obj)
+    int WaitMsg(THREAD_ID obj)
     {
         int ret;
         while(1)
@@ -69,47 +69,47 @@ namespace Core
         return ret;
     }
 
-    void* GetData(Thread* obj)
+    void* GetData(THREAD_ID obj)
     {
         void* ret;
         while(1)
         {
-            obj -> Lock();
-            if(obj -> m_idata != nullptr)
+            ((Thread*)obj) -> Lock();
+            if(((Thread*)obj) -> m_idata != nullptr)
             {
-                ret = (void*)obj -> m_idata;
-                obj -> m_idata = nullptr;
-                obj -> Unlock();
+                ret = (void*)(((Thread*)obj) -> m_idata);
+                ((Thread*)obj) -> m_idata = nullptr;
+                ((Thread*)obj) -> Unlock();
                 return ret;
             }
             else
             {
-                obj -> Unlock();
+                ((Thread*)obj) -> Unlock();
                 SDL_Delay(THREAD_WAIT);
             }
         }
     }
-    void ReturnData(Thread* obj,void* const data)
+    void ReturnData(THREAD_ID obj,void* const data)
     {
         while(1)
         {
-            obj -> Lock();
-            if(obj -> m_odata == nullptr)
+            ((Thread*)obj) -> Lock();
+            if(((Thread*)obj) -> m_odata == nullptr)
             {
-                obj -> m_odata = data;
-                obj -> Unlock();
+                ((Thread*)obj) -> m_odata = data;
+                ((Thread*)obj)-> Unlock();
                 return;
             }
             else
             {
-                obj -> Unlock();
+                ((Thread*)obj) -> Unlock();
                 SDL_Delay(THREAD_WAIT);
             }
         }
     }
 
     //Thread类实现
-    Thread::Thread(void (*func)(Thread*))
+    Thread::Thread(void (*func)(THREAD_ID))
     {
         m_imsg = 0;
         m_omsg = 0;

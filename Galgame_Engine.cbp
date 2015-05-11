@@ -62,7 +62,6 @@
 		<Unit filename="include/ACGCross/GalgameActivity/Clock.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/GalgameActivity.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/GameMenu.h" />
-		<Unit filename="include/ACGCross/GalgameActivity/Old/TextBox.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/TextBox.h" />
 		<Unit filename="include/ACGCross/MathFunc.h" />
 		<Unit filename="include/ACGCross/NumTexture.h" />

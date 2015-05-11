@@ -206,9 +206,9 @@ BYTE ResFile::m_nullptr = '\0';
 
 void ResFile::Quit()
 {
-    for(auto p = m_fs.begin();p != m_fs.end();++p) ForceFree(&(p -> second));
+    FOR_EACH(autoautoauto p = m_fs.begin();p != m_fs.end();++p) ForceFree(&(p -> second));
 
-    for(auto p = m_pkgs.begin();p != m_pkgs.end();++p){
+    FOR_EACH(autoautoauto p = m_pkgs.begin();p != m_pkgs.end();++p){
         (*p) -> close();
         delete *p;
     }
@@ -278,7 +278,7 @@ void ResFile::LoadPkgFile(const std::string& file)
     const static Uint16 pwlen = m_pkgpw.length();
     m_fs[file].mem = new BYTE[m_fs[file].size];
     m_pkgs[m_fs[file].pkg] -> read((char*)m_fs[file].mem,m_fs[file].size);
-    if(!m_pkgpw.empty()) for(Uint16 i = 0;i < ENC_LEN && i < m_fs[file].size;++i) *(m_fs[file].mem+i) ^= m_pkgpw[i%pwlen];
+    if(!m_pkgpw.empty()) FOR_EACH(autoautoUint16 i = 0;i < ENC_LEN && i < m_fs[file].size;++i) *(m_fs[file].mem+i) ^= m_pkgpw[i%pwlen];
 }
 
 bool ResFile::ExistInPkg(const std::string& file)
@@ -305,7 +305,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
     Point.start = 0;
     Point.reg = false;
 
-    for(Uint32 i = 0;i < File_Count;++i)
+    FOR_EACH(autoautoUint32 i = 0;i < File_Count;++i)
     {
         std::string fName;
         Core::GetString(*pPkgf,fName);
@@ -316,7 +316,7 @@ bool ResFile::OpenPkg(const std::string& pkg)
     }
 
     const register Uint32 PkgDataStart = pPkgf -> tellg();
-    for(auto p = m_fs.begin();p != m_fs.end();++p) (p -> second).start += PkgDataStart;
+    FOR_EACH(autoautoauto p = m_fs.begin();p != m_fs.end();++p) (p -> second).start += PkgDataStart;
     return true;
 }
 

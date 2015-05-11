@@ -7,18 +7,19 @@
 #include "SDLbase.h"
 namespace Core
 {
+    typedef void* THREAD_ID;
     class Thread;
 
     //新线程调用这个函数，处理类内的东西，void*指向调用它的对象
-    int LaunchThread(void*);
+    int LaunchThread(THREAD_ID);
 
     //线程函数内使用的函数
-    int GetMsg(Thread* obj);    //取得输入的消息
-    void ReturnMsg(Thread* obj,const int msg);  //返回一个消息给Thread对象使其可以使用成员函数获取
-    void WaitMsg(Thread*,const int); //等待指定消息传入且排除其它消息
-    int WaitMsg(Thread*);   //等待一个非0消息传入
-    void* GetData(Thread*);  //取得一个来自Thread类对象的数据，如果有数据则返回，否则等待一个数据传入
-    void ReturnData(Thread*,void* const);   //把一个数据返回给Thread类对象，如果其中有一个数据未被接受，则等待它接受
+    int GetMsg(THREAD_ID obj);    //取得输入的消息
+    void ReturnMsg(THREAD_ID obj,const int msg);  //返回一个消息给Thread对象使其可以使用成员函数获取
+    void WaitMsg(THREAD_ID,const int); //等待指定消息传入且排除其它消息
+    int WaitMsg(THREAD_ID);   //等待一个非0消息传入
+    void* GetData(THREAD_ID);  //取得一个来自Thread类对象的数据，如果有数据则返回，否则等待一个数据传入
+    void ReturnData(THREAD_ID,void* const);   //把一个数据返回给Thread类对象，如果其中有一个数据未被接受，则等待它接受
 
     /*
     class Locker
@@ -45,13 +46,13 @@ namespace Core
     class Thread:protected Mutex
     {
         friend int LaunchThread(void*);
-        friend int GetMsg(Thread*);
-        friend void ReturnMsg(Thread*,const int);
-        friend void* GetData(Thread*);
-        friend void ReturnData(Thread*,void* const);
+        friend int GetMsg(THREAD_ID);
+        friend void ReturnMsg(THREAD_ID,const int);
+        friend void* GetData(THREAD_ID);
+        friend void ReturnData(THREAD_ID,void* const);
 
     private:
-        void (*m_func)(Thread*);
+        void (*m_func)(THREAD_ID);
         volatile int m_imsg;
         volatile int m_omsg;
         volatile void* m_idata;
@@ -60,7 +61,7 @@ namespace Core
         SDL_Thread* m_thread;
 
     public:
-        Thread(void (*func)(Thread*));
+        Thread(void (*func)(THREAD_ID));
         ~Thread();
         void Run();
         bool Running();

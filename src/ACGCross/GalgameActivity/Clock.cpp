@@ -82,7 +82,7 @@ void Clock::Init()
     m_visible = false;
     m_numWei = m_clk.GetWei();
     int h;
-    m_fg.GetInfo(m_fgWei,h);
+    m_fg.GetSize(m_fgWei,h);
     m_stat = 0;
 
     m_fg.SetAlpha(0);

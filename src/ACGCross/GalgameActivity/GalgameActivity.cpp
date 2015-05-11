@@ -26,6 +26,7 @@ void GalgameActivity::OnShow()
     m_textBox.SetHeight(32);
     wstring str = L"测试中的文本框。";
     m_textBox.AddText(str);
+    m_textBox.AddPic("pic.png",2,200);
     m_textBox.SetColor(255,255,0);
     m_textBox.Br();
     m_textBox.SetHeight(16);
@@ -67,9 +68,10 @@ void GalgameActivity::OnEvent(const SDL_Event& e)
     }else if(e.type == SDL_MOUSEBUTTONUP){
         //wstring str = L"点击测试中呵呵呵呵呵呵呵";
         //m_textBox.AddText(str);
-        ///m_textBox.Clear();
-        m_textBox.StopSpeak();
-    }
+        //m_textBox.AddPic("pic.png",1,1000);
+        m_textBox.Clear();
+        //m_textBox.Hide();
+    }//else if(e.type == SDL_MOUSEWHEEL) m_textBox.Show();
 }
 
 void GalgameActivity::OnEvent(Control* c,const Uint32 m){
