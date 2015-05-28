@@ -105,11 +105,6 @@ void SMI::Interpreter::PopIntArg(vector<int> &arr)
 	arr = num_args;
 }
 
-void SMI::Interpreter::PopFlags(unordered_map<string, int>& &arr)
-{
-	arr = flags;
-}
-
 string SMI::Interpreter::PopText()
 {
 	return text;
@@ -196,13 +191,13 @@ size_t SMI::Interpreter::Serialize(BYTE *buffer)
 
 	*(int*)p = keywords.size();
 	p += sizeof(int);
-	for each (auto var in keywords) {
+	for (auto var : keywords) {
 		*p++ = var;
 	}
 
 	*(int*)p = labels.size();
 	p += sizeof(int);
-	for each (auto var in labels) {
+	for (auto var : labels) {
 		*(int*)p = var.first.length();
 		p += sizeof(int);
 		var.first.copy((char*)p, var.first.length());
@@ -214,7 +209,7 @@ size_t SMI::Interpreter::Serialize(BYTE *buffer)
 
 	*(int*)p = flags.size();
 	p += sizeof(int);
-	for each (auto var in flags) {
+	for (auto var : flags) {
 		*(int*)p = var.first.length();
 		p += sizeof(int);
 		var.first.copy((char*)p, var.first.length());
@@ -234,7 +229,7 @@ size_t SMI::Interpreter::Serialize(BYTE *buffer)
 
 	*(int*)p = str_args.size();
 	p += sizeof(int);
-	for each (auto var in str_args){
+	for (auto var : str_args){
 		*(int*)p = var.length();
 		p += sizeof(int);
 		var.copy((char*)p, var.length());
@@ -243,7 +238,7 @@ size_t SMI::Interpreter::Serialize(BYTE *buffer)
 
 	*(int*)p = num_args.size();
 	p += sizeof(int);
-	for each (auto var in num_args) {
+	for (auto var : num_args) {
 		*(int*)p = var;
 		p += sizeof(int);
 	}
@@ -260,7 +255,7 @@ size_t SMI::Interpreter::Serialize(BYTE *buffer)
 
 	*(int*)p = all_text.size();
 	p += sizeof(int);
-	for each (auto var in all_text) {
+	for (auto var : all_text) {
 		*(int*)p = var.length();
 		p += sizeof(int);
 		var.copy((char*)p, var.length());
@@ -603,7 +598,7 @@ void SMI::Interpreter::cmdAnalysis(string & command)
 			num_args.push_back(atoi((*iter).c_str()));
 		}
 	} else if (cmd == "select") {		// <select: opt1, opt2, ...>
-		for each (auto var in arg_array) {
+		for (auto var : arg_array) {
 			str_args.push_back(var);
 		}
 	} else {
@@ -743,7 +738,7 @@ string& SMI::Interpreter::trim(string & str)
 
 void SMI::Interpreter::debug()
 {
-	for each (auto iter in labels){
+	for (auto iter : labels){
 		cout << iter.second << endl;
 	}
 }
