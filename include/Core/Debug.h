@@ -5,7 +5,7 @@
 #define _HEAD_DEBUG_
 #include <iostream>
 #include <string>
-#define PNT(s) std::cout<<s;
+#define PNT(s) std::cout<<s<<std::endl;
 
 #define DBGCLASS ,public dbg_class
 #define FDBGCLASS :public dbg_class

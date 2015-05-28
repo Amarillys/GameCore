@@ -74,7 +74,7 @@ void CoreMain(Activity& start)
         fps++;
         if(FPSCounter.GetTimer()>=1000)
         {
-            PNT("FPS:"<<fps<<endl);
+            PNT("FPS:"<<fps);
             fps = 0;
             FPSCounter.Reset();
         }

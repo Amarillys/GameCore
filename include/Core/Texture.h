@@ -15,6 +15,11 @@ namespace Core
         SDL_Rect m_src;
         SDL_Rect m_dst;
         ResFile m_file;
+        bool m_roll;
+        double m_roll_ang;
+        SDL_Point m_roll_pnt;
+        SDL_RendererFlip m_roll_flp;
+
     public:
         Texture();
         void OnDraw();
@@ -41,7 +46,10 @@ namespace Core
         void GetPos(int& x,int& y);
         bool InRect(int x, int y);   //判断某坐标是否在该纹理范围内
 
-        void SetRoll(float angle,int center_x,int center_y,int time,SDL_RendererFlip flip);
+        void SetRollFlip(SDL_RendererFlip flip);
+        void SetRollAngle(double);
+        void SetRollCenter(int,int);
+        void SetRollEnable(bool);
         //设置旋转
         //TODO:未实现
 

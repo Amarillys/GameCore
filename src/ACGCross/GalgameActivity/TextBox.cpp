@@ -109,7 +109,7 @@ list<Texture>::iterator TextBox::ForceAddPic(const std::string& file, const int 
     info.nowFps = 1;
     info.fpsCount = fps;
     info.fpsTime = float(time) / 1000 * FPS;
-    cout<<"Test"<<info.fpsTime<<"  "<<endl;
+    PNT("Test"<<info.fpsTime<<"  ");
     pTex -> SetSrc(0,0,w/(info.fpsCount),h);
     pTex -> SetZoom(w/(info.fpsCount),h);
     m_tpiv.push_back(info);

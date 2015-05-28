@@ -55,11 +55,13 @@
 		<ExtraCommands>
 			<Add after="XCOPY $(#sdl2)\bin\*.dll $(TARGET_OUTPUT_DIR) /D /Y" />
 		</ExtraCommands>
+		<Unit filename="X:/Users/SYSTEM/Desktop/剧本统计.cpp" />
 		<Unit filename="icon.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
 		<Unit filename="include/ACGCross/ACGCross_Logo.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/Clock.h" />
+		<Unit filename="include/ACGCross/GalgameActivity/Corner.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/GalgameActivity.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/GameMenu.h" />
 		<Unit filename="include/ACGCross/GalgameActivity/TextBox.h" />
@@ -86,6 +88,7 @@
 		<Unit filename="include/SMLanguage/SMI.h" />
 		<Unit filename="src/ACGCross/ACGCross_Logo.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/Clock.cpp" />
+		<Unit filename="src/ACGCross/GalgameActivity/Corner.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/GalgameActivity.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/GameMenu.cpp" />
 		<Unit filename="src/ACGCross/GalgameActivity/TextBox.cpp" />

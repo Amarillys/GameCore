@@ -2150,7 +2150,7 @@
 	"../../Core/Core.h"
 	"../../Misc/NumTexture.h"
 
-1429814538 source:f:\galgame_engine\acgcross_gameengine\src\core\coremain.cpp
+1431776998 source:f:\galgame_engine\acgcross_gameengine\src\core\coremain.cpp
 	"Core/Activity.h"
 	"Core/Timer.h"
 	"Core/Sound.h"
@@ -2289,7 +2289,7 @@
 	"Core.h"
 	"ACGCross\NumTexture.h"
 
-1429819134 source:f:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
+1431598162 source:f:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
 	"Core/Globals.h"
 	"Core/Texture.h"
 	"Core/Font.h"
@@ -2297,7 +2297,7 @@
 	"Core/Misc.h"
 	"Core/Debug.h"
 
-1429814292 source:f:\galgame_engine\acgcross_gameengine\src\main.cpp
+1431598478 source:f:\galgame_engine\acgcross_gameengine\src\main.cpp
 	"Core.h"
 	"ACGCross/ACGCross_Logo.h"
 	"ACGCross/GalgameActivity/GalgameActivity.h"
@@ -2313,13 +2313,13 @@
 	"ACGCross/MathFunc.h"
 	<math.h>
 
-1430545848 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\acgcross_logo.cpp
+1431593658 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\acgcross_logo.cpp
 	"ACGCross\ACGCross_Logo.h"
 
-1429825616 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
+1431776968 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
 	"ACGCross\GalgameActivity\GalgameActivity.h"
 
-1429825412 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
+1431776738 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
 	"ACGCross/GalgameActivity/TextBox.h"
 	"ACGCross/MathFunc.h"
 
@@ -2576,8 +2576,8 @@
 1428904632 i:\galgame_engine\acgcross_gameengine\src\core\animation.h
 	<list>
 
-1429854404 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\acgcross_logo.cpp
-	"ACGCross_Logo.h"
+1431593658 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\acgcross_logo.cpp
+	"ACGCross\ACGCross_Logo.h"
 
 1429240116 l:\galgame_engine\acgcross_gameengine\src\acgcross\acgcross_logo.h
 	"../Core/Core.h"
@@ -2668,15 +2668,15 @@
 
 1009818996 l:\galgame_engine\acgcross_gameengine\src\acgcross\mathfunc.h
 
-1430397914 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.cpp
-	"../../ACGCross/MathFunc.h"
-	"GalGameActivity.h"
+1429818810 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\clock.cpp
+	"ACGCross/MathFunc.h"
+	"ACGCross/GalgameActivity/GalgameActivity.h"
 	<ctime>
 
-1429853332 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\gamemenu.cpp
-	"GalGameActivity.h"
-	"../../Core/Core.h"
-	"../../ACGCross/NumTexture.h"
+1429818810 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\gamemenu.cpp
+	"ACGCross\GalgameActivity\GalgameActivity.h"
+	"Core.h"
+	"ACGCross\NumTexture.h"
 
 1430393614 l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.h
 	"../../Core/Core.h"
@@ -2698,82 +2698,83 @@
 	<list>
 	"../../Core/Core.h"
 
-1009819012 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\mathfunc.cpp
-	"MathFunc.h"
+1430545886 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\mathfunc.cpp
+	"ACGCross/MathFunc.h"
 	<math.h>
 
-1009818778 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\numtexture.cpp
-	"NumTexture.h"
+1429818808 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\numtexture.cpp
+	"ACGCross\NumTexture.h"
 
-1429853822 source:l:\galgame_engine\acgcross_gameengine\src\core\animation.cpp
-	"Animation.h"
-	"Globals.h"
+1429814538 source:l:\galgame_engine\acgcross_gameengine\src\core\animation.cpp
+	"Core/Animation.h"
+	"Core/Globals.h"
 
 1428904632 l:\galgame_engine\acgcross_gameengine\src\core\animation.h
 	<list>
 
 1425710822 source:l:\galgame_engine\acgcross_gameengine\src\core\bundle.cpp
 
-1429853782 source:l:\galgame_engine\acgcross_gameengine\src\core\coremain.cpp
-	"Activity.h"
-	"Timer.h"
-	"Sound.h"
-	"Globals.h"
-	"Control.h"
-	"../Core/Debug.h"
+1431776998 source:l:\galgame_engine\acgcross_gameengine\src\core\coremain.cpp
+	"Core/Activity.h"
+	"Core/Timer.h"
+	"Core/Sound.h"
+	"Core/Globals.h"
+	"Core/Control.h"
+	"Core/Debug.h"
 
-1009817934 source:l:\galgame_engine\acgcross_gameengine\src\core\error.cpp
-	"error.h"
+1430546012 source:l:\galgame_engine\acgcross_gameengine\src\core\error.cpp
+	"Core/error.h"
 	<iostream>
 	<stdlib.h>
-	"../Core/Debug.h"
+	"Core/Debug.h"
 	<windows.h>
 
-1429853782 source:l:\galgame_engine\acgcross_gameengine\src\core\filesystem.cpp
-	"FileSystem.h"
-	"../Core/Debug.h"
-	"Misc.h"
-	"Thread.h"
-	"Error.h"
+1429814668 source:l:\galgame_engine\acgcross_gameengine\src\core\filesystem.cpp
+	"Core/FileSystem.h"
+	"Core/Debug.h"
+	"Core/Misc.h"
+	"Core/Thread.h"
+	"Core/Error.h"
 	<string.h>
 
-1427620652 source:l:\galgame_engine\acgcross_gameengine\src\core\font.cpp
-	"Font.h"
+1430545944 source:l:\galgame_engine\acgcross_gameengine\src\core\font.cpp
+	"Core/Font.h"
 
-1429234930 source:l:\galgame_engine\acgcross_gameengine\src\core\misc.cpp
-	"Misc.h"
-	"SDLbase.h"
-	"Activity.h"
-	"Globals.h"
+1430545956 source:l:\galgame_engine\acgcross_gameengine\src\core\misc.cpp
+	"Core/Misc.h"
+	"Core/SDLbase.h"
+	"Core/Activity.h"
+	"Core/Globals.h"
 
-1427694330 source:l:\galgame_engine\acgcross_gameengine\src\core\sound.cpp
+1430546012 source:l:\galgame_engine\acgcross_gameengine\src\core\sound.cpp
 	<sdl.h>
-	"Sound.h"
+	"Core/Sound.h"
 
-1430395276 source:l:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
-	"Globals.h"
-	"Texture.h"
-	"Font.h"
+1431598162 source:l:\galgame_engine\acgcross_gameengine\src\core\texture.cpp
+	"Core/Globals.h"
+	"Core/Texture.h"
+	"Core/Font.h"
 	<string>
-	"Misc.h"
-	"../Core/Debug.h"
+	"Core/Misc.h"
+	"Core/Debug.h"
 
-1425710822 source:l:\galgame_engine\acgcross_gameengine\src\core\thread.cpp
-	"Thread.h"
+1429815558 source:l:\galgame_engine\acgcross_gameengine\src\core\thread.cpp
+	"Core/Thread.h"
 
-1427613766 source:l:\galgame_engine\acgcross_gameengine\src\core\window.cpp
-	"Globals.h"
+1430546012 source:l:\galgame_engine\acgcross_gameengine\src\core\window.cpp
+	"Core/Globals.h"
 
-1430394276 source:l:\galgame_engine\acgcross_gameengine\src\main.cpp
-	"Core/Core.h"
+1431598478 source:l:\galgame_engine\acgcross_gameengine\src\main.cpp
+	"Core.h"
 	"ACGCross/ACGCross_Logo.h"
 	"ACGCross/GalgameActivity/GalgameActivity.h"
 
-1430395296 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
+1431776738 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\textbox.cpp
 	"ACGCross/GalgameActivity/TextBox.h"
+	"ACGCross/MathFunc.h"
 
-1430395558 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
-	"GalgameActivity.h"
+1431776968 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\galgameactivity.cpp
+	"ACGCross\GalgameActivity\GalgameActivity.h"
 
 1430546084 i:\galgame_engine\acgcross_gameengine\include\acgcross\acgcross_logo.h
 	"Core.h"
@@ -2933,7 +2934,7 @@
 	"../Core/Debug.h"
 	"OS.h"
 
-1428288464 f:\galgame_engine\acgcross_gameengine\include\core\debug.h
+1431776738 f:\galgame_engine\acgcross_gameengine\include\core\debug.h
 	<iostream>
 	<string>
 
@@ -2971,7 +2972,7 @@
 	<map>
 	"FileSystem.h"
 
-1429818890 f:\galgame_engine\acgcross_gameengine\include\core\texture.h
+1431594096 f:\galgame_engine\acgcross_gameengine\include\core\texture.h
 	"Globals.h"
 	"FileSystem.h"
 
@@ -2984,11 +2985,12 @@
 
 1009818996 f:\galgame_engine\acgcross_gameengine\include\acgcross\mathfunc.h
 
-1430546084 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\galgameactivity.h
+1431775888 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\galgameactivity.h
 	"Core.h"
 	"Clock.h"
 	"GameMenu.h"
 	"TextBox.h"
+	"Corner.h"
 
 1429254438 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\clock.h
 	"../NumTexture.h"
@@ -2998,7 +3000,7 @@
 
 1427694392 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\gamemenu.h
 
-1429825802 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\textbox.h
+1431319066 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\textbox.h
 	<string>
 	<vector>
 	<list>
@@ -3006,4 +3008,126 @@
 
 1428904632 f:\galgame_engine\acgcross_gameengine\include\core\animation.h
 	<list>
+
+1431775740 source:f:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\corner.cpp
+	"ACGCross\GalgameActivity\Corner.h"
+
+1431775604 f:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\corner.h
+	"Core.h"
+
+1430546084 l:\galgame_engine\acgcross_gameengine\include\acgcross\acgcross_logo.h
+	"Core.h"
+	"../ACGCross/MathFunc.h"
+
+1430546044 l:\galgame_engine\acgcross_gameengine\include\core.h
+	"Core/Activity.h"
+	"Core/Bundle.h"
+	"Core/Control.h"
+	"Core/Error.h"
+	"Core/FileSystem.h"
+	"Core/Font.h"
+	"Core/Globals.h"
+	"Core/Misc.h"
+	"Core/Sound.h"
+	"Core/Texture.h"
+	"Core/Thread.h"
+	"Core/Timer.h"
+
+1011029156 l:\galgame_engine\acgcross_gameengine\include\core\activity.h
+	<forward_list>
+	"SDLbase.h"
+	"Globals.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\include\core\sdlbase.h
+	<SDL.h>
+	<SDL_mixer.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1429814496 l:\galgame_engine\acgcross_gameengine\include\core\globals.h
+	"SDLbase.h"
+	<string>
+	"../Core/Debug.h"
+	"OS.h"
+
+1431776738 l:\galgame_engine\acgcross_gameengine\include\core\debug.h
+	<iostream>
+	<string>
+
+1425710906 l:\galgame_engine\acgcross_gameengine\include\core\os.h
+
+1429814230 l:\galgame_engine\acgcross_gameengine\include\core\bundle.h
+	"Globals.h"
+	<fstream>
+
+1427610122 l:\galgame_engine\acgcross_gameengine\include\core\control.h
+	"SDLbase.h"
+
+1425710906 l:\galgame_engine\acgcross_gameengine\include\core\error.h
+	"SDLbase.h"
+	<string>
+	"OS.h"
+
+1430552326 l:\galgame_engine\acgcross_gameengine\include\core\filesystem.h
+	<fstream>
+	<map>
+	<vector>
+	"Globals.h"
+	"../Core/Debug.h"
+
+1426834074 l:\galgame_engine\acgcross_gameengine\include\core\font.h
+	"SDLbase.h"
+	<string>
+	"FileSystem.h"
+
+1427615302 l:\galgame_engine\acgcross_gameengine\include\core\misc.h
+	<fstream>
+
+1425710906 l:\galgame_engine\acgcross_gameengine\include\core\sound.h
+	"SDLbase.h"
+	<map>
+	"FileSystem.h"
+
+1431594096 l:\galgame_engine\acgcross_gameengine\include\core\texture.h
+	"Globals.h"
+	"FileSystem.h"
+
+1429815360 l:\galgame_engine\acgcross_gameengine\include\core\thread.h
+	"SDLbase.h"
+
+1009817934 l:\galgame_engine\acgcross_gameengine\include\core\timer.h
+	"../Core/Debug.h"
+	"SDLbase.h"
+
+1009818996 l:\galgame_engine\acgcross_gameengine\include\acgcross\mathfunc.h
+
+1431775888 l:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\galgameactivity.h
+	"Core.h"
+	"Clock.h"
+	"GameMenu.h"
+	"TextBox.h"
+	"Corner.h"
+
+1429254438 l:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\clock.h
+	"../NumTexture.h"
+
+1009818812 l:\galgame_engine\acgcross_gameengine\include\acgcross\numtexture.h
+	"../Core/Texture.h"
+
+1427694392 l:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\gamemenu.h
+
+1431319066 l:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\textbox.h
+	<string>
+	<vector>
+	<list>
+	"Core.h"
+
+1431775604 l:\galgame_engine\acgcross_gameengine\include\acgcross\galgameactivity\corner.h
+	"Core.h"
+
+1428904632 l:\galgame_engine\acgcross_gameengine\include\core\animation.h
+	<list>
+
+1431775740 source:l:\galgame_engine\acgcross_gameengine\src\acgcross\galgameactivity\corner.cpp
+	"ACGCross\GalgameActivity\Corner.h"
 

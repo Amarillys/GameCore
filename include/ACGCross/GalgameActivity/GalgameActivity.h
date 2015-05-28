@@ -5,6 +5,7 @@
 #include "Clock.h"
 #include "GameMenu.h"
 #include "TextBox.h"
+#include "Corner.h"
 
 namespace ACGCross{
 namespace Galgame{
@@ -17,6 +18,8 @@ private:
     GameMenuBtn m_menuBtn;
     TextBox m_textBox;
     Core::Font m_fnt;
+    Corner m_corner;
+    bool m_corner_debug;
 public:
     GalgameActivity();
     void OnShow();

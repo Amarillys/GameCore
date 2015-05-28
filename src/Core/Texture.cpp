@@ -44,11 +44,14 @@ void Texture::Load(SDL_Texture* pTex)
 Texture::Texture()
 {
     m_tex = nullptr;
+    m_roll = false;
+    m_roll_flp = SDL_FLIP_NONE;
 }
 
 void Texture::OnDraw()
 {
-    SDL_RenderCopy(pRnd, m_tex, &m_src,&m_dst);
+    if(!m_roll) SDL_RenderCopy(pRnd, m_tex, &m_src,&m_dst);
+    else SDL_RenderCopyEx(pRnd,m_tex,&m_src,&m_dst,m_roll_ang,&m_roll_pnt,m_roll_flp);
 }
 
 void Texture::Clear()
@@ -118,6 +121,27 @@ void Texture::GetPos(int& x,int& y)
 {
     x = m_dst.x;
     y = m_dst.y;
+}
+
+void Texture::SetRollAngle(double e)
+{
+    m_roll_ang = e;
+}
+
+void Texture::SetRollCenter(int x,int y)
+{
+    m_roll_pnt.x = x;
+    m_roll_pnt.y = y;
+}
+
+void Texture::SetRollFlip(SDL_RendererFlip flip)
+{
+    m_roll_flp = flip;
+}
+
+void Texture::SetRollEnable(bool b)
+{
+    m_roll = b;
 }
 
 Texture::~Texture()

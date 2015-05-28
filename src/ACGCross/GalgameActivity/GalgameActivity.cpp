@@ -11,6 +11,9 @@ GalgameActivity::GalgameActivity()
 
 void GalgameActivity::OnShow()
 {
+    m_corner.Init();
+    m_corner.SetTopAlpha(64);
+    m_corner.SetFadeSpeed(1000);
     m_clk.Init();
     m_clk.SetPos(20,22);
     m_menuBtn.Init("GalGameSystem\\menuBtn.png");
@@ -37,7 +40,8 @@ void GalgameActivity::OnHide()
 {
     m_clk.Destory();
     m_menuBtn.Destory();
-    //m_textBox.Destory();
+    m_textBox.Destroy();
+    m_corner.Destory();
 }
 
 void GalgameActivity::OnNext()
@@ -45,6 +49,8 @@ void GalgameActivity::OnNext()
     m_clk.OnNext();
     m_menuBtn.OnNext();
     m_textBox.OnNext();
+    m_corner.OnNext();
+    if(m_textBox.Finished() && !m_corner.GetVisible() && m_corner_debug) m_corner.Show();
 }
 
 void GalgameActivity::OnDraw()
@@ -52,6 +58,7 @@ void GalgameActivity::OnDraw()
     m_clk.OnDraw();
     m_menuBtn.OnDraw();
     m_textBox.OnDraw();
+    m_corner.OnDraw();
 }
 
 void GalgameActivity::OnEvent(const SDL_Event& e)
@@ -65,19 +72,21 @@ void GalgameActivity::OnEvent(const SDL_Event& e)
         }
         else if(e.motion.y >= pRnd.GetH()/5 && /*m_clk.GetVisible() &&*/ m_menuBtn.GetVisible())
         {m_clk.Hide();m_menuBtn.Hide();}
-    }else if(e.type == SDL_MOUSEBUTTONUP){
+    }else if(e.type == SDL_MOUSEBUTTONUP && m_corner_debug){
         //wstring str = L"点击测试中呵呵呵呵呵呵呵";
         //m_textBox.AddText(str);
         //m_textBox.AddPic("pic.png",1,1000);
         m_textBox.Clear();
         //m_textBox.Hide();
+        m_corner.Hide();
+        m_corner_debug = false;
     }//else if(e.type == SDL_MOUSEWHEEL) m_textBox.Show();
 }
 
 void GalgameActivity::OnEvent(Control* c,const Uint32 m){
     if(c == &m_menuBtn){
-        if(m == 0) {PNT("MenuButtonClicked"<<endl);}
-        if(m == 1) PNT("MenuButtonMotion"<<endl);
+        if(m == 0) {PNT("MenuButtonClicked");}
+        if(m == 1) PNT("MenuButtonMotion");
     }
 }
 
