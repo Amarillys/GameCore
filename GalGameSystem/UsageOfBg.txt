@@ -1,0 +1,8 @@
+usage of bg:
+
+example:
+m_bg.Load("GalGameSystem\\title.jpg",FILLED);
+
+in GalgameActivity.cpp
+
+2015-05-29  by Amarillys
